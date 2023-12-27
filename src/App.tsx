@@ -3,7 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import PokemonInput from './components/PokemonInput'
 import PokemonTeam from './components/PokemonTeam'
-import { type Pokemon } from './types.d'
+import { type Pokemon } from './types'
 
 export default function App (): JSX.Element {
   const [pokeList, setPokeList] = useState<Pokemon[]>()

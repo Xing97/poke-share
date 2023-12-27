@@ -13,7 +13,7 @@ import {
   INCREASE_SPEED
 } from '../../services/constants'
 import { calculateStats } from '../../services/stats'
-import { type Pokemon, type Stats } from '../../types.d'
+import { type Pokemon, type Stats } from '../../types'
 import Tabs from '../Tabs'
 
 const MAX_BASE = 255

@@ -15,18 +15,17 @@
 
 .img-pokemon {
   image-rendering: pixelated;
-  height: 192px;
-  width: 192px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  width: 240px;
   filter: drop-shadow(4px 4px 0 rgb(0 0 0 / 10%));
 }
 
 .img-item {
   image-rendering: pixelated;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 48px;
-  width: 48px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  width: 25%;
 }
 
 .text-shadow {
