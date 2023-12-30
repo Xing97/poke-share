@@ -30,7 +30,7 @@
 
 .text-shadow {
   text-shadow: 0 1px 0 black,
-    0 0 1px rgba(0, 0, 0, 0.324),
+    0 0 1px rgba(0, 0, 0, 0.6),
     0 0 2px rgba(0, 0, 0, 0.7),
     0 0 3px rgba(0, 0, 0, 0.8),
     0 0 4px rgba(0, 0, 0, 0.9);
