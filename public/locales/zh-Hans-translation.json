@@ -7,6 +7,11 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "themes": {
+    "auto": "系统默认",
+    "light": "亮色",
+    "dark": "深色"
+  },
   "generations": {
     "generation-i": "第一世代",
     "generation-ii": "第二世代",

@@ -7,6 +7,11 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "themes": {
+    "auto": "Predefinido por el sistema",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
   "generations": {
     "generation-i": "Generación I",
     "generation-ii": "Generación II",

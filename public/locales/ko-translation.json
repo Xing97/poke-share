@@ -7,6 +7,11 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "themes": {
+    "auto": "시스템 기본값",
+    "light": "라이트 모드",
+    "dark": "다크 모드"
+  },
   "generations": {
     "generation-i": "1세대",
     "generation-ii": "2세대",

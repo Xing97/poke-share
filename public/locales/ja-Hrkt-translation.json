@@ -7,6 +7,11 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "themes": {
+    "auto": "システムのデフォルト",
+    "light": "ライト",
+    "dark": "ダーク"
+  },
   "generations": {
     "generation-i": "だいいちせだい",
     "generation-ii": "だいにせだい",

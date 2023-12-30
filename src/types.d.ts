@@ -13,6 +13,12 @@ export enum Language {
   ChineseTraditional = 'zh-Hant'
 }
 
+export enum Theme {
+  Auto = 'auto',
+  Light = 'light',
+  Dark = 'dark'
+}
+
 export enum Generation {
   I = 'generation-i',
   II = 'generation-ii',
