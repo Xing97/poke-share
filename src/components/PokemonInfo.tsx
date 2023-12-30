@@ -21,10 +21,10 @@ export default function PokemonInfo ({ pokemon }: Props): JSX.Element {
       <div className='flex gap-10'>
         <div className='flex flex-col gap-4'>
           <PokemonImage pokemon={pokemon} />
-          <div className='flex gap-2 self-center'>
+          <div className='flex flex-wrap justify-center gap-2 self-center'>
             {pokemon.types.map((type) => (
               <PokemonType
-                className='text-shadow w-20 rounded-full text-center text-sm font-semibold'
+                className='text-shadow w-24 rounded-full text-center font-semibold tracking-wide'
                 key={type}
                 type={type}
               >

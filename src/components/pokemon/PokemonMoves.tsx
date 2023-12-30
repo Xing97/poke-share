@@ -20,7 +20,7 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
           <h3 className='text-shadow truncate px-1 font-bold tracking-wider'>
             {i18n(move.name)}
           </h3>
-          <img className='object-scale-down px-1' src={`src/assets/${move.category}.png`} alt={move.category} />
+          <img className='object-scale-down' src={`/${move.category}.png`} alt={move.category} />
         </PokemonType>)}
     </div>
   )

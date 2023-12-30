@@ -1,25 +1,16 @@
+import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import { parsePokemons } from '../services/input-analizer'
-import { fetchPokemon } from '../services/poke-api'
-import { type Pokemon } from '../types'
+import { AppContext } from '../context/app'
 
-interface Props {
-  setPokemons: (pokemons: Pokemon[]) => void
-}
-
-export default function PokemonInput ({ setPokemons }: Props): JSX.Element {
+export default function PokemonInput (): JSX.Element {
+  const { input, submit } = useContext(AppContext)
   const { t } = useTranslation()
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event): void => {
     event.preventDefault()
 
     const form = new window.FormData(event.currentTarget)
-
-    const info = parsePokemons(form.get('paste') as string)
-
-    Promise.all(info.map(async pokemon => await fetchPokemon(pokemon)))
-      .then(setPokemons)
-      .catch(console.error)
+    submit(form.get('paste') as string)
   }
 
   return (
@@ -31,6 +22,8 @@ export default function PokemonInput ({ setPokemons }: Props): JSX.Element {
         required
         autoComplete='off'
         autoFocus
+        spellCheck='false'
+        defaultValue={input}
       />
       <div className='flex grow flex-wrap justify-between gap-2 font-semibold'>
         <button

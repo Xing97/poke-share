@@ -9,7 +9,6 @@ lngMap.set('zh-TW', Language.ChineseTraditional)
 lngMap.set('zh-CN', Language.ChineseSimplified)
 lngMap.set('zh-SG', Language.ChineseSimplified)
 lngMap.set('zh', Language.ChineseSimplified)
-lngMap.set('pt', Language.Portuguese)
 
 export const i18n = i18next
   .use(Backend)

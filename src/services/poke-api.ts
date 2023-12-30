@@ -1,12 +1,13 @@
 import {
+  Language,
   type Category,
   type I18nName,
   type Move,
   type Nature,
   type Pokemon,
-  type PokemonInput,
+  type PokemonInfo,
   type Type
-} from '../types'
+} from '../types.d'
 import { type IAbility } from './model/ability'
 import { type Name } from './model/common'
 import { type IItem } from './model/item'
@@ -16,27 +17,37 @@ import { type IPokemonSpecies } from './model/pokemon-species'
 
 const BASE_URL = 'https://pokeapi.co/api/v2'
 
-export async function fetchPokemon (pokeInput: PokemonInput): Promise<Pokemon> {
+export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
   const pokemonPromise = fetchApi<IPokemon>('pokemon', pokeInput.name)
   const itemPromise = pokeInput.item != null ? fetchApi<IItem>('item', pokeInput.item) : undefined
   const abilityPromise = pokeInput.ability != null ? fetchApi<IAbility>('ability', pokeInput.ability) : undefined
   const movesPromise = Promise.all(pokeInput.moves.map(async m => await fetchApi<IMove>('move', m)))
 
-  const [_pokemon, _item, _ability, _moves] = await Promise
+  let [_pokemon, _item, _ability, _moves] = await Promise
     .all([pokemonPromise, itemPromise, abilityPromise, movesPromise])
+
+  if (_ability === undefined) {
+    const defaultAbility = _pokemon.abilities.find(a => a.slot === 1)
+    if (defaultAbility === undefined) {
+      throw new Error('No default ability found')
+    }
+    _ability = await fetchApi<IAbility>('ability', defaultAbility.ability.name)
+  }
 
   const _specie = await fetchApi<IPokemonSpecies>('pokemon-species', _pokemon.species.name)
 
   const pokemon: Pokemon = {
     id: _pokemon.id,
     order: _specie.pokedex_numbers.find(p => p.pokedex.name === 'national')?.entry_number ?? _specie.id,
-    species: _pokemon.species.name,
     name: mapNames(_specie.names, _pokemon.name),
     nickname: pokeInput.nickname,
     gender: pokeInput.gender,
     item: undefined,
     nature: pokeInput.nature as Nature,
-    ability: undefined, // TODO add default
+    ability: {
+      name: mapNames(_ability.names, _ability.name),
+      description: _ability.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text ?? '???'
+    },
     evs: pokeInput.evs,
     ivs: pokeInput.ivs,
     moves: _moves.map<Move>(m => ({
@@ -70,36 +81,26 @@ export async function fetchPokemon (pokeInput: PokemonInput): Promise<Pokemon> {
     }
   }
 
-  if (_ability !== undefined) {
-    pokemon.ability = {
-      name: mapNames(_ability.names, _ability.name),
-      description: _ability.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text ?? '???'
-    }
-  }
-
   return pokemon
 }
 
 async function fetchApi<T> (entity: string, name: string): Promise<T> {
   const response = await fetch(`${BASE_URL}/${entity}/${name.toLowerCase().replaceAll(' ', '-')}`)
-  const data = await response.json() as T
-  return data
+  return await response.json() as T
 }
 
 function mapNames (names: Name[], name: string): I18nName {
-  return {
-    name,
-    en: names.find(n => n.language.name === 'en')?.name,
-    es: names.find(n => n.language.name === 'es')?.name,
-    fr: names.find(n => n.language.name === 'fr')?.name,
-    de: names.find(n => n.language.name === 'de')?.name,
-    it: names.find(n => n.language.name === 'it')?.name,
-    cs: names.find(n => n.language.name === 'cs')?.name,
-    ko: names.find(n => n.language.name === 'ko')?.name,
-    ja: names.find(n => n.language.name === 'ja')?.name,
-    'pt-BR': names.find(n => n.language.name === 'pt-BR')?.name,
-    'ja-Hrkt': names.find(n => n.language.name === 'ja-Hrkt')?.name,
-    'zh-Hant': names.find(n => n.language.name === 'zh-Hant')?.name,
-    'zh-Hans': names.find(n => n.language.name === 'zh-Hans')?.name
+  const i18nName: I18nName = {
+    name
   }
+
+  Object.values(Language).forEach((lang) => {
+    i18nName[lang] = findLanguage(names, lang)
+  })
+
+  return i18nName
+}
+
+function findLanguage (names: Name[], language: Language): string | undefined {
+  return names.find(n => n.language.name === language as string)?.name
 }

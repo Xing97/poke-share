@@ -1,14 +1,14 @@
-import { type Gender, type PokemonInput, type Stats } from '../types'
+import { type Gender, type PokemonInfo, type Stats } from '../types'
 
 const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
 const RE_MOVE = /^- ([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)(?: \[([A-Z][a-z]+)\])?(?: \/ [A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
 const RE_NATURE = /^([A-Za-z]+) Nature/m
 
-export function parsePokemons (text: string): PokemonInput[] {
+export function parsePokemons (text: string): PokemonInfo[] {
   return text.trim().split(/^\s*\n/m).map(parsePokemon)
 }
 
-function parsePokemon (text: string): PokemonInput {
+function parsePokemon (text: string): PokemonInfo {
   const lines = text.split('\n').map(line => line.trim())
 
   const headMatch = lines[0].match(RE_HEAD) ?? []

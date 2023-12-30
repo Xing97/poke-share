@@ -14,7 +14,7 @@ import {
 } from '../../services/constants'
 import { calculateStats } from '../../services/stats'
 import { type Pokemon, type Stats } from '../../types'
-import Tabs from '../Tabs'
+import Selector from '../Selector'
 
 const MAX_BASE = 255
 const MAX_EV = 255
@@ -70,10 +70,8 @@ export default function PokemonStats ({ pokemon }: Props): JSX.Element {
 
   return (
     <div className='flex flex-col gap-2'>
-      <div className='flex justify-end gap-1.5 text-sm'>
-        <Tabs tabs={['base', 'evs', 'ivs', 'lvl50', 'lvl100']} setSelected={handleSelect} />
-      </div>
-      <div className='grid h-min flex-1 grid-cols-pokemon-stats content-center justify-center gap-x-3 gap-y-1'>
+      <Selector className='self-end' tabs={['base', 'evs', 'ivs', 'lvl50', 'lvl100']} setSelected={handleSelect} translation='labels' />
+      <div className='grid h-min grid-cols-pokemon-stats content-center justify-center gap-x-3 gap-y-1'>
         <Stat stat='hp' value={stats.hp} max={max} />
         <Stat
           stat='attack'
@@ -110,7 +108,6 @@ export default function PokemonStats ({ pokemon }: Props): JSX.Element {
           increase={INCREASE_SPEED.includes(nature)}
           decrease={DECREASE_SPEED.includes(nature)}
         />
-
       </div>
     </div>
   )
@@ -134,7 +131,7 @@ function Stat ({ stat, value, max, increase = false, decrease = false }: StatPro
       </h3>
       <h3 className='justify-self-end font-semibold'>{value}</h3>
       <div className='flex h-4 w-full self-center border border-solid border-slate-500 shadow'>
-        <div className={COLOR_BAR[stat]} style={{ width: `${(value / max) * 100}%` }} />
+        <div className={`duration-300 ease-in ${COLOR_BAR[stat]}`} style={{ width: `${(value / max) * 100}%` }} />
       </div>
     </>
   )

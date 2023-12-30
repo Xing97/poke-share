@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'pokemon-stats': 'max-content max-content 1fr'
+        'pokemon-stats': 'max-content 3ch 1fr'
       },
       colors: {
         pokemon: '#FB1B1B',
