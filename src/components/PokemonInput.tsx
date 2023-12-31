@@ -1,9 +1,9 @@
-import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AppContext } from '../context/app'
+import { usePokemonStore } from '../store/pokemon-store'
 
 export default function PokemonInput (): JSX.Element {
-  const { input, submit } = useContext(AppContext)
+  const input = usePokemonStore(state => state.input)
+  const submit = usePokemonStore(state => state.submit)
   const { t } = useTranslation()
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event): void => {

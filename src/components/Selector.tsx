@@ -1,15 +1,16 @@
 import { useId } from 'react'
 import { useTranslation } from 'react-i18next'
 
-interface Props {
-  options: string[]
-  setSelected: (option: string) => void
-  translation: string | Record<string, string>
-  defaultSelected?: string
+interface Props<T extends string> {
+  options: T[]
+  setSelected: (option: T) => void
+  translation: string | Record<T, string>
+  defaultSelected?: T
   className?: string
 }
 
-export default function Selector ({ options, setSelected, translation, className, defaultSelected = options[0] }: Props): JSX.Element {
+export default function Selector<T extends string> (
+  { options, setSelected, translation, className, defaultSelected = options[0] }: Props<T>): JSX.Element {
   const { t } = useTranslation()
   const id = useId()
 

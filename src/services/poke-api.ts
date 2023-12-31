@@ -1,6 +1,7 @@
 import {
   Language,
   type Category,
+  type Generation,
   type I18nName,
   type Move,
   type Nature,
@@ -53,8 +54,8 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
     moves: _moves.map<Move>(m => ({
       id: m.id,
       name: mapNames(m.names, m.name),
-      type: m.type.name as unknown as Type,
-      category: m.damage_class.name as unknown as Category,
+      type: m.type.name as Type,
+      category: m.damage_class.name as Category,
       pp: m.pp,
       power: m.power,
       accuracy: m.accuracy,
@@ -70,7 +71,11 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
       special_defense: _pokemon.stats.find(s => s.stat.name === 'special-defense')?.base_stat ?? NaN,
       speed: _pokemon.stats.find(s => s.stat.name === 'speed')?.base_stat ?? NaN
     },
-    types: _pokemon.types.map(t => t.type.name as unknown as Type)
+    types: _pokemon.types.map(t => t.type.name as Type),
+    past_types: _pokemon.past_types.map(t => ({
+      generation: t.generation.name as Generation,
+      types: t.types.map(t => t.type.name as Type)
+    }))
   }
 
   if (_item !== undefined) {

@@ -4,7 +4,7 @@ export interface IPokemon {
   id: number
   name: string
   abilities: PokemonAbility[]
-  past_types: PokemonPastType
+  past_types: PokemonPastType[]
   sprites: PokemonSprites
   species: NamedAPIResource
   stats: PokemonStat[]

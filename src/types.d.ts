@@ -105,6 +105,7 @@ export interface Pokemon {
   image: string
   stats: Stats
   types: Type[]
+  past_types: PastType[]
 }
 
 export interface Stats {
@@ -137,6 +138,11 @@ export interface Move {
   accuracy: number
   priority: number
   description: string
+}
+
+export interface PastType {
+  generation: Generation
+  types: Type[]
 }
 
 export enum Type {

@@ -1,7 +1,7 @@
-import i18next from 'i18next'
+import i18n from 'i18next'
 import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
-import { Language } from '../types.d'
+import { Language } from './types.d'
 
 const lngMap = new Map<string, Language>()
 lngMap.set('zh-HK', Language.ChineseTraditional)
@@ -10,7 +10,7 @@ lngMap.set('zh-CN', Language.ChineseSimplified)
 lngMap.set('zh-SG', Language.ChineseSimplified)
 lngMap.set('zh', Language.ChineseSimplified)
 
-export const i18n = i18next
+await i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
@@ -25,16 +25,20 @@ export const i18n = i18next
     }
   })
 
-function detectLanguage (): Language | undefined {
+export default i18n
+
+function detectLanguage (): Language {
   const json = window.localStorage.getItem('language')
   if (json != null) {
     return JSON.parse(json) as Language
   }
 
   for (const l of navigator.languages) {
-    const key = l.split('-')[0]
-    if (Object.values(Language).includes(key as Language)) return key as Language
-    if (lngMap.has(key)) return lngMap.get(key)
+    const key = l.split('-')[0] as Language
+    if (Object.values(Language).includes(key)) return key
+
+    const lang = lngMap.get(l)
+    if (lang !== undefined) return lang
   }
-  return undefined
+  return Language.English
 }

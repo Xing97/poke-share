@@ -1,16 +1,22 @@
-import { useLocalStorage } from '@uidotdev/usehooks'
 import { useTranslation } from 'react-i18next'
+import { useLocalStorage } from 'usehooks-ts'
+import { usePokemonStore } from '../store/pokemon-store'
 import { Game, Generation, Language, Theme } from '../types.d'
 import Selector from './Selector'
 
 export default function Settings (): JSX.Element {
   const { t, i18n } = useTranslation()
-  const [language, setLanguage] = useLocalStorage('language', i18n.language)
 
-  const changeLanguage = (language: string): void => {
-    setLanguage(language)
-    i18n.changeLanguage(language).catch(console.error)
-  }
+  const generation = usePokemonStore(state => state.generation)
+  const setGeneration = usePokemonStore(state => state.setGeneration)
+
+  const game = usePokemonStore(state => state.game)
+  const setGame = usePokemonStore(state => state.setGame)
+
+  const [language, setLanguage] = useLocalStorage<Language>('language', i18n.language as Language)
+
+  const theme = usePokemonStore(state => state.theme)
+  const setTheme = usePokemonStore(state => state.setTheme)
 
   return (
     <div className='flex flex-wrap gap-6 rounded bg-slate-700 p-4'>
@@ -18,23 +24,28 @@ export default function Settings (): JSX.Element {
         <legend className='m-2 text-lg font-bold'>{t('labels.game-generation')}</legend>
         <Selector
           options={Object.values(Generation)}
-          setSelected={() => {}}
+          setSelected={setGeneration}
           translation='generations'
+          defaultSelected={generation}
         />
       </fieldset>
       <fieldset>
         <legend className='m-2 text-lg font-bold'>{t('labels.game-version')}</legend>
         <Selector
           options={Object.values(Game)}
-          setSelected={() => {}}
+          setSelected={setGame}
           translation='version-groups'
+          defaultSelected={game}
         />
       </fieldset>
       <fieldset>
         <legend className='m-2 text-lg font-bold'>{t('labels.language')}</legend>
         <Selector
           options={Object.values(Language)}
-          setSelected={changeLanguage}
+          setSelected={(l) => {
+            setLanguage(l)
+            i18n.changeLanguage(l).catch(console.error)
+          }}
           translation={{
             [Language.English]: 'English',
             [Language.Spanish]: 'Español',
@@ -53,8 +64,9 @@ export default function Settings (): JSX.Element {
         <legend className='m-2 text-lg font-bold'>{t('labels.theme')}</legend>
         <Selector
           options={Object.values(Theme)}
-          setSelected={() => {}}
+          setSelected={setTheme}
           translation='themes'
+          defaultSelected={theme}
         />
       </fieldset>
     </div>

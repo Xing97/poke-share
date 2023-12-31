@@ -14,7 +14,7 @@ function parsePokemon (text: string): PokemonInfo {
   const headMatch = lines[0].match(RE_HEAD) ?? []
   const name = headMatch[2] ?? headMatch[3]
   const nickname = headMatch[1]
-  const gender = headMatch[4] as unknown as Gender
+  const gender = headMatch[4] as Gender
   const item = headMatch[5]
 
   const nature = text.match(RE_NATURE)?.[1].toLowerCase()
@@ -54,8 +54,8 @@ function parseStats (text: string | undefined, defaultValue: number): Stats {
     hp: defaultValue,
     attack: defaultValue,
     defense: defaultValue,
-    specialAttack: defaultValue,
-    specialDefense: defaultValue,
+    special_attack: defaultValue,
+    special_defense: defaultValue,
     speed: defaultValue
   }
 
@@ -75,9 +75,9 @@ function parseStats (text: string | undefined, defaultValue: number): Stats {
       } else if (key === 'Def') {
         stats.defense = parseInt(value)
       } else if (key === 'SpA') {
-        stats.specialAttack = parseInt(value)
+        stats.special_attack = parseInt(value)
       } else if (key === 'SpD') {
-        stats.specialDefense = parseInt(value)
+        stats.special_defense = parseInt(value)
       } else if (key === 'Spe') {
         stats.speed = parseInt(value)
       }
