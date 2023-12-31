@@ -105,10 +105,10 @@
     "hp": "HP",
     "defense": "방어",
     "accuracy": "명중률",
-    "specialAttack": "특수공격",
+    "special-attack": "특수공격",
     "evasion": "회피율",
     "attack": "공격",
     "speed": "스피드",
-    "specialDefense": "특수방어"
+    "special-defense": "특수방어"
   }
 }

@@ -109,10 +109,10 @@
     "hp": "HP",
     "defense": "Defense",
     "accuracy": "accuracy",
-    "specialAttack": "Sp. Attack",
+    "special-attack": "Sp. Attack",
     "evasion": "evasion",
     "attack": "Attack",
     "speed": "Speed",
-    "specialDefense": "Sp. Defense"
+    "special-defense": "Sp. Defense"
   }
 }

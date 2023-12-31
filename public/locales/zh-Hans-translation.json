@@ -104,10 +104,10 @@
     "hp": "HP",
     "defense": "防御",
     "accuracy": "命中",
-    "specialAttack": "特攻",
+    "special-attack": "特攻",
     "evasion": "闪避",
     "attack": "攻击",
     "speed": "速度",
-    "specialDefense": "特防"
+    "special-defense": "特防"
   }
 }

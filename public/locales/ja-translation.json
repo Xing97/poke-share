@@ -105,8 +105,8 @@
     "hp": "HP",
     "attack": "こうげき",
     "defense": "ぼうぎょ",
-    "specialAttack": "とくこう",
-    "specialDefense": "とくぼう",
+    "special-attack": "とくこう",
+    "special-defense": "とくぼう",
     "speed": "すばやさ"
   }
 }

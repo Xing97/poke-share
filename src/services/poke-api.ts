@@ -66,8 +66,8 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
       hp: _pokemon.stats.find(s => s.stat.name === 'hp')?.base_stat ?? NaN,
       attack: _pokemon.stats.find(s => s.stat.name === 'attack')?.base_stat ?? NaN,
       defense: _pokemon.stats.find(s => s.stat.name === 'defense')?.base_stat ?? NaN,
-      specialAttack: _pokemon.stats.find(s => s.stat.name === 'special-attack')?.base_stat ?? NaN,
-      specialDefense: _pokemon.stats.find(s => s.stat.name === 'special-defense')?.base_stat ?? NaN,
+      special_attack: _pokemon.stats.find(s => s.stat.name === 'special-attack')?.base_stat ?? NaN,
+      special_defense: _pokemon.stats.find(s => s.stat.name === 'special-defense')?.base_stat ?? NaN,
       speed: _pokemon.stats.find(s => s.stat.name === 'speed')?.base_stat ?? NaN
     },
     types: _pokemon.types.map(t => t.type.name as unknown as Type)

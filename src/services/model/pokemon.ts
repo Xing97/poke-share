@@ -4,6 +4,7 @@ export interface IPokemon {
   id: number
   name: string
   abilities: PokemonAbility[]
+  past_types: PokemonPastType
   sprites: PokemonSprites
   species: NamedAPIResource
   stats: PokemonStat[]
@@ -14,6 +15,11 @@ export interface PokemonAbility {
   is_hidden: boolean
   slot: number
   ability: NamedAPIResource
+}
+
+export interface PokemonPastType {
+  generation: NamedAPIResource
+  types: PokemonType[]
 }
 
 export interface PokemonSprites {

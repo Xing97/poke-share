@@ -105,10 +105,10 @@
     "hp": "KP",
     "defense": "Verteidigung",
     "accuracy": "Genauigkeit",
-    "specialAttack": "Sp. Angriff",
+    "special-attack": "Sp. Angriff",
     "evasion": "Fluchtwert",
     "attack": "Angriff",
     "speed": "Initiative",
-    "specialDefense": "Sp. Verteidigung"
+    "special-defense": "Sp. Verteidigung"
   }
 }
