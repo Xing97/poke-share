@@ -4,22 +4,23 @@ import { getInputFromPath, setInputInPath } from '@/services/path'
 import { create } from 'zustand'
 
 interface PokemonStore {
+  title: string
   input: string
   pokemonTeam: Pokemon[]
   loading: boolean
   error: string
-  submit: (input: string) => void
+  submit: (input: string, title?: string) => void
 }
 
 export const usePokemonStore = create<PokemonStore>()(
   (set) => ({
+    title: '',
     input: '',
     pokemonTeam: [],
     loading: false,
     error: '',
-    submit (input) {
-      set({ loading: true })
-      set({ input })
+    submit (input, title) {
+      set({ title, input, loading: true })
       parsePokemons(input)
         .then((team) => { set({ pokemonTeam: team }); setInputInPath(input) })
         .catch(() => { set({ error: 'Error' }) })
