@@ -12,9 +12,9 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
 
   return (
     <div className='relative'>
-      {pokemon.gender === Gender.Male && <MaleIcon className='absolute' height='32px' width='32px' />}
-      {pokemon.gender === Gender.Female && <FemaleIcon className='absolute' height='32px' width='32px' />}
       <img className='img-pokemon' src={pokemon.image} alt={i18n(pokemon.name)} />
+      {pokemon.gender === Gender.Male && <MaleIcon className='absolute left-0 top-0' height='32px' width='32px' />}
+      {pokemon.gender === Gender.Female && <FemaleIcon className='absolute left-0 top-0' height='32px' width='32px' />}
       {pokemon.item != null &&
         <img
           className='img-item absolute bottom-0 right-0'

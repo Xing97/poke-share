@@ -79,7 +79,7 @@ export default function PokemonStats ({ pokemon }: Props): JSX.Element {
         setSelected={handleSelect}
         translation='labels'
       />
-      <div className='grid h-min grid-cols-pokemon-stats content-center justify-center gap-x-3 gap-y-1'>
+      <div className='grid grid-cols-pokemon-stats gap-x-3 gap-y-1'>
         <Stat stat='hp' value={stats.hp} max={max} />
         <Stat
           stat='attack'

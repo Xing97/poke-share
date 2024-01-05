@@ -20,9 +20,9 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
           key={move.id}
           type={move.type}
         >
-          <h3 className='text-shadow truncate px-1 font-bold tracking-wider'>
+          <span className='text-shadow truncate px-1 font-bold tracking-wider'>
             {i18n(move.name)}
-          </h3>
+          </span>
           <img
             className='object-scale-down'
             src={`/${getMoveCategory(move, generation)}.png`}
