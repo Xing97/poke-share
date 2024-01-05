@@ -1,14 +1,11 @@
-import { type Pokemon } from '../types'
-import PokemonInfo from './PokemonInfo'
+import PokemonInfo from '@/components/PokemonInfo'
+import { usePokemonStore } from '@/stores/pokemon'
 
-interface Props {
-  pokemons: Pokemon[]
-}
-
-export default function PokemonTeam ({ pokemons }: Props): JSX.Element {
+export default function PokemonTeam (): JSX.Element {
+  const team = usePokemonStore((state) => state.pokemonTeam)
   return (
     <div className='flex w-full max-w-3xl flex-col gap-4'>
-      {pokemons.map((pokemon) => (
+      {team.map((pokemon) => (
         <PokemonInfo key={pokemon.id} pokemon={pokemon} />
       ))}
     </div>

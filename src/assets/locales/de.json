@@ -8,7 +8,7 @@
     "lvl100": "100"
   },
   "themes": {
-    "auto": "Systemvorgabe",
+    "system": "Systemvorgabe",
     "light": "Hell",
     "dark": "Dunkel"
   },

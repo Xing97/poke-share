@@ -1,5 +1,6 @@
+import { type I18nName } from '@/model/pokemon'
+import { type Language } from '@/stores/language'
 import { useTranslation } from 'react-i18next'
-import { type I18nName, type Language } from '../types'
 
 export function useI18nName (): (field: I18nName) => string {
   const { i18n } = useTranslation()

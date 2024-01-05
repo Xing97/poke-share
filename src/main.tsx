@@ -1,13 +1,17 @@
+import '@/index.css'
+import LanguageProvider from '@/providers/LanguageProvider'
+import ThemeProvider from '@/providers/ThemeProvider'
+import App from '@/setup/App'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import './i18n'
-import './index.css'
+import { HelmetProvider } from 'react-helmet-async'
 
-const root = document.getElementById('root') ?? document.body
-
-ReactDOM.createRoot(root).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <LanguageProvider />
+      <ThemeProvider />
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 )

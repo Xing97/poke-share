@@ -1,11 +1,27 @@
-import { type Gender, type PokemonInfo, type Stats } from '../types'
+import { type Gender, type Pokemon, type Stats } from '@/model/pokemon'
+import { fetchPokemon } from './poke-api'
 
 const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
 const RE_MOVE = /^- ([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)(?: \[([A-Z][a-z]+)\])?(?: \/ [A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
 const RE_NATURE = /^([A-Za-z]+) Nature/m
 
-export function parsePokemons (text: string): PokemonInfo[] {
-  return text.trim().split(/^\s*\n/m).map(parsePokemon)
+export interface PokemonInfo {
+  name: string
+  nickname?: string
+  gender?: Gender
+  item?: string
+  nature?: string
+  ability?: string
+  shiny?: boolean
+  evs: Stats
+  ivs: Stats
+  moves: string[]
+}
+
+export async function parsePokemons (text: string): Promise<Pokemon[]> {
+  return await Promise.all(text.trim().split(/^\s*\n/m)
+    .map(parsePokemon)
+    .map(fetchPokemon))
 }
 
 function parsePokemon (text: string): PokemonInfo {

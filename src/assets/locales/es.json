@@ -1,14 +1,24 @@
 {
   "labels": {
     "paste": "Pega aquí tus pokemons",
+    "game-generation": "Generación del juego",
+    "game-version": "Versión del juego",
+    "language": "Idioma",
+    "theme": "Tema",
     "base": "Base",
     "evs": "EV",
     "ivs": "IV",
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "Generación del juego",
+    "version-groups": "Versión del juego",
+    "languages": "Idioma",
+    "themes": "Tema"
+  },
   "themes": {
-    "auto": "Predefinido por el sistema",
+    "system": "Predefinido por el sistema",
     "light": "Claro",
     "dark": "Oscuro"
   },

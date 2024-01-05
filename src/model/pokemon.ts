@@ -1,65 +1,5 @@
-export enum Language {
-  English = 'en',
-  Spanish = 'es',
-  French = 'fr',
-  German = 'de',
-  Italian = 'it',
-  // Czech = 'cs',
-  Korean = 'ko',
-  Japanese = 'ja',
-  // Portuguese = 'pt-BR',
-  // JapaneseRomaji = 'ja-Hrkt',
-  ChineseSimplified = 'zh-Hans',
-  ChineseTraditional = 'zh-Hant'
-}
-
-export enum Theme {
-  Auto = 'auto',
-  Light = 'light',
-  Dark = 'dark'
-}
-
-export enum Generation {
-  I = 'generation-i',
-  II = 'generation-ii',
-  III = 'generation-iii',
-  IV = 'generation-iv',
-  V = 'generation-v',
-  VI = 'generation-vi',
-  VII = 'generation-vii',
-  VIII = 'generation-viii',
-  IX = 'generation-ix'
-}
-
-export enum Game {
-  RedBlue = 'red-blue',
-  Yellow = 'yellow',
-  GoldSilver = 'gold-silver',
-  Crystal = 'crystal',
-  RubySapphire = 'ruby-sapphire',
-  Emerald = 'emerald',
-  FireRedLeafGreen = 'firered-leafgreen',
-  DiamondPearl = 'diamond-pearl',
-  Platinum = 'platinum',
-  HeartGoldSoulSilver = 'heartgold-soulsilver',
-  BlackWhite = 'black-white',
-  Colosseum = 'colosseum',
-  XD = 'xd',
-  Black2White2 = 'black-2-white-2',
-  XandY = 'x-y',
-  OmegaRubyAlphaSapphire = 'omega-ruby-alpha-sapphire',
-  SunMoon = 'sun-moon',
-  UltraSunUltraMoon = 'ultra-sun-ultra-moon',
-  LetSGoPikachuLetSGoEevee = 'lets-go-pikachu-lets-go-eevee',
-  SwordShield = 'sword-shield',
-  TheIsleOfArmor = 'the-isle-of-armor',
-  TheCrownTundra = 'the-crown-tundra',
-  BrilliantDiamondAndShiningPearl = 'brilliant-diamond-and-shining-pearl',
-  LegendsArceus = 'legends-arceus',
-  ScarletViolet = 'scarlet-violet',
-  TheTealMask = 'the-teal-mask',
-  TheIndigoDisk = 'the-indigo-disk'
-}
+import { type Generation } from '@/stores/game'
+import { type Language } from '@/stores/language'
 
 export interface I18nName {
   name: string
@@ -68,11 +8,8 @@ export interface I18nName {
   [Language.French]?: string
   [Language.German]?: string
   [Language.Italian]?: string
-  [Language.Czech]?: string
   [Language.Korean]?: string
   [Language.Japanese]?: string
-  [Language.Portuguese]?: string
-  [Language.JapaneseRomaji]?: string
   [Language.ChineseTraditional]?: string
   [Language.ChineseSimplified]?: string
 }

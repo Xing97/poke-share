@@ -1,6 +1,6 @@
+import NatureIcon from '@/icons/NatureIcon'
+import { type Nature } from '@/model/pokemon'
 import { useTranslation } from 'react-i18next'
-import { type Nature } from '../../types'
-import NatureIcon from '../icons/NatureIcon'
 
 interface Props {
   nature: Nature

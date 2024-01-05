@@ -1,18 +1,31 @@
 {
   "labels": {
     "paste": "Paste your pokemons here",
-    "game-generation": "Game Generation",
-    "game-version": "Game Version",
-    "language": "Language",
-    "theme": "Theme",
     "base": "Base",
     "evs": "EV",
     "ivs": "IV",
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "Game Generation",
+    "version-groups": "Game Version",
+    "languages": "Language",
+    "themes": "Theme"
+  },
+  "languages": {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "es": "Español",
+    "it": "Italiano",
+    "ja": "日本語",
+    "ko": "한국어",
+    "zh-Hans": "简体中文",
+    "zh-Hant": "繁體中文"
+  },
   "themes": {
-    "auto": "System default",
+    "system": "System default",
     "light": "Light",
     "dark": "Dark"
   },

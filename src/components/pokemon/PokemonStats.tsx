@@ -1,5 +1,4 @@
-import { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import Selector from '@/components/Selector'
 import {
   DECREASE_ATTACK,
   DECREASE_DEFENSE,
@@ -11,10 +10,11 @@ import {
   INCREASE_SPECIAL_ATTACK,
   INCREASE_SPECIAL_DEFENSE,
   INCREASE_SPEED
-} from '../../services/constants'
-import { calculateStats } from '../../services/stats'
-import { type Pokemon, type Stats } from '../../types'
-import Selector from '../Selector'
+} from '@/model/constants'
+import { type Pokemon, type Stats } from '@/model/pokemon'
+import { calculateStats } from '@/services/stats'
+import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const MAX_BASE = 255
 const MAX_EV = 255
@@ -22,12 +22,12 @@ const MAX_IV = 31
 const MAX_TOTAL = 714
 
 const COLOR_BAR: Record<string, string> = {
-  hp: 'bg-red-600',
-  attack: 'bg-orange-600',
-  defense: 'bg-yellow-600',
-  'special-attack': 'bg-green-600',
-  'special-defense': 'bg-blue-600',
-  speed: 'bg-pink-600'
+  hp: 'bg-red-400 dark:bg-red-600',
+  attack: 'bg-orange-400 dark:bg-orange-600',
+  defense: 'bg-yellow-400 dark:bg-yellow-600',
+  'special-attack': 'bg-green-400 dark:bg-green-600',
+  'special-defense': 'bg-blue-400 dark:bg-blue-600',
+  speed: 'bg-pink-400 dark:bg-pink-600'
 }
 
 interface Props {
@@ -35,6 +35,7 @@ interface Props {
 }
 
 export default function PokemonStats ({ pokemon }: Props): JSX.Element {
+  const [selected, setSelected] = useState('base')
   const [stats, setStats] = useState(pokemon.stats)
   const [max, setMax] = useState(MAX_BASE)
 
@@ -66,11 +67,18 @@ export default function PokemonStats ({ pokemon }: Props): JSX.Element {
         setMax(MAX_TOTAL)
         break
     }
+    setSelected(tab)
   }
 
   return (
     <div className='flex flex-col gap-2'>
-      <Selector className='self-end' options={['base', 'evs', 'ivs', 'lvl50', 'lvl100']} setSelected={handleSelect} translation='labels' />
+      <Selector
+        className='self-end'
+        options={['base', 'evs', 'ivs', 'lvl50', 'lvl100']}
+        selected={selected}
+        setSelected={handleSelect}
+        translation='labels'
+      />
       <div className='grid h-min grid-cols-pokemon-stats content-center justify-center gap-x-3 gap-y-1'>
         <Stat stat='hp' value={stats.hp} max={max} />
         <Stat

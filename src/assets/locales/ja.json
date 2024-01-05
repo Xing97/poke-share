@@ -8,20 +8,20 @@
     "lvl100": "100"
   },
   "themes": {
-    "auto": "システムのデフォルト",
-    "light": "ライト",
-    "dark": "ダーク"
+    "system": "システムのデフォルト",
+    "light": "ライト（光）",
+    "dark": "ダーク（闇）"
   },
   "generations": {
-    "generation-i": "だいいちせだい",
-    "generation-ii": "だいにせだい",
-    "generation-iii": "だいさんせだい",
-    "generation-iv": "だいよんせだい",
-    "generation-v": "だいごせだい",
-    "generation-vi": "だいろくせだい",
-    "generation-vii": "だいななせだい",
-    "generation-viii": "だいはちせだい",
-    "generation-ix": "だいきゅうせだい"
+    "generation-i": "第一世代",
+    "generation-ii": "第二世代",
+    "generation-iii": "第三世代",
+    "generation-iv": "第四世代",
+    "generation-v": "第五世代",
+    "generation-vi": "第六世代",
+    "generation-vii": "第七世代",
+    "generation-viii": "第八世代",
+    "generation-ix": "第九世代"
   },
   "version-groups": {
     "red-blue": "赤 / 緑",
@@ -78,7 +78,7 @@
     "docile": "すなお",
     "timid": "おくびょう",
     "impish": "わんぱく",
-    "modest": "ひかえめ",
+    "modest": "ひかえ め",
     "lax": "のうてんき",
     "gentle": "おとなしい",
     "bold": "ずぶとい",
@@ -87,7 +87,7 @@
     "hardy": "がんばりや",
     "calm": "おだやか",
     "adamant": "いじっぱり",
-    "quirky": "きまぐ れ",
+    "quirky": "きまぐれ",
     "naive": "むじゃき",
     "serious": "まじめ",
     "bashful": "てれや",
@@ -103,12 +103,10 @@
   },
   "stats": {
     "hp": "HP",
-    "defense": "ぼうぎょ",
-    "accuracy": "めいちゅう",
-    "special-attack": "とくこう",
-    "evasion": "かいひ",
     "attack": "こうげき",
-    "speed": "すばやさ",
-    "special-defense": "とくぼう"
+    "defense": "ぼうぎょ",
+    "special-attack": "とくこう",
+    "special-defense": "とくぼう",
+    "speed": "すばやさ"
   }
 }

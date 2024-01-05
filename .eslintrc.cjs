@@ -38,6 +38,7 @@ module.exports = {
     '@stylistic/jsx-quotes': [2, 'prefer-single'],
     '@stylistic/jsx-self-closing-comp': 2,
     '@stylistic/jsx-tag-spacing': 2,
+    '@typescript-eslint/no-non-null-assertion': 'off'
   },
   settings: {
     react: {

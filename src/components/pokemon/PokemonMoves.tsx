@@ -1,6 +1,8 @@
-import { useI18nName } from '../../hooks/useI18nName'
-import { type Move } from '../../types'
-import PokemonType from './PokemonType'
+import PokemonType from '@/components/pokemon/PokemonType'
+import { useI18nName } from '@/hooks/useI18nName'
+import { getMoveCategory } from '@/model/constants'
+import { type Move } from '@/model/pokemon'
+import { useGameStore } from '@/stores/game'
 
 interface Props {
   moves: Move[]
@@ -8,6 +10,7 @@ interface Props {
 
 export default function PokemonMoves ({ moves }: Props): JSX.Element {
   const i18n = useI18nName()
+  const generation = useGameStore(state => state.generation)
 
   return (
     <div className='grid grid-cols-2 gap-3'>
@@ -20,7 +23,11 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
           <h3 className='text-shadow truncate px-1 font-bold tracking-wider'>
             {i18n(move.name)}
           </h3>
-          <img className='object-scale-down' src={`/${move.category}.png`} alt={move.category} />
+          <img
+            className='object-scale-down'
+            src={`/${getMoveCategory(move, generation)}.png`}
+            alt={getMoveCategory(move, generation)}
+          />
         </PokemonType>)}
     </div>
   )

@@ -1,12 +1,12 @@
+import { usePokemonStore } from '@/stores/pokemon'
 import { useTranslation } from 'react-i18next'
-import { usePokemonStore } from '../store/pokemon-store'
 
 export default function PokemonInput (): JSX.Element {
   const input = usePokemonStore(state => state.input)
   const submit = usePokemonStore(state => state.submit)
   const { t } = useTranslation()
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event): void => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
 
     const form = new window.FormData(event.currentTarget)
@@ -14,10 +14,10 @@ export default function PokemonInput (): JSX.Element {
   }
 
   return (
-    <form className='flex w-full max-w-3xl flex-col gap-4' onSubmit={handleSubmit}>
+    <form className='flex h-full w-full flex-col gap-4' onSubmit={handleSubmit}>
       <textarea
         name='paste'
-        className='h-96 resize-none rounded-lg bg-slate-800 p-2'
+        className='h-full resize-none rounded-lg bg-slate-300 p-2 dark:bg-slate-700'
         placeholder={t('labels.paste')}
         required
         autoComplete='off'
@@ -25,20 +25,12 @@ export default function PokemonInput (): JSX.Element {
         spellCheck='false'
         defaultValue={input}
       />
-      <div className='flex grow flex-wrap justify-between gap-2 font-semibold'>
-        <button
-          className='w-32 rounded-full bg-blue-800 py-1.5 tracking-wider hover:bg-blue-700'
-          type='submit'
-        >
-          TEST
-        </button>
-        <button
-          className='w-32 rounded-full bg-red-800 py-1.5 tracking-wider hover:bg-red-700'
-          type='reset'
-        >
-          CLEAR
-        </button>
-      </div>
+      <button
+        className='w-full rounded-full bg-blue-300 py-1.5 tracking-wider hover:bg-blue-400 dark:bg-blue-800 dark:hover:bg-blue-700'
+        type='submit'
+      >
+        UPDATE
+      </button>
     </form>
   )
 }

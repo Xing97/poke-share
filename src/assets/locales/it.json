@@ -8,7 +8,7 @@
     "lvl100": "100"
   },
   "themes": {
-    "auto": "Predefinito di sistema",
+    "system": "Predefinito di sistema",
     "light": "Chiaro",
     "dark": "Scuro"
   },

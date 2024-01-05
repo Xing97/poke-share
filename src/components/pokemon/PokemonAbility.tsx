@@ -1,6 +1,6 @@
-import { useI18nName } from '../../hooks/useI18nName'
-import { type Ability } from '../../types'
-import AbilitityIcon from '../icons/AbilityIcon'
+import { useI18nName } from '@/hooks/useI18nName'
+import AbilitityIcon from '@/icons/AbilityIcon'
+import { type Ability } from '@/model/pokemon'
 
 interface Props {
   ability: Ability

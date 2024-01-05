@@ -1,28 +1,37 @@
+import PokemonAbility from '@/components/pokemon/PokemonAbility'
+import PokemonHeader from '@/components/pokemon/PokemonHeader'
+import PokemonImage from '@/components/pokemon/PokemonImage'
+import PokemonMoves from '@/components/pokemon/PokemonMoves'
+import PokemonNature from '@/components/pokemon/PokemonNature'
+import PokemonStats from '@/components/pokemon/PokemonStats'
+import PokemonType from '@/components/pokemon/PokemonType'
+import { isIncludedGeneration } from '@/model/constants'
+import { type Pokemon, type Type } from '@/model/pokemon'
+import { useGameStore, type Generation } from '@/stores/game'
 import { useTranslation } from 'react-i18next'
-import { type Pokemon } from '../types'
-import PokemonAbility from './pokemon/PokemonAbility'
-import PokemonHeader from './pokemon/PokemonHeader'
-import PokemonImage from './pokemon/PokemonImage'
-import PokemonMoves from './pokemon/PokemonMoves'
-import PokemonNature from './pokemon/PokemonNature'
-import PokemonStats from './pokemon/PokemonStats'
-import PokemonType from './pokemon/PokemonType'
 
 interface Props {
   pokemon: Pokemon
 }
 
+function getTypes (pokemon: Pokemon, generation: Generation): Type[] {
+  return pokemon.past_types
+    .find((pastType) => isIncludedGeneration(pastType.generation, generation))?.types ??
+    pokemon.types
+}
+
 export default function PokemonInfo ({ pokemon }: Props): JSX.Element {
   const { t } = useTranslation()
+  const generation = useGameStore((state) => state.generation)
 
   return (
-    <div className='flex w-auto flex-col gap-5 rounded-2xl border border-slate-500 bg-slate-700 p-5'>
+    <div className='flex w-auto flex-col gap-5 rounded-2xl border border-slate-500 bg-slate-300 p-5 dark:bg-slate-700'>
       <PokemonHeader pokemon={pokemon} />
       <div className='flex gap-10'>
         <div className='flex flex-col gap-4'>
           <PokemonImage pokemon={pokemon} />
           <div className='flex flex-wrap justify-center gap-2 self-center'>
-            {pokemon.types.map((type) => (
+            {getTypes(pokemon, generation).map((type) => (
               <PokemonType
                 className='text-shadow w-24 rounded-full text-center font-semibold tracking-wide'
                 key={type}

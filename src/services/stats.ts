@@ -1,4 +1,3 @@
-import { type Pokemon, type Stats } from '../types'
 import {
   DECREASE_ATTACK,
   DECREASE_DEFENSE,
@@ -10,7 +9,8 @@ import {
   INCREASE_SPECIAL_ATTACK,
   INCREASE_SPECIAL_DEFENSE,
   INCREASE_SPEED
-} from './constants'
+} from '@/model/constants'
+import { type Pokemon, type Stats } from '@/model/pokemon'
 
 export function calculateStats (pokemon: Pokemon, level: number): Stats {
   const base = pokemon.stats

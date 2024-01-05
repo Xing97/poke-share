@@ -8,7 +8,7 @@
     "lvl100": "100"
   },
   "themes": {
-    "auto": "Thème du système par défaut",
+    "system": "Thème du système par défaut",
     "light": "Clair",
     "dark": "Sombre"
   },

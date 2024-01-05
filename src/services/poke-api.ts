@@ -1,20 +1,20 @@
+import { type IAbility } from '@/model/poke-api/ability'
+import { type Name } from '@/model/poke-api/common'
+import { type IItem } from '@/model/poke-api/item'
+import { type IMove } from '@/model/poke-api/move'
+import { type IPokemon } from '@/model/poke-api/pokemon'
+import { type IPokemonSpecies } from '@/model/poke-api/pokemon-species'
 import {
-  Language,
   type Category,
-  type Generation,
   type I18nName,
   type Move,
   type Nature,
   type Pokemon,
   type PokemonInfo,
   type Type
-} from '../types.d'
-import { type IAbility } from './model/ability'
-import { type Name } from './model/common'
-import { type IItem } from './model/item'
-import { type IMove } from './model/move'
-import { type IPokemon } from './model/pokemon'
-import { type IPokemonSpecies } from './model/pokemon-species'
+} from '@/model/pokemon'
+import { type Generation } from '@/stores/game'
+import { Language } from '@/stores/language'
 
 const BASE_URL = 'https://pokeapi.co/api/v2'
 
