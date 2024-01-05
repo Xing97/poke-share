@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "ゲーム世代",
+    "version-groups": "ゲームバージョン",
+    "languages": "言語",
+    "themes": "テーマ"
+  },
   "themes": {
     "system": "システムのデフォルト",
     "light": "ライト（光）",
@@ -105,7 +111,9 @@
     "hp": "HP",
     "attack": "こうげき",
     "defense": "ぼうぎょ",
+    "accuracy": "めいちゅう",
     "special-attack": "とくこう",
+    "evasion": "かいひ",
     "special-defense": "とくぼう",
     "speed": "すばやさ"
   }

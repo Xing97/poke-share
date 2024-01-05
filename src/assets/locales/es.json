@@ -1,10 +1,6 @@
 {
   "labels": {
     "paste": "Pega aquí tus pokemons",
-    "game-generation": "Generación del juego",
-    "game-version": "Versión del juego",
-    "language": "Idioma",
-    "theme": "Tema",
     "base": "Base",
     "evs": "EV",
     "ivs": "IV",
@@ -76,6 +72,7 @@
     "ice": "Hielo",
     "grass": "Planta",
     "fighting": "Lucha",
+    "shadow": "Oscuro",
     "flying": "Volador",
     "fire": "Fuego",
     "steel": "Acero",

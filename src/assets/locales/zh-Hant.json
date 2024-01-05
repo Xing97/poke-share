@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "遊戲生成",
+    "version-groups": "遊戲版本",
+    "languages": "語言",
+    "themes": "主題"
+  },
   "themes": {
     "system": "系統預設",
     "light": "亮色",
@@ -36,6 +42,7 @@
     "heartgold-soulsilver": "心金 / 魂銀",
     "black-white": "黑 / 白",
     "colosseum": "圓形競技場",
+    "xd": "XD",
     "black-2-white-2": "黑2 / 白2",
     "x-y": "X / Y",
     "omega-ruby-alpha-sapphire": "歐米加紅寶石 / 阿爾法藍寶石",

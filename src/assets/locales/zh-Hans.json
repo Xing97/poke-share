@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "游戏世代",
+    "version-groups": "游戏版本",
+    "languages": "语言",
+    "themes": "背景"
+  },
   "themes": {
     "system": "系统默认",
     "light": "亮色",
@@ -36,6 +42,7 @@
     "heartgold-soulsilver": "心金 / 魂銀",
     "black-white": "黑 / 白",
     "colosseum": "圆形竞技场",
+    "xd": "XD",
     "black-2-white-2": "黑2 / 白2",
     "x-y": "X / Y",
     "omega-ruby-alpha-sapphire": "欧米伽红宝石 / 阿尔法蓝宝石",

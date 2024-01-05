@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "세대",
+    "version-groups": "버전",
+    "languages": "언어",
+    "themes": "디스플레이"
+  },
   "themes": {
     "system": "시스템 기본값",
     "light": "라이트 모드",

@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "Spielgeneration",
+    "version-groups": "Spielversion",
+    "languages": "Sprache",
+    "themes": "Thema"
+  },
   "themes": {
     "system": "Systemvorgabe",
     "light": "Hell",

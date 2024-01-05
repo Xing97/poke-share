@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "settings": {
+    "generations": "Game Generation",
+    "version-groups": "Game Version",
+    "languages": "Langage",
+    "themes": "Thème"
+  },
   "themes": {
     "system": "Thème du système par défaut",
     "light": "Clair",
