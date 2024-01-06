@@ -17,7 +17,7 @@ export default function App (): JSX.Element {
           ? <LoadingIcon className='m-auto h-20 w-20 animate-spin' />
           : <PokemonTeam />}
       </main>
-      <Toaster richColors theme={theme} />
+      <Toaster expand={true} richColors theme={theme} />
     </div>
   )
 }

@@ -1,11 +1,16 @@
 {
   "labels": {
-    "paste": "在此处粘贴您的宠物精灵",
+    "share": "'可分享的URL已复制到剪贴板。",
     "base": "种族值",
     "evs": "基础点数",
     "ivs": "个体值",
     "lvl50": "50",
     "lvl100": "100"
+  },
+  "input": {
+    "paste": "在此处粘贴您的宠物精灵",
+    "title": "标题（可选）",
+    "update": "更新"
   },
   "settings": {
     "generations": "游戏世代",

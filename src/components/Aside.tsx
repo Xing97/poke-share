@@ -5,6 +5,7 @@ import EditIcon from '@/icons/EditIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
 import ShareIcon from '@/icons/ShareIcon'
 import { Sidebar, useSidebarStore } from '@/stores/sidebar'
+import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
 const SIDE_BAR: Record<Sidebar, JSX.Element | null> = {
@@ -13,15 +14,15 @@ const SIDE_BAR: Record<Sidebar, JSX.Element | null> = {
   [Sidebar.Settings]: <Settings />
 }
 
-function shareUrl (): void {
-  const url = window.location.href
-  navigator.clipboard.writeText(url)
-    .then(() => toast.success('Sharable URL has been copied to clipboard.'))
-    .catch(() => toast.error('Failed to copy sharable URL to clipboard.'))
-}
-
 export default function Aside (): JSX.Element {
+  const { t } = useTranslation()
   const selected = useSidebarStore(store => store.sidebar)
+
+  const shareUrl = (): void => {
+    navigator.clipboard.writeText(window.location.href)
+      .then(() => toast.success(t('labels.share')))
+      .catch(() => toast.error('Failed to copy sharable URL to clipboard.'))
+  }
 
   return (
     <aside className='flex'>
@@ -44,7 +45,7 @@ export default function Aside (): JSX.Element {
         </footer>
       </div>
       {selected !== Sidebar.Pokemon &&
-        <div className='h-full w-96 overflow-y-auto bg-slate-300 p-4 dark:bg-slate-800'>
+        <div className='h-full w-96 overflow-y-auto bg-slate-300 dark:bg-slate-800'>
           {SIDE_BAR[selected]}
         </div>}
     </aside>

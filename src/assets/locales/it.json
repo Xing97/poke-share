@@ -1,11 +1,16 @@
 {
   "labels": {
-    "paste": "Incolla i tuoi pokemon qui",
+    "share": "L'URL condivisibile è stata copiata negli appunti.",
     "base": "Base",
     "evs": "VI",
     "ivs": "PA",
     "lvl50": "50",
     "lvl100": "100"
+  },
+  "input": {
+    "paste": "Incolla i tuoi pokemon qui",
+    "title": "Titolo (opzionale)",
+    "update": "Aggiornamento"
   },
   "settings": {
     "generations": "Generazione di Gioco",

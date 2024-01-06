@@ -1,11 +1,16 @@
 {
   "labels": {
-    "paste": "Collez vos pokémons ici",
+    "share": "L'URL partageable a été copiée dans le presse-papiers.",
     "base": "Base",
     "evs": "EV",
     "ivs": "IV",
     "lvl50": "50",
     "lvl100": "100"
+  },
+  "input": {
+    "paste": "Collez vos pokémons ici",
+    "title": "Titre (optionnel)",
+    "update": "Mettre à jour"
   },
   "settings": {
     "generations": "Game Generation",

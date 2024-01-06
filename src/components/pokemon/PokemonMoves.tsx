@@ -16,15 +16,15 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
     <div className='grid grid-cols-2 gap-3'>
       {moves.map(move =>
         <PokemonType
-          className='flex justify-between rounded-xl px-2 align-middle shadow'
+          className='flex h-9 items-center justify-between rounded-xl px-2 shadow'
           key={move.id}
           type={move.type}
         >
-          <span className='text-shadow truncate px-1 font-bold tracking-wider'>
+          <span className='text-shadow truncate px-1 text-center font-bold tracking-wider'>
             {i18n(move.name)}
           </span>
           <img
-            className='object-scale-down'
+            className='h-full object-scale-down p-0.5'
             src={`/${getMoveCategory(move, generation)}.png`}
             alt={getMoveCategory(move, generation)}
           />

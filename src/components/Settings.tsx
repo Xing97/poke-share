@@ -17,7 +17,7 @@ export default function Settings (): JSX.Element {
   const setTheme = useThemeStore(s => s.setTheme)
 
   return (
-    <div className='flex h-full w-full flex-col gap-8'>
+    <div className='flex h-full w-full flex-col gap-8 p-4'>
       <Select
         name='generations'
         options={Object.values(Generation)}

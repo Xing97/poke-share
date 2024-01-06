@@ -1,11 +1,16 @@
 {
   "labels": {
-    "paste": "Füge deine Pokemon hier ein",
+    "share": "Der freigebbare URL wurde in die Zwischenablage kopiert.",
     "base": "AS",
     "evs": "FP",
     "ivs": "IS",
     "lvl50": "50",
     "lvl100": "100"
+  },
+  "input": {
+    "paste": "Füge deine Pokemon hier ein",
+    "title": "Titel (optional)",
+    "update": "Updaten"
   },
   "settings": {
     "generations": "Spielgeneration",

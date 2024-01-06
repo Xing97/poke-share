@@ -9,7 +9,7 @@ interface PokemonStore {
   pokemonTeam: Pokemon[]
   loading: boolean
   error: string
-  submit: (input: string, title?: string) => void
+  submit: (input: string, title: string) => void
 }
 
 export const usePokemonStore = create<PokemonStore>()(
@@ -22,15 +22,15 @@ export const usePokemonStore = create<PokemonStore>()(
     submit (input, title) {
       set({ title, input, loading: true })
       parsePokemons(input)
-        .then((team) => { set({ pokemonTeam: team }); setInputInPath(input) })
+        .then((team) => { set({ pokemonTeam: team }); setInputInPath(input, title) })
         .catch(() => { set({ error: 'Error' }) })
         .finally(() => { set({ loading: false }) })
     }
   })
 )
 
-const inputFromPath = getInputFromPath()
+const { title, input } = getInputFromPath()
 
-if (inputFromPath !== '') {
-  usePokemonStore.getState().submit(inputFromPath)
+if (input !== '') {
+  usePokemonStore.getState().submit(input, title)
 }

@@ -20,7 +20,7 @@ export default function Selector<T extends string> (
       {options.map((option) => (
         <label
           key={option}
-          className='cursor-pointer rounded-full border border-slate-100 bg-slate-500 px-2 font-semibold tracking-wide hover:bg-slate-400 has-[:disabled]:cursor-default has-[:disabled]:border-slate-600 has-[:checked]:bg-slate-100 has-[:disabled]:bg-inherit has-[:checked]:text-black has-[:disabled]:text-slate-500'
+          className='cursor-pointer rounded-full border border-slate-900 bg-slate-400 px-2 font-semibold tracking-wide hover:bg-slate-500 has-[:disabled]:cursor-default has-[:disabled]:border-slate-600 has-[:checked]:bg-slate-900 has-[:disabled]:bg-inherit has-[:checked]:text-white has-[:disabled]:text-slate-500 dark:border-slate-100 dark:bg-slate-500 dark:hover:bg-slate-400 dark:has-[:checked]:bg-slate-100 dark:has-[:checked]:text-black'
         >
           <input
             id={option}

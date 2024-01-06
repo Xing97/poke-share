@@ -1,11 +1,16 @@
 {
   "labels": {
-    "paste": "Paste your pokemons here",
+    "share": "Sharable URL has been copied to clipboard.",
     "base": "Base",
     "evs": "EV",
     "ivs": "IV",
     "lvl50": "50",
     "lvl100": "100"
+  },
+  "input": {
+    "paste": "Paste your pokemons here",
+    "title": "Title (optional)",
+    "update": "Update"
   },
   "settings": {
     "generations": "Game Generation",

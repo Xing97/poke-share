@@ -1,11 +1,16 @@
 {
   "labels": {
-    "paste": "Pega aquí tus pokemons",
+    "share": "La URL compartible se ha copiado al portapapeles.",
     "base": "Base",
     "evs": "EV",
     "ivs": "IV",
     "lvl50": "50",
     "lvl100": "100"
+  },
+  "input": {
+    "paste": "Pega aquí tus pokemons",
+    "title": "Titulo (opcional)",
+    "update": "Actualizar"
   },
   "settings": {
     "generations": "Generación del juego",
