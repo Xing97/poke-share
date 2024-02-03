@@ -13,9 +13,9 @@ export default function PokemonHeader ({ pokemon }: Props): JSX.Element {
 
   return (
     <div className='flex items-center gap-2'>
-      <h2 className='font-mono text-slate-600 dark:text-slate-400'>{number}</h2>
-      <h1 className='text-xl font-bold tracking-wide'>{pokemon.nickname ?? pokemonName}</h1>
-      {pokemon.nickname != null && <h3 className='text-slate-800 dark:text-slate-200'>{`(${pokemonName})`}</h3>}
+      <span className='font-mono text-slate-600 dark:text-slate-300'>{number}</span>
+      <span className='text-xl font-bold tracking-wide'>{pokemon.nickname ?? pokemonName}</span>
+      {pokemon.nickname != null && <span className='text-slate-800 dark:text-slate-200'>{`(${pokemonName})`}</span>}
     </div>
   )
 }
