@@ -36,7 +36,7 @@ export default function Aside (): JSX.Element {
           </Tab>
         </header>
         <footer>
-          <Button onClick={shareUrl}>
+          <Button name='share' onClick={shareUrl}>
             <ShareIcon />
           </Button>
           <Tab name={Sidebar.Settings}>
@@ -58,6 +58,7 @@ function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }):
 
   return (
     <button
+      aria-label={name}
       className={`h-auto w-full border-l-3 ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} px-3 py-4 text-slate-600 hover:text-black hover:dark:text-white`}
       onClick={() => { setSelected(name) }}
     >
@@ -66,9 +67,10 @@ function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }):
   )
 }
 
-function Button ({ children, onClick }: { children: React.ReactNode, onClick: () => void }): JSX.Element {
+function Button ({ children, name, onClick }: { children: React.ReactNode, name: string, onClick: () => void }): JSX.Element {
   return (
     <button
+      aria-label={name}
       className='h-auto w-full border-l-2 border-transparent px-3 py-4 text-slate-600 dark:text-slate-400 hover:dark:text-white'
       onClick={onClick}
     >

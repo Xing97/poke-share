@@ -134,10 +134,10 @@ function Stat ({ stat, value, max, increase = false, decrease = false }: StatPro
 
   return (
     <>
-      <h3 className={`font-semibold tracking-wide ${increase ? 'text-green-500' : ''} ${decrease ? 'text-red-500' : ''}`}>
+      <span className={`font-semibold tracking-wide ${increase ? 'text-green-500' : ''} ${decrease ? 'text-red-500' : ''}`}>
         {t('stats.' + stat)}
-      </h3>
-      <h3 className='justify-self-end font-semibold'>{value}</h3>
+      </span>
+      <span className='justify-self-end font-semibold'>{value}</span>
       <div className='flex h-4 w-full self-center border border-solid border-slate-500 shadow'>
         <div className={`duration-300 ease-in ${COLOR_BAR[stat]}`} style={{ width: `${(value / max) * 100}%` }} />
       </div>

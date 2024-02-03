@@ -2,9 +2,9 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 export enum Sidebar {
-  Pokemon,
-  Input,
-  Settings
+  Pokemon = 'pokemon',
+  Input = 'input',
+  Settings = 'settings'
 }
 
 interface SidebarStore {
