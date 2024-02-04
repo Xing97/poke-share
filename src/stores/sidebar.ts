@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
 
 export enum Sidebar {
   Pokemon = 'pokemon',
@@ -19,5 +19,8 @@ export const useSidebarStore = create<SidebarStore>()(
       set((s) => ({ sidebar: v === s.sidebar ? Sidebar.Pokemon : v }))
     }
   }),
-  { name: '__MW::sidebar' })
+  {
+    name: '__MW::sidebar',
+    storage: createJSONStorage(() => window.sessionStorage)
+  })
 )
