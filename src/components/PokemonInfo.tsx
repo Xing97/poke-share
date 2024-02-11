@@ -25,7 +25,7 @@ export default function PokemonInfo ({ pokemon }: Props): JSX.Element {
   const generation = useGameStore((state) => state.generation)
 
   return (
-    <div className='flex w-auto flex-col gap-5 rounded-2xl border border-slate-500 bg-slate-300 p-5 dark:bg-slate-700'>
+    <div className='flex w-auto flex-col gap-5 rounded-2xl border border-slate-600 bg-slate-300 p-5 dark:bg-slate-800'>
       <PokemonHeader pokemon={pokemon} />
       <div className='flex gap-10'>
         <div className='flex flex-col gap-4'>

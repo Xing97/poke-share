@@ -26,8 +26,8 @@ export default function Aside (): JSX.Element {
 
   return (
     <aside className='flex'>
-      <div className='flex w-16 flex-col justify-between bg-slate-400 dark:bg-slate-700'>
-        <header>
+      <div className='flex h-16 w-full justify-between bg-slate-400 md:h-full md:w-16 md:flex-col dark:bg-slate-700'>
+        <header className='flex md:block'>
           <Tab name={Sidebar.Pokemon}>
             <PokeBallIcon />
           </Tab>
@@ -35,7 +35,7 @@ export default function Aside (): JSX.Element {
             <EditIcon />
           </Tab>
         </header>
-        <footer>
+        <footer className='flex md:block'>
           <Button name='share' onClick={shareUrl}>
             <ShareIcon />
           </Button>
@@ -45,7 +45,7 @@ export default function Aside (): JSX.Element {
         </footer>
       </div>
       {selected !== Sidebar.Pokemon &&
-        <div className='h-full w-96 overflow-y-auto bg-slate-300 dark:bg-slate-800'>
+        <div className='absolute bottom-0 top-16 z-50 w-full overflow-y-auto bg-slate-300 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800'>
           {SIDE_BAR[selected]}
         </div>}
     </aside>
@@ -59,7 +59,7 @@ function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }):
   return (
     <button
       aria-label={name}
-      className={`h-auto w-full border-l-3 ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} px-3 py-4 text-slate-600 hover:text-black hover:dark:text-white`}
+      className={`aspect-square h-full md:h-auto md:w-full md:border-l-3 ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 text-slate-600 hover:text-black hover:dark:text-white`}
       onClick={() => { setSelected(name) }}
     >
       {children}
@@ -71,7 +71,7 @@ function Button ({ children, name, onClick }: { children: React.ReactNode, name:
   return (
     <button
       aria-label={name}
-      className='h-auto w-full border-l-2 border-transparent px-3 py-4 text-slate-600 dark:text-slate-400 hover:dark:text-white'
+      className='aspect-square h-full border-transparent p-3 text-slate-600 md:h-auto md:w-full md:border-l-3 dark:text-slate-400 hover:dark:text-white'
       onClick={onClick}
     >
       {children}

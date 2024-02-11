@@ -10,9 +10,9 @@ export default function App (): JSX.Element {
   const loading = usePokemonStore(store => store.loading)
 
   return (
-    <div className='flex h-dvh w-screen text-slate-900 dark:text-slate-100'>
+    <div className='flex h-dvh w-screen flex-col text-slate-900 md:flex-row dark:text-slate-100'>
       <Aside />
-      <main className='flex h-full grow flex-col items-center gap-6 self-center overflow-y-auto bg-slate-200 p-6 dark:bg-slate-900'>
+      <main className='flex h-full w-full grow flex-col items-center gap-6 self-center overflow-y-auto bg-slate-200 p-6 dark:bg-slate-950'>
         {loading
           ? <LoadingIcon className='m-auto h-20 w-20 animate-spin' />
           : <PokemonTeam />}
