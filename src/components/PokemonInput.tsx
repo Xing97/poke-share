@@ -26,6 +26,7 @@ export default function PokemonInput (): JSX.Element {
         autoFocus
         spellCheck='false'
         defaultValue={input}
+        wrap='off'
       />
       <input
         className='rounded bg-slate-300 px-1.5 py-1 dark:bg-slate-700'
