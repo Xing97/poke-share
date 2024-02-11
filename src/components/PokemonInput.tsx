@@ -19,7 +19,7 @@ export default function PokemonInput (): JSX.Element {
     <form className='flex h-full w-full flex-col gap-2 p-2' onSubmit={handleSubmit}>
       <textarea
         name='paste'
-        className='h-full resize-none rounded bg-slate-300 p-1.5 text-sm dark:bg-slate-700'
+        className='h-full resize-none rounded bg-slate-300 p-1.5 text-sm placeholder:text-base dark:bg-slate-700'
         placeholder={t('input.paste')}
         required
         autoComplete='off'
