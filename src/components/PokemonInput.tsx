@@ -1,3 +1,5 @@
+import QuestionIcon from '@/icons/QuestionIcon'
+import { INPUT_EXAMPLE } from '@/model/constants'
 import { usePokemonStore } from '@/stores/pokemon'
 import { useTranslation } from 'react-i18next'
 
@@ -6,6 +8,7 @@ export default function PokemonInput (): JSX.Element {
 
   const title = usePokemonStore(state => state.title)
   const input = usePokemonStore(state => state.input)
+  const setInput = usePokemonStore(state => state.setInput)
   const submit = usePokemonStore(state => state.submit)
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
@@ -17,6 +20,18 @@ export default function PokemonInput (): JSX.Element {
 
   return (
     <form className='flex h-full w-full flex-col gap-2 p-2' onSubmit={handleSubmit}>
+      <div className='flex justify-between'>
+        <button
+          className='rounded-full bg-blue-300 px-4 py-1 font-medium tracking-wide hover:bg-blue-400 dark:bg-blue-800 dark:hover:bg-blue-700'
+          type='button'
+          onClick={() => { setInput(INPUT_EXAMPLE) }}
+        >
+          {t('input.example')}
+        </button>
+        <button type='button'>
+          <QuestionIcon className='h-full w-auto' />
+        </button>
+      </div>
       <textarea
         name='paste'
         className='h-full resize-none rounded bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-white dark:bg-slate-700'
@@ -25,7 +40,8 @@ export default function PokemonInput (): JSX.Element {
         autoComplete='off'
         autoFocus
         spellCheck='false'
-        defaultValue={input}
+        value={input}
+        onChange={(event) => { setInput(event.target.value) }}
         wrap='off'
       />
       <input

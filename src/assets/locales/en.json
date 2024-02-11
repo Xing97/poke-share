@@ -11,7 +11,8 @@
     "paste": "Paste your pokemons here",
     "title": "Title (optional)",
     "update": "Update",
-    "error": "Input is not valid"
+    "error": "Input is not valid",
+    "example": "Example"
   },
   "settings": {
     "generations": "Game Generation",

@@ -11,7 +11,8 @@
     "paste": "ここにポケモンを貼り付ける",
     "title": "タイトル（任意）",
     "update": "更新する",
-    "error": "入力が無効"
+    "error": "入力が無効",
+    "example": "例"
   },
   "settings": {
     "generations": "ゲーム世代",

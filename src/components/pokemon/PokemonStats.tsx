@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next'
 const MAX_BASE = 255
 const MAX_EV = 255
 const MAX_IV = 31
-const MAX_TOTAL = 714
+const MAX_TOTAL = 550
 
 const COLOR_BAR: Record<string, string> = {
   hp: 'bg-red-400 dark:bg-red-600',
@@ -139,7 +139,7 @@ function Stat ({ stat, value, max, increase = false, decrease = false }: StatPro
       </span>
       <span className='justify-self-end font-semibold'>{value}</span>
       <div className='flex h-4 w-full self-center border border-solid border-slate-500 shadow'>
-        <div className={`duration-300 ease-in ${COLOR_BAR[stat]}`} style={{ width: `${(value / max) * 100}%` }} />
+        <div className={`duration-300 ease-in ${COLOR_BAR[stat]}`} style={{ width: `${Math.min((value / max) * 100, 100)}%` }} />
       </div>
     </>
   )

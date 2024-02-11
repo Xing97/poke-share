@@ -91,6 +91,11 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
 
 async function fetchApi<T> (entity: string, name: string): Promise<T> {
   const response = await fetch(`${BASE_URL}/${entity}/${name.toLowerCase().replaceAll(' ', '-')}`)
+
+  if (!response.ok) {
+    throw new Error(`${entity} with name ${name} not found in PokeAPI`)
+  }
+
   return await response.json() as T
 }
 

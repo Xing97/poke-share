@@ -17,7 +17,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
 
   return (
     <div className='relative flex h-52 w-52 items-center justify-center'>
-      {pokemonImageError
+      {pokemonImageError || pokemon.image == null
         ? <PokeBallIcon className='h-20 w-20' />
         : <img
             className='img-pokemon h-full w-full' src={pokemon.image} alt={i18n(pokemon.name)}
@@ -26,7 +26,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemon.gender === Gender.Male && <MaleIcon className='absolute left-0 top-0 h-8 w-8' />}
       {pokemon.gender === Gender.Female && <FemaleIcon className='absolute left-0 top-0 h-8 w-8' />}
       {pokemon.item != null &&
-        (itemImageError
+        (itemImageError || pokemon.item.image == null
           ? <QuestionIcon
               className='absolute bottom-0 right-0 h-1/6 w-1/6'
               title={i18n(pokemon.item.name)}

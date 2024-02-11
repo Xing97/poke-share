@@ -11,7 +11,8 @@
     "paste": "在此处粘贴您的宠物精灵",
     "title": "標題（可選）",
     "update": "更新",
-    "error": "輸入無效"
+    "error": "輸入無效",
+    "example": "例子"
   },
   "settings": {
     "generations": "遊戲生成",

@@ -11,7 +11,8 @@
     "paste": "Füge deine Pokemon hier ein",
     "title": "Titel (optional)",
     "update": "Updaten",
-    "error": "Eingabe ist nicht gültig"
+    "error": "Eingabe ist nicht gültig",
+    "example": "Beispiel"
   },
   "settings": {
     "generations": "Spielgeneration",

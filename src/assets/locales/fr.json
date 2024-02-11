@@ -11,7 +11,8 @@
     "paste": "Collez vos pokémons ici",
     "title": "Titre (optionnel)",
     "update": "Mettre à jour",
-    "error": "L'entrée n'est pas valide"
+    "error": "L'entrée n'est pas valide",
+    "example": "Exemple"
   },
   "settings": {
     "generations": "Game Generation",

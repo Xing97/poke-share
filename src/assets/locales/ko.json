@@ -13,7 +13,8 @@
     "paste": "포켓몬을 여기에 붙여넣기",
     "title": "제목 (선택 사항)",
     "update": "업데이트하다",
-    "error": "입력이 유효하지 않습니다."
+    "error": "입력이 유효하지 않습니다.",
+    "example": "예시"
   },
   "settings": {
     "generations": "세대",

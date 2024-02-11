@@ -1,4 +1,4 @@
-import { Category, type Move, Nature, Type } from '@/model/pokemon'
+import { Category, Nature, Type, type Move } from '@/model/pokemon'
 import { Game, Generation } from '@/stores/game'
 
 const GENS = Object.values(Generation)
@@ -174,3 +174,34 @@ export const GAME_GEN = {
   [Game.TheTealMask]: Generation.IX,
   [Game.TheIndigoDisk]: Generation.IX
 }
+
+export const INPUT_EXAMPLE =
+`Meowscarada @ Heavy-Duty Boots
+Ability: Protean
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tera Type: Dark
+Jolly Nature
+- Knock Off
+- Flower Trick
+- Triple Axel
+- U-turn
+
+Skeledirge @ Heavy-Duty Boots
+Ability: Unaware
+EVs: 248 HP / 132 SpD / 128 Spe
+Tera Type: Fairy
+Calm Nature
+- Torch Song
+- Will-O-Wisp
+- Slack Off
+- Hex
+
+Quaquaval @ Leftovers
+Ability: Moxie
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tera Type: Steel
+Jolly Nature
+- Swords Dance
+- Aqua Step
+- Close Combat
+- Knock Off`

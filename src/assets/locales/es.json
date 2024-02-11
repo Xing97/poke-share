@@ -11,7 +11,8 @@
     "paste": "Pega aquí tus pokemons",
     "title": "Titulo (opcional)",
     "update": "Actualizar",
-    "error": "La entrada no es válida"
+    "error": "La entrada no es válida",
+    "example": "Ejemplo"
   },
   "settings": {
     "generations": "Generación del juego",

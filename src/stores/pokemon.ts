@@ -10,6 +10,7 @@ interface PokemonStore {
   input: string
   pokemonTeam: Pokemon[]
   loading: boolean
+  setInput: (input: string) => void
   submit: (input: string, title: string) => void
 }
 
@@ -19,6 +20,7 @@ export const usePokemonStore = create<PokemonStore>()(
     input: '',
     pokemonTeam: [],
     loading: false,
+    setInput (input: string) { set({ input }) },
     submit (input, title) {
       set({ title, input, loading: true })
       parsePokemons(input)
