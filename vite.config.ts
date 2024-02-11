@@ -3,12 +3,22 @@ import million from 'million/compiler';
 import path from 'path';
 import { defineConfig } from 'vite';
 import { VitePWA } from "vite-plugin-pwa";
+import { cacheAbility, cacheItem, cacheMove, cachePokemon, cachePokemonSpecies } from './src/services/cache';
 
+const POKEAPI_CACHE_OPTIONS = {
+  cacheName: 'pokeapi-cache',
+  expiration: {
+    maxEntries: 1000,
+    maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+  },
+  cacheableResponse: {
+    statuses: [0, 200]
+  }
+}
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    million.vite({ auto: true }),
+    million.vite({ auto: true, mute: true }),
     react(),
     VitePWA({
       registerType: 'autoUpdate',
@@ -22,31 +32,63 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/.*/i,
+            urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/pokemon\/.*/i,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'pokeapi-cache',
-              expiration: {
-                maxEntries: 10000,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
+              ...POKEAPI_CACHE_OPTIONS,
+              plugins: [
+                {
+                  cacheWillUpdate: cachePokemon
+                }
+              ]
             }
           },
           {
-            urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeApi\/sprites\/.*/i,
+            urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/pokemon-species\/.*/i,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'pokeapi-sprites-cache',
-              expiration: {
-                maxEntries: 10000,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
+              ...POKEAPI_CACHE_OPTIONS,
+              plugins: [
+                {
+                  cacheWillUpdate: cachePokemonSpecies
+                }
+              ]
+            }
+          },
+          {
+            urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/item\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              ...POKEAPI_CACHE_OPTIONS,
+              plugins: [
+                {
+                  cacheWillUpdate: cacheItem
+                }
+              ]
+            }
+          },
+          {
+            urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/ability\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              ...POKEAPI_CACHE_OPTIONS,
+              plugins: [
+                {
+                  cacheWillUpdate: cacheAbility
+                }
+              ]
+            }
+          },
+          {
+            urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/move\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              ...POKEAPI_CACHE_OPTIONS,
+              plugins: [
+                {
+                  cacheWillUpdate: cacheMove
+                }
+              ]
             }
           }
         ]
