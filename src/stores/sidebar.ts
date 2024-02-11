@@ -14,7 +14,7 @@ interface SidebarStore {
 
 export const useSidebarStore = create<SidebarStore>()(
   persist((set) => ({
-    sidebar: Sidebar.Pokemon,
+    sidebar: window.location.pathname === '/' ? Sidebar.Input : Sidebar.Pokemon,
     setSidebar (v) {
       set((s) => ({ sidebar: v === s.sidebar ? Sidebar.Pokemon : v }))
     }

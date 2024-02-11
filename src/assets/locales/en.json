@@ -10,7 +10,8 @@
   "input": {
     "paste": "Paste your pokemons here",
     "title": "Title (optional)",
-    "update": "Update"
+    "update": "Update",
+    "error": "Input is not valid"
   },
   "settings": {
     "generations": "Game Generation",

@@ -10,7 +10,8 @@
   "input": {
     "paste": "Füge deine Pokemon hier ein",
     "title": "Titel (optional)",
-    "update": "Updaten"
+    "update": "Updaten",
+    "error": "Eingabe ist nicht gültig"
   },
   "settings": {
     "generations": "Spielgeneration",

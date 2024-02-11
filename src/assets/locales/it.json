@@ -10,7 +10,8 @@
   "input": {
     "paste": "Incolla i tuoi pokemon qui",
     "title": "Titolo (opzionale)",
-    "update": "Aggiornamento"
+    "update": "Aggiornamento",
+    "error": "L'ingresso non è valido"
   },
   "settings": {
     "generations": "Generazione di Gioco",
