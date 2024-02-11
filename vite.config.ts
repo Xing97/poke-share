@@ -34,20 +34,6 @@ export default defineConfig({
                 statuses: [0, 200]
               }
             }
-          },
-          {
-            urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeApi\/sprites\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'pokeapi-sprites-cache',
-              expiration: {
-                maxEntries: 10000,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
-            }
           }
         ]
       },
