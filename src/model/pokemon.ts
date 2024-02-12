@@ -25,6 +25,7 @@ export interface PokemonInfo {
   evs: Stats
   ivs: Stats
   moves: string[]
+  teraType?: Type
 }
 
 export interface Pokemon {
@@ -43,6 +44,7 @@ export interface Pokemon {
   stats: Stats
   types: Type[]
   past_types: PastType[]
+  teraType?: Type
 }
 
 export interface Stats {
@@ -101,6 +103,7 @@ export enum Type {
   Dragon = 'dragon',
   Dark = 'dark',
   Fairy = 'fairy',
+  Stellar = 'stellar'
 }
 
 export enum Category {

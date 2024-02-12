@@ -86,7 +86,8 @@ const TYPE_BASED_CATEGORIES = {
   [Type.Ice]: Category.Special,
   [Type.Dragon]: Category.Special,
   [Type.Dark]: Category.Special,
-  [Type.Fairy]: Category.Special
+  [Type.Fairy]: Category.Special,
+  [Type.Stellar]: Category.Special
 }
 
 export function getMoveCategory (move: Move, generation: Generation): Category {

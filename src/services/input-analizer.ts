@@ -1,22 +1,9 @@
-import { type Gender, type Pokemon, type Stats } from '@/model/pokemon'
+import { type Gender, type Pokemon, type PokemonInfo, type Stats, type Type } from '@/model/pokemon'
 import { fetchPokemon } from './poke-api'
 
 const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
 const RE_MOVE = /^- ([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)(?: \[([A-Z][a-z]+)\])?(?: \/ [A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
 const RE_NATURE = /^([A-Za-z]+) Nature/m
-
-export interface PokemonInfo {
-  name: string
-  nickname?: string
-  gender?: Gender
-  item?: string
-  nature?: string
-  ability?: string
-  shiny?: boolean
-  evs: Stats
-  ivs: Stats
-  moves: string[]
-}
 
 export async function parsePokemons (text: string): Promise<Pokemon[]> {
   return await Promise.all(text.trim().split(/^\s*\n/m)
@@ -50,7 +37,8 @@ function parsePokemon (text: string): PokemonInfo {
     shiny: data.get('Shiny') === 'Yes',
     evs,
     ivs,
-    moves
+    moves,
+    teraType: data.get('Tera Type')?.toLowerCase() as Type
   }
 }
 

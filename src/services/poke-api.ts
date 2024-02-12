@@ -75,7 +75,8 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
     past_types: _pokemon.past_types.map(t => ({
       generation: t.generation.name as Generation,
       types: t.types.map(t => t.type.name as Type)
-    }))
+    })),
+    teraType: pokeInput.teraType
   }
 
   if (_item !== undefined) {

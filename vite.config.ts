@@ -2,8 +2,7 @@ import react from '@vitejs/plugin-react-swc';
 import million from 'million/compiler';
 import path from 'path';
 import { defineConfig } from 'vite';
-import { VitePWA } from "vite-plugin-pwa";
-
+import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,13 +12,15 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: [
+        'favicon.ico',
         'favicon.svg',
-        'apple-touch-icon.png',
-        'physical.png',
-        'special.png',
-        'status.png'
+        'apple-touch-icon.png'
       ],
       workbox: {
+        globPatterns: [
+          '**\/*.{js,css,html}',
+          './img/*'
+        ],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/.*/i,
@@ -38,37 +39,37 @@ export default defineConfig({
         ]
       },
       manifest: {
-        name: "Pokezi",
-        short_name: "Pokezi",
-        description: "Web to share Pokemon sets with anyone",
-        theme_color: "#334155",
-        background_color: "#0f172a",
-        display: "standalone",
-        start_url: "/",
+        name: 'Pokezi',
+        short_name: 'Pokezi',
+        description: 'Web to share Pokemon sets with anyone',
+        theme_color: '#334155',
+        background_color: '#0f172a',
+        display: 'standalone',
+        start_url: '/',
         icons: [
           {
-            src: "pwa-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-            purpose: "any"
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any'
           },
           {
-            src: "pwa-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "any"
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any'
           },
           {
-            src: "pwa-maskable-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-            purpose: "maskable"
+            src: 'pwa-maskable-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'maskable'
           },
           {
-            src: "pwa-maskable-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "maskable"
+            src: 'pwa-maskable-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
           }
         ],
       }

@@ -18,7 +18,8 @@ const TYPES = {
   [Type.Dragon]: 'bg-dragon',
   [Type.Dark]: 'bg-dark',
   [Type.Steel]: 'bg-steel',
-  [Type.Fairy]: 'bg-fairy'
+  [Type.Fairy]: 'bg-fairy',
+  [Type.Stellar]: 'bg-back'
 }
 
 interface Props {
