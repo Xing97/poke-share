@@ -8,6 +8,7 @@ export default function PokemonInput (): JSX.Element {
 
   const title = usePokemonStore(state => state.title)
   const input = usePokemonStore(state => state.input)
+  const loading = usePokemonStore(state => state.loading)
   const setInput = usePokemonStore(state => state.setInput)
   const submit = usePokemonStore(state => state.submit)
 
@@ -53,8 +54,9 @@ export default function PokemonInput (): JSX.Element {
         defaultValue={title}
       />
       <button
-        className='rounded-full bg-blue-300 py-1 font-medium tracking-wide hover:bg-blue-400 dark:bg-blue-700 dark:hover:bg-blue-600'
+        className='rounded-full bg-blue-300 py-1 font-medium tracking-wide hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-700 dark:hover:bg-blue-600'
         type='submit'
+        disabled={loading}
       >
         {t('input.update')}
       </button>

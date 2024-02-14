@@ -27,7 +27,7 @@ export default function PokemonInfo ({ pokemon }: Props): JSX.Element {
   return (
     <div className='flex w-auto flex-col gap-5 rounded-2xl border border-slate-600 bg-slate-300 p-5 dark:bg-slate-800'>
       <PokemonHeader pokemon={pokemon} />
-      <div className='flex gap-10'>
+      <div className='flex flex-wrap justify-center gap-10'>
         <div className='flex flex-col gap-4'>
           <PokemonImage pokemon={pokemon} />
           <div className='flex flex-wrap justify-center gap-2 self-center'>
@@ -46,7 +46,7 @@ export default function PokemonInfo ({ pokemon }: Props): JSX.Element {
             <PokemonNature nature={pokemon.nature} />
           </div>
         </div>
-        <div className='flex grow flex-col justify-between'>
+        <div className='flex w-80 grow flex-col justify-between gap-10'>
           <PokemonStats pokemon={pokemon} />
           <PokemonMoves moves={pokemon.moves} />
         </div>

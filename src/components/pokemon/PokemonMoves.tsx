@@ -13,7 +13,7 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
   const generation = useGameStore(state => state.generation)
 
   return (
-    <div className='grid grid-cols-2 gap-3'>
+    <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
       {moves.map(move =>
         <PokemonType
           className='flex h-9 items-center justify-between rounded-xl px-2 shadow'
