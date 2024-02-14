@@ -29,7 +29,7 @@ export default function PokemonInput (): JSX.Element {
           {t('input.example')}
         </button>
         <button type='button'>
-          <QuestionIcon className='h-full w-auto' />
+          <QuestionIcon className='h-8 w-8' />
         </button>
       </div>
       <textarea
