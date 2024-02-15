@@ -1,5 +1,3 @@
-import colors from 'tailwindcss/colors'
-
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
@@ -14,6 +12,9 @@ export default {
       },
       'borderWidth': {
         3: '3px'
+      },
+      screens: {
+        xs: '475px'
       },
       colors: {
         pokemon: '#FB1B1B',

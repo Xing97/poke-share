@@ -46,7 +46,7 @@ export default function PokemonInfo ({ pokemon }: Props): JSX.Element {
             <PokemonNature nature={pokemon.nature} />
           </div>
         </div>
-        <div className='flex w-80 grow flex-col justify-between gap-10'>
+        <div className='flex w-72 grow flex-col justify-between gap-10'>
           <PokemonStats pokemon={pokemon} />
           <PokemonMoves moves={pokemon.moves} />
         </div>
