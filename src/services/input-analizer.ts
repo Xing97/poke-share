@@ -1,5 +1,5 @@
 import { type Gender, type Pokemon, type PokemonInfo, type Stats, type Type } from '@/model/pokemon'
-import { fetchPokemon } from './poke-api'
+import { fetchPokemon } from '@/services/poke-api'
 
 const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
 const RE_MOVE = /^- ([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)(?: \[([A-Z][a-z]+)\])?(?: \/ [A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm

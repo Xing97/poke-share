@@ -1,4 +1,4 @@
-import { type Name, type NamedAPIResource } from './common'
+import { type Name, type NamedAPIResource } from '@/model/poke-api/common'
 
 export interface IMove {
   id: number

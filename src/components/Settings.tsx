@@ -1,7 +1,7 @@
 import { Game, Generation, useGameStore } from '@/stores/game'
 import { Language, useLanguageStore } from '@/stores/language'
 import { Theme, useThemeStore } from '@/stores/theme'
-import Select from './Select'
+import Select from '@/components/Select'
 
 export default function Settings (): JSX.Element {
   const generation = useGameStore(state => state.generation)

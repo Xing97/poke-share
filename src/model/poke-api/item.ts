@@ -1,4 +1,4 @@
-import { type Name, type VersionGroupFlavorText } from './common'
+import { type Name, type VersionGroupFlavorText } from '@/model/poke-api/common'
 
 export interface IItem {
   id: number

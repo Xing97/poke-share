@@ -1,9 +1,9 @@
+import HelpModal from '@/components/modal/HelpModal'
 import QuestionIcon from '@/icons/QuestionIcon'
 import { INPUT_EXAMPLE } from '@/model/constants'
 import { useModalStore } from '@/stores/modal'
 import { usePokemonStore } from '@/stores/pokemon'
 import { useTranslation } from 'react-i18next'
-import HelpModal from './modal/HelpModal'
 
 export default function PokemonInput (): JSX.Element {
   const { t } = useTranslation()
@@ -39,7 +39,7 @@ export default function PokemonInput (): JSX.Element {
       </div>
       <textarea
         name='paste'
-        className='h-full resize-none rounded bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-white dark:bg-slate-700'
+        className='h-full resize-none rounded bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-black dark:bg-slate-700 dark:focus-visible:outline-white'
         placeholder={t('input.paste')}
         required
         autoComplete='off'
@@ -50,7 +50,7 @@ export default function PokemonInput (): JSX.Element {
         wrap='off'
       />
       <input
-        className='rounded bg-slate-300 px-1.5 py-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-white dark:bg-slate-700'
+        className='rounded bg-slate-300 px-1.5 py-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black dark:bg-slate-700 dark:focus-visible:outline-white'
         type='text'
         name='title'
         placeholder={t('input.title')}
@@ -58,7 +58,7 @@ export default function PokemonInput (): JSX.Element {
         defaultValue={title}
       />
       <button
-        className='tracking-widedisabled:cursor-not-allowed rounded-full bg-blue-700 py-1 font-semibold text-white hover:bg-blue-600 disabled:opacity-50'
+        className='rounded-full bg-blue-700 py-1 font-semibold tracking-wide text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50'
         type='submit'
         disabled={loading}
       >

@@ -7,7 +7,7 @@ export default function PokemonTeam (): JSX.Element {
   const title = usePokemonStore((state) => state.title)
 
   return (
-    <div className='flex w-full max-w-3xl flex-col gap-4'>
+    <div className='flex w-full max-w-3xl flex-col gap-8'>
       <Helmet>
         <title>{title !== '' ? title : 'Pokezi'}</title>
       </Helmet>

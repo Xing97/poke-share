@@ -1,4 +1,4 @@
-import { type NamedAPIResource } from './common'
+import { type NamedAPIResource } from '@/model/poke-api/common'
 
 export interface IPokemon {
   id: number

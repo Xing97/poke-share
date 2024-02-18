@@ -1,9 +1,23 @@
 import CloseIcon from '@/icons/CloseIcon'
 import { useModalStore } from '@/stores/modal'
+import { useEffect } from 'react'
 
 export default function ModalProvider (): JSX.Element | null {
   const modal = useModalStore(state => state.modal)
   const closeModal = useModalStore(state => state.closeModal)
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeModal()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => { window.removeEventListener('keydown', handleKeyDown) }
+  }, [closeModal])
 
   if (modal == null) {
     return null

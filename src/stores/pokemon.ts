@@ -2,6 +2,7 @@ import { type Pokemon } from '@/model/pokemon'
 import { parsePokemons } from '@/services/input-analizer'
 import { getInputFromPath, setInputInPath } from '@/services/path'
 import i18n from '@/setup/i18n'
+import { Sidebar, useSidebarStore } from '@/stores/sidebar'
 import { toast } from 'sonner'
 import { create } from 'zustand'
 
@@ -24,7 +25,13 @@ export const usePokemonStore = create<PokemonStore>()(
     submit (input, title) {
       set({ title, input, loading: true })
       parsePokemons(input)
-        .then((team) => { set({ pokemonTeam: team }); setInputInPath(input, title) })
+        .then((team) => {
+          set({ pokemonTeam: team })
+          setInputInPath(input, title)
+          if (window.matchMedia('(max-width: 768px)').matches) {
+            useSidebarStore.getState().setSidebar(Sidebar.Pokemon)
+          }
+        })
         .catch((e) => { toast.error(i18n.t('input.error')); console.error(e) })
         .finally(() => { set({ loading: false }) })
     }
