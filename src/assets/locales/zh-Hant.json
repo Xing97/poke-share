@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "tooltips": {
+    "pokemon": "寶可夢",
+    "input": "輸入",
+    "share": "分享",
+    "settings": "設定"
+  },  
   "input": {
     "paste": "在此处粘贴您的宠物精灵",
     "title": "標題（可選）",

@@ -1,5 +1,6 @@
 import '@/index.css'
 import LanguageProvider from '@/providers/LanguageProvider'
+import ModalProvider from '@/providers/ModalProvider'
 import ThemeProvider from '@/providers/ThemeProvider'
 import App from '@/setup/App'
 import React from 'react'
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <HelmetProvider>
       <LanguageProvider />
       <ThemeProvider />
+      <ModalProvider />
       <App />
     </HelmetProvider>
   </React.StrictMode>

@@ -7,6 +7,12 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "tooltips": {
+    "pokemon": "Pokémon",
+    "input": "Eingabe",
+    "share": "Teilen",
+    "settings": "Einstellungen"
+  },
   "input": {
     "paste": "Füge deine Pokemon hier ein",
     "title": "Titel (optional)",

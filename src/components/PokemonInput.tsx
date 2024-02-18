@@ -1,7 +1,9 @@
 import QuestionIcon from '@/icons/QuestionIcon'
 import { INPUT_EXAMPLE } from '@/model/constants'
+import { useModalStore } from '@/stores/modal'
 import { usePokemonStore } from '@/stores/pokemon'
 import { useTranslation } from 'react-i18next'
+import HelpModal from './modal/HelpModal'
 
 export default function PokemonInput (): JSX.Element {
   const { t } = useTranslation()
@@ -11,6 +13,8 @@ export default function PokemonInput (): JSX.Element {
   const loading = usePokemonStore(state => state.loading)
   const setInput = usePokemonStore(state => state.setInput)
   const submit = usePokemonStore(state => state.submit)
+
+  const showModal = useModalStore(state => state.showModal)
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
@@ -23,13 +27,13 @@ export default function PokemonInput (): JSX.Element {
     <form className='flex h-full w-full flex-col gap-2 p-2' onSubmit={handleSubmit}>
       <div className='flex justify-between'>
         <button
-          className='rounded-full bg-blue-300 px-4 py-1 font-medium tracking-wide hover:bg-blue-400 dark:bg-blue-700 dark:hover:bg-blue-600'
+          className='rounded-full bg-blue-600 px-4 py-1 font-semibold tracking-wide text-white hover:bg-blue-700'
           type='button'
           onClick={() => { setInput(INPUT_EXAMPLE) }}
         >
           {t('input.example')}
         </button>
-        <button type='button'>
+        <button type='button' onClick={() => { showModal(<HelpModal />) }}>
           <QuestionIcon className='h-8 w-8' />
         </button>
       </div>
@@ -54,7 +58,7 @@ export default function PokemonInput (): JSX.Element {
         defaultValue={title}
       />
       <button
-        className='rounded-full bg-blue-300 py-1 font-medium tracking-wide hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-700 dark:hover:bg-blue-600'
+        className='tracking-widedisabled:cursor-not-allowed rounded-full bg-blue-700 py-1 font-semibold text-white hover:bg-blue-600 disabled:opacity-50'
         type='submit'
         disabled={loading}
       >

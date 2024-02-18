@@ -10,7 +10,7 @@ export default function App (): JSX.Element {
   const loading = usePokemonStore(store => store.loading)
 
   return (
-    <div className='flex h-dvh w-screen flex-col text-slate-950 md:flex-row dark:text-slate-50'>
+    <div className='flex h-dvh w-screen flex-col md:flex-row'>
       <Aside />
       <main className='flex h-full w-full grow flex-col items-center gap-6 self-center overflow-y-auto p-6'>
         {loading

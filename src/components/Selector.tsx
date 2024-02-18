@@ -29,7 +29,7 @@ export default function Selector<T extends string> (
             value={option}
             onChange={() => { setSelected(option) }}
             checked={option === selected}
-            disabled={enabled !== undefined && !enabled.includes(option)}
+            disabled={enabled != null && !enabled.includes(option)}
           />
           {t(translation + '.' + option)}
         </label>
