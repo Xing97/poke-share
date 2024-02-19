@@ -76,7 +76,16 @@ export default defineConfig({
     })
   ],
   build: {
-    target: 'ESNext'
+    target: 'ESNext',
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes('icons/tera-types')) {
+            return 'tera-types'
+          }
+        }
+      }
+    }
   },
   resolve: {
     alias: {

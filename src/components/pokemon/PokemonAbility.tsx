@@ -1,5 +1,5 @@
 import { useI18nName } from '@/hooks/useI18nName'
-import AbilitityIcon from '@/icons/AbilityIcon'
+import AbilityIcon from '@/icons/AbilityIcon'
 import { type Ability } from '@/model/pokemon'
 
 interface Props {
@@ -11,7 +11,7 @@ export default function PokemonAbility ({ ability }: Props): JSX.Element {
 
   return (
     <div className='flex items-center gap-2'>
-      <AbilitityIcon height='32px' width='32px' />
+      <AbilityIcon className='size-8' />
       <span>{i18n(ability.name)}</span>
     </div>
   )

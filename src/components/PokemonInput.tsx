@@ -24,7 +24,7 @@ export default function PokemonInput (): JSX.Element {
   }
 
   return (
-    <form className='flex h-full w-full flex-col gap-2 p-2' onSubmit={handleSubmit}>
+    <form className='flex size-full flex-col gap-2 p-2' onSubmit={handleSubmit}>
       <div className='flex justify-between'>
         <button
           className='rounded-full bg-blue-600 px-4 py-1 font-semibold tracking-wide text-white hover:bg-blue-700'
@@ -34,7 +34,7 @@ export default function PokemonInput (): JSX.Element {
           {t('input.example')}
         </button>
         <button type='button' onClick={() => { showModal(<HelpModal />) }}>
-          <QuestionIcon className='h-8 w-8' />
+          <QuestionIcon className='size-8' />
         </button>
       </div>
       <textarea

@@ -12,9 +12,9 @@ export default function App (): JSX.Element {
   return (
     <div className='flex h-dvh w-screen flex-col md:flex-row'>
       <Aside />
-      <main className='flex h-full w-full grow flex-col items-center gap-6 self-center overflow-y-auto p-6'>
+      <main className='flex size-full grow flex-col items-center gap-6 self-center overflow-y-auto p-6'>
         {loading
-          ? <LoadingIcon className='m-auto h-20 w-20 animate-spin' />
+          ? <LoadingIcon className='m-auto size-20 animate-spin' />
           : <PokemonTeam />}
       </main>
       <Toaster expand={true} richColors theme={theme} />

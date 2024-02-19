@@ -62,7 +62,7 @@ function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }):
     <Tooltip label={t('tooltips.' + name)}>
       <button
         aria-label={name}
-        className={`aspect-square h-12 w-12 xs:h-16 xs:w-16 md:border-l-3 ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 hover:text-black hover:dark:text-white`}
+        className={`aspect-square size-12 xs:h-16 xs:w-16 md:border-l-3 ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 hover:text-black hover:dark:text-white`}
         onClick={() => { setSelected(name) }}
       >
         {children}
@@ -78,7 +78,7 @@ function Button ({ children, name, onClick }: { children: React.ReactNode, name:
     <Tooltip label={t('tooltips.' + name)}>
       <button
         aria-label={name}
-        className='aspect-square h-12 w-12 border-transparent p-3 text-slate-600 hover:text-black xs:h-16 xs:w-16 md:border-l-3 dark:text-slate-400 hover:dark:text-white'
+        className='aspect-square size-12 border-transparent p-3 text-slate-600 hover:text-black xs:h-16 xs:w-16 md:border-l-3 dark:text-slate-400 hover:dark:text-white'
         onClick={onClick}
       >
         {children}
