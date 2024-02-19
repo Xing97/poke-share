@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'pokemon-stats': 'max-content 3ch 1fr'
+        'pokemon-stats': 'max-content 3ch 1fr',
+        'pokemon-moves': 'repeat(auto-fit, minmax(172px, 1fr))'
       },
       'borderWidth': {
         3: '3px'
