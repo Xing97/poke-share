@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "hint.css": "^3.0.0",
     "i18next": "^23.7.11",
     "million": "^2.6.4",
     "pako": "^2.1.0",
@@ -37,6 +38,7 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "postcss": "^8.4.32",
+    "postcss-import": "^16.0.1",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.1",

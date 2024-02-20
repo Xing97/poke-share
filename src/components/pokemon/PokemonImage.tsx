@@ -24,6 +24,7 @@ import TeraTypeStellar from '@/icons/tera-types/TeraTypeStellar'
 import TeraTypeWater from '@/icons/tera-types/TeraTypeWater'
 import { Gender, Type, type Pokemon } from '@/model/pokemon'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const TERA_TYPES = {
   [Type.Bug]: TeraTypeBug,
@@ -47,16 +48,12 @@ const TERA_TYPES = {
   [Type.Stellar]: TeraTypeStellar
 }
 
-function getTeraType (type: Type): JSX.Element {
-  const Component = TERA_TYPES[type]
-  return <Component className='absolute right-0 top-0 size-10' />
-}
-
 interface Props {
   pokemon: Pokemon
 }
 
 export default function PokemonImage ({ pokemon }: Props): JSX.Element {
+  const { t } = useTranslation()
   const i18n = useI18nName()
   const [pokemonImageError, setPokemonImageError] = useState(false)
   const [itemImageError, setItemImageError] = useState(false)
@@ -71,20 +68,27 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
         />}
       {pokemon.gender === Gender.Male && <MaleIcon className='absolute left-0 top-0 size-8' />}
       {pokemon.gender === Gender.Female && <FemaleIcon className='absolute left-0 top-0 size-8' />}
-      {pokemon.teraType != null && getTeraType(pokemon.teraType)}
+      {pokemon.teraType != null &&
+        <div className='hint--bottom hint--rounded absolute right-0 top-0 size-8' aria-label={t('types.' + pokemon.teraType)}>
+          {TERA_TYPES[pokemon.teraType]({})}
+        </div>}
       {pokemon.item != null &&
-        (itemImageError || pokemon.item.image == null
-          ? <QuestionIcon
-              className='absolute bottom-0 right-0 size-1/6'
-              title={i18n(pokemon.item.name)}
-          />
-          : <img
-              className='img-item absolute bottom-0 right-0 size-1/4'
-              src={pokemon.item.image}
-              alt={i18n(pokemon.item.name)}
-              title={i18n(pokemon.item.name)}
-              onError={() => { setItemImageError(true) }}
-          />)}
+        <div className='absolute bottom-0 right-0'>
+          <div className='hint--bottom hint--rounded' aria-label={i18n(pokemon.item.name)}>
+            {(itemImageError || pokemon.item.image == null
+              ? <QuestionIcon
+                  className='size-8'
+                  aria-label={i18n(pokemon.item.name)}
+              />
+              : <img
+                  className='img-item size-12'
+                  src={pokemon.item.image}
+                  alt={i18n(pokemon.item.name)}
+                  aria-label={i18n(pokemon.item.name)}
+                  onError={() => { setItemImageError(true) }}
+              />)}
+          </div>
+        </div>}
     </div>
   )
 }

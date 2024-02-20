@@ -32,13 +32,16 @@ module.exports = {
     '@stylistic/jsx-curly-spacing': [2, 'never'],
     '@stylistic/jsx-equals-spacing': [2, 'never'],
     '@stylistic/jsx-first-prop-new-line': 2,
-    '@stylistic/jsx-indent': [2, 2, {checkAttributes: true, indentLogicalExpressions: true}],
+    '@stylistic/jsx-indent': [2, 2, { checkAttributes: true, indentLogicalExpressions: true }],
     '@stylistic/jsx-indent-props': [2, 2],
     '@stylistic/jsx-props-no-multi-spaces': 2,
     '@stylistic/jsx-quotes': [2, 'prefer-single'],
     '@stylistic/jsx-self-closing-comp': 2,
     '@stylistic/jsx-tag-spacing': 2,
-    '@typescript-eslint/no-non-null-assertion': 'off'
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'tailwindcss/no-custom-classname': [1, {
+      'whitelist': ['hint--.*']
+    }]
   },
   settings: {
     react: {
