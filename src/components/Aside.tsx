@@ -74,7 +74,7 @@ function Button ({ children, name, onClick }: { children: React.ReactNode, name:
   return (
     <button
       aria-label={t('tooltips.' + name)}
-      className='hint--right hint--rounded aspect-square size-12 border-transparent p-3 text-slate-600 hover:text-black xs:h-16 xs:w-16 md:border-l-3 dark:text-slate-400 hover:dark:text-white'
+      className='hint--right hint--rounded aspect-square size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black xs:h-16 xs:w-16 md:border-l-3 dark:text-slate-400 hover:dark:text-white'
       onClick={onClick}
     >
       {children}
