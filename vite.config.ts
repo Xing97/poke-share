@@ -83,6 +83,12 @@ export default defineConfig({
           if (id.includes('icons/tera-types')) {
             return 'tera-types'
           }
+          if (id.includes('locales') && !id.includes('en.json')) {
+            return 'locales';
+          }
+          if (id.includes("react-dom")) {
+            return "react-dom";
+          }
         }
       }
     }
