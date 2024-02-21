@@ -3,6 +3,7 @@ import QuestionIcon from '@/icons/QuestionIcon'
 import { INPUT_EXAMPLE } from '@/model/constants'
 import { useModalStore } from '@/stores/modal'
 import { usePokemonStore } from '@/stores/pokemon'
+import { type FormEventHandler } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function PokemonInput (): JSX.Element {
@@ -16,7 +17,7 @@ export default function PokemonInput (): JSX.Element {
 
   const showModal = useModalStore(state => state.showModal)
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
 
     const form = new window.FormData(event.currentTarget)

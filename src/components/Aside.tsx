@@ -5,10 +5,11 @@ import EditIcon from '@/icons/EditIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
 import ShareIcon from '@/icons/ShareIcon'
 import { Sidebar, useSidebarStore } from '@/stores/sidebar'
+import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 
-const SIDE_BAR: Record<Sidebar, JSX.Element | null> = {
+const SIDE_BAR = {
   [Sidebar.Pokemon]: null,
   [Sidebar.Input]: <PokemonInput />,
   [Sidebar.Settings]: <Settings />
@@ -18,11 +19,11 @@ export default function Aside (): JSX.Element {
   const { t } = useTranslation()
   const selected = useSidebarStore(store => store.sidebar)
 
-  const shareUrl = (): void => {
+  const shareUrl = useCallback(() => {
     navigator.clipboard.writeText(window.location.href)
       .then(() => toast.success(t('labels.share')))
       .catch(() => toast.error('Failed to copy sharable URL to clipboard.'))
-  }
+  }, [t])
 
   return (
     <aside className='flex'>
