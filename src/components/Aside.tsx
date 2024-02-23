@@ -1,17 +1,20 @@
-import PokemonInput from '@/components/PokemonInput'
-import Settings from '@/components/Settings'
+import PokemonInput from '@/components/side-bar/PokemonInput'
+import Settings from '@/components/side-bar/Settings'
 import CogIcon from '@/icons/CogIcon'
 import EditIcon from '@/icons/EditIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
+import SaveIcon from '@/icons/SaveIcon'
 import ShareIcon from '@/icons/ShareIcon'
 import { Sidebar, useSidebarStore } from '@/stores/sidebar'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
+import Saves from './side-bar/Saves'
 
 const SIDE_BAR = {
   [Sidebar.Pokemon]: null,
   [Sidebar.Input]: <PokemonInput />,
+  [Sidebar.Saves]: <Saves />,
   [Sidebar.Settings]: <Settings />
 }
 
@@ -35,6 +38,9 @@ export default function Aside (): JSX.Element {
           <Tab name={Sidebar.Input}>
             <EditIcon />
           </Tab>
+          <Tab name={Sidebar.Saves}>
+            <SaveIcon />
+          </Tab>
         </header>
         <footer className='flex md:block'>
           <Button name='share' onClick={shareUrl}>
@@ -46,7 +52,7 @@ export default function Aside (): JSX.Element {
         </footer>
       </div>
       {selected !== Sidebar.Pokemon &&
-        <div className='absolute bottom-0 top-12 z-10 w-full overflow-y-auto bg-slate-200 xs:top-16 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800'>
+        <div className='scrollbar-thin absolute bottom-0 top-12 z-10 w-full overflow-y-auto bg-slate-200 xs:top-16 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800'>
           {SIDE_BAR[selected]}
         </div>}
     </aside>

@@ -2,7 +2,6 @@ import { useI18nName } from '@/hooks/useI18nName'
 import FemaleIcon from '@/icons/FemaleIcon'
 import MaleIcon from '@/icons/MaleIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
-import QuestionIcon from '@/icons/QuestionIcon'
 import TeraTypeBug from '@/icons/tera-types/TeraTypeBug'
 import TeraTypeDark from '@/icons/tera-types/TeraTypeDark'
 import TeraTypeDragon from '@/icons/tera-types/TeraTypeDragon'
@@ -23,8 +22,11 @@ import TeraTypeSteel from '@/icons/tera-types/TeraTypeSteel'
 import TeraTypeStellar from '@/icons/tera-types/TeraTypeStellar'
 import TeraTypeWater from '@/icons/tera-types/TeraTypeWater'
 import { Gender, Type, type Pokemon } from '@/model/pokemon'
+import { useModalStore } from '@/stores/modal'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import ItemModal from '../modal/ItemModal'
+import PokemonItemImage from './PokemonItemImage'
 
 const TERA_TYPES = {
   [Type.Bug]: TeraTypeBug,
@@ -56,7 +58,9 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
   const { t } = useTranslation()
   const i18n = useI18nName()
   const [pokemonImageError, setPokemonImageError] = useState(false)
-  const [itemImageError, setItemImageError] = useState(false)
+  const showModal = useModalStore(state => state.showModal)
+
+  const pokemonItem = pokemon.item
 
   return (
     <div className='relative flex size-52 items-center justify-center'>
@@ -72,22 +76,15 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
         <div className='hint--bottom hint--rounded absolute right-0 top-0 size-8' aria-label={t('types.' + pokemon.teraType)}>
           {TERA_TYPES[pokemon.teraType]({})}
         </div>}
-      {pokemon.item != null &&
+      {pokemonItem != null &&
         <div className='absolute bottom-0 right-0'>
-          <div className='hint--bottom hint--rounded' aria-label={i18n(pokemon.item.name)}>
-            {(itemImageError || pokemon.item.image == null
-              ? <QuestionIcon
-                  className='size-8'
-                  aria-label={i18n(pokemon.item.name)}
-              />
-              : <img
-                  className='img-item size-12'
-                  src={pokemon.item.image}
-                  alt={i18n(pokemon.item.name)}
-                  aria-label={i18n(pokemon.item.name)}
-                  onError={() => { setItemImageError(true) }}
-              />)}
-          </div>
+          <button
+            className='hint--bottom hint--rounded size-10'
+            aria-label={i18n(pokemonItem.name)}
+            onClick={() => { showModal(<ItemModal item={pokemonItem} />) }}
+          >
+            <PokemonItemImage item={pokemonItem} />
+          </button>
         </div>}
     </div>
   )

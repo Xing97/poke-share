@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 interface ModalStore {
   modal: React.ReactNode | null
-  showModal: (modal: React.ReactNode | null) => void
+  showModal: (modal: React.ReactNode) => void
   closeModal: () => void
 }
 

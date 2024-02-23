@@ -1,11 +1,12 @@
 import { type IAbility } from '@/model/poke-api/ability'
-import { type Name } from '@/model/poke-api/common'
+import { type Name, type VersionGroupFlavorText } from '@/model/poke-api/common'
 import { type IItem } from '@/model/poke-api/item'
 import { type IMove } from '@/model/poke-api/move'
 import { type IPokemon } from '@/model/poke-api/pokemon'
 import { type IPokemonSpecies } from '@/model/poke-api/pokemon-species'
 import {
   type Category,
+  type FlavorText,
   type I18nName,
   type Move,
   type Nature,
@@ -13,7 +14,7 @@ import {
   type PokemonInfo,
   type Type
 } from '@/model/pokemon'
-import { type Generation } from '@/stores/game'
+import { type Game, type Generation } from '@/stores/game'
 import { Language } from '@/stores/language'
 
 const BASE_URL = 'https://pokeapi.co/api/v2'
@@ -82,7 +83,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
   if (_item !== undefined) {
     pokemon.item = {
       name: mapNames(_item.names, _item.name),
-      description: _item.flavor_text_entries.find(f => f.language.name === 'en')?.text ?? '???',
+      flavorText: groupBy(_item.flavor_text_entries),
       image: _item.sprites.default
     }
   }
@@ -114,4 +115,13 @@ function mapNames (names: Name[], name: string): I18nName {
 
 function findLanguage (names: Name[], language: Language): string | undefined {
   return names.find(n => n.language.name === language as string)?.name
+}
+
+function groupBy (list: VersionGroupFlavorText[]): FlavorText {
+  return list.reduce<FlavorText>((acc, item) => {
+    const lang = acc[item.language.name as Language] ?? {}
+    lang[item.version_group.name as Game] = item.text
+    acc[item.language.name as Language] = lang
+    return acc
+  }, {})
 }

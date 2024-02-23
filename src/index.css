@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   color-scheme: dark light;
 }
@@ -13,21 +12,19 @@
   scrollbar-color: theme('colors.slate.500') transparent;
 }
 
-textarea {
+.scrollbar-thin {
   scrollbar-width: thin;
 }
 
 .img-pokemon {
   image-rendering: pixelated;
   aspect-ratio: 1 / 1;
-  height: auto;
   filter: drop-shadow(4px 4px 0 rgb(0 0 0 / 10%));
 }
 
 .img-item {
   image-rendering: pixelated;
   aspect-ratio: 1 / 1;
-  height: auto;
 }
 
 .text-shadow {
