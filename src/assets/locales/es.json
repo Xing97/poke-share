@@ -77,6 +77,19 @@
     "the-teal-mask": "La máscara turquesa",
     "the-indigo-disk": "El disco índigo"
   },
+  "move": {
+    "type": "Tipo",
+    "category": "Clase",
+    "power": "Potencia",
+    "accuracy": "Precisión",
+    "pp": "PP",
+    "priority": "Prioridad"
+  },
+  "category": {
+    "physical": "Físico",
+    "special": "Especial",
+    "status": "Estado"
+  },
   "types": {
     "rock": "Roca",
     "bug": "Bicho",

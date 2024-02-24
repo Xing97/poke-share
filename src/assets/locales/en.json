@@ -88,6 +88,19 @@
     "the-teal-mask": "The Teal Mask",
     "the-indigo-disk": "The Indigo Disk"
   },
+  "move": {
+    "type": "Type",
+    "category": "Category",
+    "power": "Power",
+    "accuracy": "Accuracy",
+    "pp": "PP",
+    "priority": "Priority"
+  },
+  "category": {
+    "physical": "Physical",
+    "special": "Special",
+    "status": "Status"
+  },
   "types": {
     "rock": "Rock",
     "bug": "Bug",

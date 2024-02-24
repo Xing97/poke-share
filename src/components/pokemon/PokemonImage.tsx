@@ -79,7 +79,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemonItem != null &&
         <div className='absolute bottom-0 right-0'>
           <button
-            className='hint--bottom hint--rounded size-12 hover:scale-125'
+            className='hint--bottom hint--rounded size-12 transition-transform hover:scale-125'
             aria-label={i18n(pokemonItem.name)}
             onClick={() => { showModal(<ItemModal item={pokemonItem} />) }}
           >

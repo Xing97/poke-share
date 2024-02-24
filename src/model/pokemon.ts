@@ -106,7 +106,7 @@ export interface Item {
 
 export interface Ability {
   name: I18nName
-  description: string
+  flavorText: FlavorText
 }
 
 export interface Move {
@@ -118,7 +118,7 @@ export interface Move {
   power: number
   accuracy: number
   priority: number
-  description: string
+  flavorText: FlavorText
 }
 
 export interface PastType {

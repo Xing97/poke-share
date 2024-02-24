@@ -48,7 +48,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
     nature: pokeInput.nature as Nature,
     ability: {
       name: mapNames(_ability.names, _ability.name),
-      description: _ability.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text ?? '???'
+      flavorText: mapFlavorText(_ability.flavor_text_entries)
     },
     evs: pokeInput.evs,
     ivs: pokeInput.ivs,
@@ -61,7 +61,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
       power: m.power,
       accuracy: m.accuracy,
       priority: m.priority,
-      description: m.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text ?? '???'
+      flavorText: mapFlavorText(m.flavor_text_entries)
     })),
     image: pokeInput.shiny === true ? _pokemon.sprites.front_shiny : _pokemon.sprites.front_default,
     stats: {
@@ -83,7 +83,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
   if (_item !== undefined) {
     pokemon.item = {
       name: mapNames(_item.names, _item.name),
-      flavorText: groupBy(_item.flavor_text_entries),
+      flavorText: mapFlavorText(_item.flavor_text_entries),
       image: _item.sprites.default
     }
   }
@@ -117,10 +117,10 @@ function findLanguage (names: Name[], language: Language): string | undefined {
   return names.find(n => n.language.name === language as string)?.name
 }
 
-function groupBy (list: VersionGroupFlavorText[]): FlavorText {
+function mapFlavorText (list: VersionGroupFlavorText[]): FlavorText {
   return list.reduce<FlavorText>((acc, item) => {
     const lang = acc[item.language.name as Language] ?? {}
-    lang[item.version_group.name as Game] = item.text
+    lang[item.version_group.name as Game] = item.text ?? item.flavor_text
     acc[item.language.name as Language] = lang
     return acc
   }, {})

@@ -20,7 +20,7 @@ export default function PokemonInput (): JSX.Element {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
 
-    const form = new window.FormData(event.currentTarget)
+    const form = new FormData(event.currentTarget)
     submit(form.get('paste') as string, form.get('title') as string)
   }
 
