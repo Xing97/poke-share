@@ -1,4 +1,4 @@
-@import "hint.css";
+@import 'hint.css';
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +19,7 @@
 .img-pokemon {
   image-rendering: pixelated;
   aspect-ratio: 1 / 1;
-  filter: drop-shadow(4px 4px 0 rgb(0 0 0 / 10%));
+  filter: drop-shadow(4px 4px 0 rgb(0 0 0 / 20%));
 }
 
 .img-item {

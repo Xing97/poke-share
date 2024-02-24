@@ -10,6 +10,7 @@
   "tooltips": {
     "pokemon": "ポケモン",
     "input": "入力",
+    "store": "保存",
     "share": "共有",
     "settings": "設定"
   },
@@ -19,6 +20,11 @@
     "update": "更新する",
     "error": "入力が無効",
     "example": "例"
+  },
+  "store": {
+    "save-current": "現在保存",
+    "clear": "すべてクリア",
+    "untitled": "タイトルなし"
   },
   "settings": {
     "generations": "ゲーム世代",

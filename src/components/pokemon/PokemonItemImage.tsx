@@ -13,7 +13,7 @@ export default function PokemonItemImage ({ item }: Props): JSX.Element {
 
   return (itemImageError || item.image == null
     ? <QuestionIcon
-        className='h-full p-1'
+        className='h-full p-2'
         aria-label={i18n(item.name)}
     />
     : <img

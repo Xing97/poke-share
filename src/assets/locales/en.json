@@ -10,15 +10,21 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Input",
+    "store": "Stored",
     "share": "Share",
     "settings": "Settings"
   },
   "input": {
-    "paste": "Paste your pokemons here",
+    "paste": "Paste your Pokémon here",
     "title": "Title (optional)",
     "update": "Update",
     "error": "Input is not valid",
     "example": "Example"
+  },
+  "store": {
+    "save-current": "Save current",
+    "clear": "Delete all",
+    "untitled": "Untitled"
   },
   "settings": {
     "generations": "Game Generation",

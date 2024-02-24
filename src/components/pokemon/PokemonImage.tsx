@@ -1,3 +1,4 @@
+import ItemModal from '@/components/modal/ItemModal'
 import { useI18nName } from '@/hooks/useI18nName'
 import FemaleIcon from '@/icons/FemaleIcon'
 import MaleIcon from '@/icons/MaleIcon'
@@ -25,7 +26,6 @@ import { Gender, Type, type Pokemon } from '@/model/pokemon'
 import { useModalStore } from '@/stores/modal'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import ItemModal from '../modal/ItemModal'
 import PokemonItemImage from './PokemonItemImage'
 
 const TERA_TYPES = {
@@ -79,7 +79,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemonItem != null &&
         <div className='absolute bottom-0 right-0'>
           <button
-            className='hint--bottom hint--rounded size-10'
+            className='hint--bottom hint--rounded size-12'
             aria-label={i18n(pokemonItem.name)}
             onClick={() => { showModal(<ItemModal item={pokemonItem} />) }}
           >

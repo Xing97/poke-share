@@ -1,3 +1,4 @@
+import { GEN_GAME } from '@/model/constants'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -21,12 +22,12 @@ export enum Game {
   RubySapphire = 'ruby-sapphire',
   Emerald = 'emerald',
   FireRedLeafGreen = 'firered-leafgreen',
+  Colosseum = 'colosseum',
+  XD = 'xd',
   DiamondPearl = 'diamond-pearl',
   Platinum = 'platinum',
   HeartGoldSoulSilver = 'heartgold-soulsilver',
   BlackWhite = 'black-white',
-  Colosseum = 'colosseum',
-  XD = 'xd',
   Black2White2 = 'black-2-white-2',
   XandY = 'x-y',
   OmegaRubyAlphaSapphire = 'omega-ruby-alpha-sapphire',
@@ -54,7 +55,7 @@ export const useGameStore = create<GameStore>()(
   persist((set) => ({
     generation: Generation.IX,
     game: Game.ScarletViolet,
-    setGeneration (generation) { set({ generation }) },
+    setGeneration (generation) { set({ generation, game: GEN_GAME[generation] }) },
     setGame (game) { set({ game }) }
   }),
   { name: '__MW::game' })

@@ -1,5 +1,6 @@
 import Select from '@/components/Select'
-import { Game, Generation, useGameStore } from '@/stores/game'
+import { GEN_GAMES } from '@/model/constants'
+import { Generation, useGameStore } from '@/stores/game'
 import { Language, useLanguageStore } from '@/stores/language'
 import { Theme, useThemeStore } from '@/stores/theme'
 
@@ -26,7 +27,7 @@ export default function Settings (): JSX.Element {
       />
       <Select
         name='version-groups'
-        options={Object.values(Game)}
+        options={GEN_GAMES[generation]}
         selected={game}
         setSelected={setGame}
       />

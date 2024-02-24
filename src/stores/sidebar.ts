@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 export enum Sidebar {
   Pokemon = 'pokemon',
   Input = 'input',
-  Saves = 'saves',
+  Store = 'store',
   Settings = 'settings'
 }
 

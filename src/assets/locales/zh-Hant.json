@@ -10,15 +10,21 @@
   "tooltips": {
     "pokemon": "寶可夢",
     "input": "輸入",
+    "store": "儲存",
     "share": "分享",
     "settings": "設定"
-  },  
+  },
   "input": {
     "paste": "在此处粘贴您的宠物精灵",
     "title": "標題（可選）",
     "update": "更新",
     "error": "輸入無效",
     "example": "例子"
+  },
+  "store": {
+    "save-current": "儲存當前",
+    "clear": "全部清除",
+    "untitled": "未命名"
   },
   "settings": {
     "generations": "遊戲生成",

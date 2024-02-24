@@ -10,15 +10,21 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Eingabe",
+    "store": "Gespeicherte",
     "share": "Teilen",
     "settings": "Einstellungen"
   },
   "input": {
-    "paste": "Füge deine Pokemon hier ein",
+    "paste": "Füge deine Pokémon hier ein",
     "title": "Titel (optional)",
     "update": "Updaten",
     "error": "Eingabe ist nicht gültig",
     "example": "Beispiel"
+  },
+  "store": {
+    "save-current": "Aktuell speichern",
+    "clear": "Alles löschen",
+    "untitled": "Ohne Titel"
   },
   "settings": {
     "generations": "Spielgeneration",

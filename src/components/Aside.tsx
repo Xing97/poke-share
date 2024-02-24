@@ -1,5 +1,6 @@
 import PokemonInput from '@/components/side-bar/PokemonInput'
 import Settings from '@/components/side-bar/Settings'
+import Store from '@/components/side-bar/Store'
 import CogIcon from '@/icons/CogIcon'
 import EditIcon from '@/icons/EditIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
@@ -9,12 +10,11 @@ import { Sidebar, useSidebarStore } from '@/stores/sidebar'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import Saves from './side-bar/Saves'
 
 const SIDE_BAR = {
   [Sidebar.Pokemon]: null,
   [Sidebar.Input]: <PokemonInput />,
-  [Sidebar.Saves]: <Saves />,
+  [Sidebar.Store]: <Store />,
   [Sidebar.Settings]: <Settings />
 }
 
@@ -38,7 +38,7 @@ export default function Aside (): JSX.Element {
           <Tab name={Sidebar.Input}>
             <EditIcon />
           </Tab>
-          <Tab name={Sidebar.Saves}>
+          <Tab name={Sidebar.Store}>
             <SaveIcon />
           </Tab>
         </header>

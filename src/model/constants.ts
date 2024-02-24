@@ -98,6 +98,20 @@ export function getMoveCategory (move: Move, generation: Generation): Category {
     : move.category
 }
 
+export const GAMES = Object.values(Game)
+
+export const GEN_GAME = {
+  [Generation.I]: Game.RedBlue,
+  [Generation.II]: Game.GoldSilver,
+  [Generation.III]: Game.RubySapphire,
+  [Generation.IV]: Game.DiamondPearl,
+  [Generation.V]: Game.BlackWhite,
+  [Generation.VI]: Game.XandY,
+  [Generation.VII]: Game.SunMoon,
+  [Generation.VIII]: Game.SwordShield,
+  [Generation.IX]: Game.ScarletViolet
+}
+
 export const GEN_GAMES = {
   [Generation.I]: [
     Game.RedBlue,

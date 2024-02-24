@@ -10,15 +10,21 @@
   "tooltips": {
     "pokemon": "포켓몬",
     "input": "입력",
+    "store": "저장됨",
     "share": "공유",
     "settings": "설정"
-  },  
+  },
   "input": {
     "paste": "포켓몬을 여기에 붙여넣기",
     "title": "제목 (선택 사항)",
     "update": "업데이트하다",
     "error": "입력이 유효하지 않습니다.",
     "example": "예시"
+  },
+  "store": {
+    "save-current": "현재 저장",
+    "clear": "모두 지우기",
+    "untitled": "제목 없음"
   },
   "settings": {
     "generations": "세대",
