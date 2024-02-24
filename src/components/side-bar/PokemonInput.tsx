@@ -28,7 +28,7 @@ export default function PokemonInput (): JSX.Element {
     <form className='flex size-full flex-col gap-2 p-2' onSubmit={handleSubmit}>
       <div className='flex justify-between'>
         <button
-          className='rounded-full bg-blue-600 px-4 py-1 font-semibold tracking-wide text-white hover:bg-blue-700'
+          className='rounded-full bg-blue-600 px-4 py-1 font-semibold tracking-wide text-white hover:scale-105 hover:bg-blue-700'
           type='button'
           onClick={() => { setInput(INPUT_EXAMPLE) }}
         >
@@ -59,7 +59,7 @@ export default function PokemonInput (): JSX.Element {
         defaultValue={title}
       />
       <button
-        className='rounded-full bg-blue-700 py-1 font-semibold tracking-wide text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50'
+        className='mx-2 rounded-full bg-blue-700 py-1 font-semibold tracking-wide text-white hover:scale-105 hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50'
         type='submit'
         disabled={loading}
       >
