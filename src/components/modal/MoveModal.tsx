@@ -26,7 +26,7 @@ export default function MoveModal ({ move }: Props): JSX.Element {
         <h1 className='text-3xl font-bold tracking-wide'>{name(move.name)}</h1>
       </header>
       <main className='flex gap-6'>
-        <div className='mt-6 grid min-w-fit grid-cols-2 flex-col gap-1'>
+        <div className='mt-6 grid h-fit min-w-fit grid-cols-2 flex-col gap-1'>
           <Row className={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
           <Row className={CATEGORY_BG_COLORS[moveCategory]} name='category' value={t('category.' + moveCategory)} />
           <Row name='pp' value={move.pp} />

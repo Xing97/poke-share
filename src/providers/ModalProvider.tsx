@@ -25,7 +25,7 @@ export default function ModalProvider (): JSX.Element | null {
   return (
     <>
       <div className='fixed z-40 h-dvh w-screen bg-black/50' onClick={closeModal} />
-      <div className='fixed left-1/2 top-1/2 z-50 flex max-w-3xl -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 py-6 pl-6 pr-10'>
+      <div className='fixed left-1/2 top-1/2 z-50 flex max-w-4xl -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 py-6 pl-6 pr-10'>
         <button
           className='absolute right-2 top-2 rounded p-0.5 hover:bg-slate-600/50'
           onClick={closeModal}
