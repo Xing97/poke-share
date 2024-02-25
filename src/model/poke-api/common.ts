@@ -10,6 +10,7 @@ export interface NamedAPIResource {
 export interface VerboseEffect {
   effect: string
   short_effect: string
+  language: NamedAPIResource
 }
 
 export interface VersionGroupFlavorText {

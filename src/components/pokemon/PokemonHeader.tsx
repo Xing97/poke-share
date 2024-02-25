@@ -1,4 +1,4 @@
-import { useI18nName } from '@/hooks/useI18nName'
+import useI18n from '@/hooks/useI18n'
 import { type Pokemon } from '@/model/pokemon'
 
 interface Props {
@@ -6,10 +6,10 @@ interface Props {
 }
 
 export default function PokemonHeader ({ pokemon }: Props): JSX.Element {
-  const i18n = useI18nName()
+  const { name } = useI18n()
 
   const number = '#' + pokemon.order.toString().padStart(3, '0')
-  const pokemonName = i18n(pokemon.name)
+  const pokemonName = name(pokemon.name)
 
   return (
     <div className='flex items-center gap-2'>

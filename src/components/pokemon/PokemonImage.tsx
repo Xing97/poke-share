@@ -1,5 +1,4 @@
-import ItemModal from '@/components/modal/ItemModal'
-import { useI18nName } from '@/hooks/useI18nName'
+import useI18n from '@/hooks/useI18n'
 import FemaleIcon from '@/icons/FemaleIcon'
 import MaleIcon from '@/icons/MaleIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
@@ -26,6 +25,7 @@ import { Gender, Type, type Pokemon } from '@/model/pokemon'
 import { useModalStore } from '@/stores/modal'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import PokemonModal from '../modal/GenericModal'
 import PokemonItemImage from './PokemonItemImage'
 
 const TERA_TYPES = {
@@ -56,7 +56,7 @@ interface Props {
 
 export default function PokemonImage ({ pokemon }: Props): JSX.Element {
   const { t } = useTranslation()
-  const i18n = useI18nName()
+  const { name } = useI18n()
   const [pokemonImageError, setPokemonImageError] = useState(false)
   const showModal = useModalStore(state => state.showModal)
 
@@ -67,7 +67,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemonImageError || pokemon.image == null
         ? <PokeBallIcon className='size-20' />
         : <img
-            className='img-pokemon size-full' src={pokemon.image} alt={i18n(pokemon.name)}
+            className='img-pokemon size-full' src={pokemon.image} alt={name(pokemon.name)}
             onError={() => { setPokemonImageError(true) }}
         />}
       {pokemon.gender === Gender.Male && <MaleIcon className='absolute left-0 top-0 size-8' />}
@@ -80,8 +80,13 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
         <div className='absolute bottom-0 right-0'>
           <button
             className='hint--bottom hint--rounded size-12 transition-transform hover:scale-125'
-            aria-label={i18n(pokemonItem.name)}
-            onClick={() => { showModal(<ItemModal item={pokemonItem} />) }}
+            aria-label={name(pokemonItem.name)}
+            onClick={() => {
+              showModal(<PokemonModal
+                entity={pokemonItem}
+                icon={<PokemonItemImage item={pokemonItem} />}
+              />)
+            }}
           >
             <PokemonItemImage item={pokemonItem} />
           </button>

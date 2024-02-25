@@ -1,5 +1,4 @@
-import useFlavorText from '@/hooks/useFlavorText'
-import { useI18nName } from '@/hooks/useI18nName'
+import useI18n from '@/hooks/useI18n'
 import { getMoveCategory } from '@/model/constants'
 import { type Move } from '@/model/pokemon'
 import { useGameStore } from '@/stores/game'
@@ -13,20 +12,21 @@ interface Props {
 
 export default function MoveModal ({ move }: Props): JSX.Element {
   const { t } = useTranslation()
-  const i18n = useI18nName()
-  const flavorText = useFlavorText()
+  const { name, flavorText, effectText } = useI18n()
+
+  const flavor = flavorText(move.flavorText)
+  const effect = effectText(move.effectText)
 
   const generation = useGameStore(state => state.generation)
-
   const moveCategory = getMoveCategory(move, generation)
 
   return (
-    <section className='flex flex-col gap-6'>
-      <header className='flex items-center gap-4'>
-        <h1 className='text-2xl font-bold tracking-wide'>{i18n(move.name)}</h1>
+    <section>
+      <header className='flex gap-4'>
+        <h1 className='text-3xl font-bold tracking-wide'>{name(move.name)}</h1>
       </header>
       <main className='flex gap-6'>
-        <div className='grid min-w-fit grid-cols-2 flex-col gap-1'>
+        <div className='mt-6 grid min-w-fit grid-cols-2 flex-col gap-1'>
           <Row className={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
           <Row className={CATEGORY_BG_COLORS[moveCategory]} name='category' value={t('category.' + moveCategory)} />
           <Row name='pp' value={move.pp} />
@@ -34,7 +34,10 @@ export default function MoveModal ({ move }: Props): JSX.Element {
           <Row name='accuracy' value={move.accuracy} />
           <Row name='priority' value={move.priority} />
         </div>
-        <p>{flavorText(move.flavorText) ?? '???'}</p>
+        <div>
+          {flavor != null && <p className='mt-6 text-lg font-medium'>{flavor}</p>}
+          {effect != null && <p className='mt-6'>{effect}</p>}
+        </div>
       </main>
     </section>
   )
@@ -45,10 +48,10 @@ function Row ({ name, value, className }: { name: string, value: string | number
 
   return (
     <>
-      <span className={twMerge('rounded-l-full bg-slate-600 px-6 py-1 text-center font-bold tracking-wide', className)} >
+      <span className={twMerge('text-lg rounded-l-full bg-slate-600 px-6 py-1 text-center font-semibold tracking-wide', className)} >
         {t('move.' + name)}
       </span>
-      <span className={twMerge('rounded-r-full bg-slate-600 pl-2 pr-4 py-1 font-medium tracking-wide', className)}>
+      <span className={twMerge('text-lg rounded-r-full bg-slate-600 pl-2 pr-4 py-1 font-medium tracking-wide', className)}>
         {value ?? '—'}
       </span>
     </>

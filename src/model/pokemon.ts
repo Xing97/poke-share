@@ -56,6 +56,23 @@ export interface VersionText {
   [Game.TheIndigoDisk]?: string
 }
 
+export interface EffectText {
+  [Language.English]?: Effect
+  [Language.Spanish]?: Effect
+  [Language.French]?: Effect
+  [Language.German]?: Effect
+  [Language.Italian]?: Effect
+  [Language.Korean]?: Effect
+  [Language.Japanese]?: Effect
+  [Language.ChineseTraditional]?: Effect
+  [Language.ChineseSimplified]?: Effect
+}
+
+export interface Effect {
+  effect: string
+  sortEffect: string
+}
+
 export interface PokemonInfo {
   name: string
   nickname?: string
@@ -100,12 +117,14 @@ export interface Stats {
 
 export interface Item {
   name: I18nName
+  effectText: EffectText
   flavorText: FlavorText
   image: string
 }
 
 export interface Ability {
   name: I18nName
+  effectText: EffectText
   flavorText: FlavorText
 }
 
@@ -118,6 +137,7 @@ export interface Move {
   power: number
   accuracy: number
   priority: number
+  effectText: EffectText
   flavorText: FlavorText
 }
 

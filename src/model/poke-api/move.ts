@@ -1,4 +1,4 @@
-import { type Name, type NamedAPIResource, type VersionGroupFlavorText } from '@/model/poke-api/common'
+import { type Name, type NamedAPIResource, type VerboseEffect, type VersionGroupFlavorText } from '@/model/poke-api/common'
 
 export interface IMove {
   id: number
@@ -8,6 +8,7 @@ export interface IMove {
   priority: number
   power: number
   damage_class: NamedAPIResource
+  effect_entries: VerboseEffect[]
   flavor_text_entries: VersionGroupFlavorText[]
   names: Name[]
   type: NamedAPIResource

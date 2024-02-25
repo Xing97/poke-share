@@ -1,11 +1,12 @@
 import { type IAbility } from '@/model/poke-api/ability'
-import { type Name, type VersionGroupFlavorText } from '@/model/poke-api/common'
+import { type Name, type VerboseEffect, type VersionGroupFlavorText } from '@/model/poke-api/common'
 import { type IItem } from '@/model/poke-api/item'
 import { type IMove } from '@/model/poke-api/move'
 import { type IPokemon } from '@/model/poke-api/pokemon'
 import { type IPokemonSpecies } from '@/model/poke-api/pokemon-species'
 import {
   type Category,
+  type EffectText,
   type FlavorText,
   type I18nName,
   type Move,
@@ -48,6 +49,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
     nature: pokeInput.nature as Nature,
     ability: {
       name: mapNames(_ability.names, _ability.name),
+      effectText: mapEffectText(_ability.effect_entries),
       flavorText: mapFlavorText(_ability.flavor_text_entries)
     },
     evs: pokeInput.evs,
@@ -61,6 +63,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
       power: m.power,
       accuracy: m.accuracy,
       priority: m.priority,
+      effectText: mapEffectText(m.effect_entries),
       flavorText: mapFlavorText(m.flavor_text_entries)
     })),
     image: pokeInput.shiny === true ? _pokemon.sprites.front_shiny : _pokemon.sprites.front_default,
@@ -83,6 +86,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
   if (_item !== undefined) {
     pokemon.item = {
       name: mapNames(_item.names, _item.name),
+      effectText: mapEffectText(_item.effect_entries),
       flavorText: mapFlavorText(_item.flavor_text_entries),
       image: _item.sprites.default
     }
@@ -131,6 +135,13 @@ function mapFlavorText (list: VersionGroupFlavorText[]): FlavorText {
     const lang = acc[item.language.name as Language] ?? {}
     lang[item.version_group.name as Game] = item.text ?? item.flavor_text
     acc[item.language.name as Language] = lang
+    return acc
+  }, {})
+}
+
+function mapEffectText (list: VerboseEffect[]): EffectText {
+  return list.reduce<EffectText>((acc, item) => {
+    acc[item.language.name as Language] = { effect: item.effect, sortEffect: item.short_effect }
     return acc
   }, {})
 }
