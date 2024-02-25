@@ -1,11 +1,12 @@
 import { type IAbility } from '@/model/poke-api/ability'
-import { type Name } from '@/model/poke-api/common'
+import { type Name, type VersionGroupFlavorText } from '@/model/poke-api/common'
 import { type IItem } from '@/model/poke-api/item'
 import { type IMove } from '@/model/poke-api/move'
 import { type IPokemon } from '@/model/poke-api/pokemon'
 import { type IPokemonSpecies } from '@/model/poke-api/pokemon-species'
 import {
   type Category,
+  type FlavorText,
   type I18nName,
   type Move,
   type Nature,
@@ -13,7 +14,7 @@ import {
   type PokemonInfo,
   type Type
 } from '@/model/pokemon'
-import { type Generation } from '@/stores/game'
+import { type Game, type Generation } from '@/stores/game'
 import { Language } from '@/stores/language'
 
 const BASE_URL = 'https://pokeapi.co/api/v2'
@@ -47,7 +48,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
     nature: pokeInput.nature as Nature,
     ability: {
       name: mapNames(_ability.names, _ability.name),
-      description: _ability.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text ?? '???'
+      flavorText: mapFlavorText(_ability.flavor_text_entries)
     },
     evs: pokeInput.evs,
     ivs: pokeInput.ivs,
@@ -60,7 +61,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
       power: m.power,
       accuracy: m.accuracy,
       priority: m.priority,
-      description: m.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text ?? '???'
+      flavorText: mapFlavorText(m.flavor_text_entries)
     })),
     image: pokeInput.shiny === true ? _pokemon.sprites.front_shiny : _pokemon.sprites.front_default,
     stats: {
@@ -82,7 +83,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
   if (_item !== undefined) {
     pokemon.item = {
       name: mapNames(_item.names, _item.name),
-      description: _item.flavor_text_entries.find(f => f.language.name === 'en')?.text ?? '???',
+      flavorText: mapFlavorText(_item.flavor_text_entries),
       image: _item.sprites.default
     }
   }
@@ -91,10 +92,19 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
 }
 
 async function fetchApi<T> (entity: string, name: string): Promise<T> {
-  const response = await fetch(`${BASE_URL}/${entity}/${name.toLowerCase().replaceAll(' ', '-')}`)
+  const isHiddenPower = entity === 'move' && name.startsWith('Hidden Power')
+  const idName = isHiddenPower ? 'hidden-power' : name.toLowerCase().replaceAll(' ', '-')
+
+  const response = await fetch(`${BASE_URL}/${entity}/${idName}`)
 
   if (!response.ok) {
     throw new Error(`${entity} with name ${name} not found in PokeAPI`)
+  }
+
+  if (isHiddenPower) {
+    const data = await response.json() as IMove
+    data.type.name = name.substring(13).toLowerCase()
+    return data as T
   }
 
   return await response.json() as T
@@ -114,4 +124,13 @@ function mapNames (names: Name[], name: string): I18nName {
 
 function findLanguage (names: Name[], language: Language): string | undefined {
   return names.find(n => n.language.name === language as string)?.name
+}
+
+function mapFlavorText (list: VersionGroupFlavorText[]): FlavorText {
+  return list.reduce<FlavorText>((acc, item) => {
+    const lang = acc[item.language.name as Language] ?? {}
+    lang[item.version_group.name as Game] = item.text ?? item.flavor_text
+    acc[item.language.name as Language] = lang
+    return acc
+  }, {})
 }

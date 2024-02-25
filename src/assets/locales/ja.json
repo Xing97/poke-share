@@ -7,12 +7,24 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "tooltips": {
+    "pokemon": "ポケモン",
+    "input": "入力",
+    "store": "保存",
+    "share": "共有",
+    "settings": "設定"
+  },
   "input": {
     "paste": "ここにポケモンを貼り付ける",
     "title": "タイトル（任意）",
     "update": "更新する",
     "error": "入力が無効",
     "example": "例"
+  },
+  "store": {
+    "save-current": "現在保存",
+    "clear": "すべてクリア",
+    "untitled": "タイトルなし"
   },
   "settings": {
     "generations": "ゲーム世代",

@@ -1,4 +1,4 @@
-import { type Generation } from '@/stores/game'
+import { type Game, type Generation } from '@/stores/game'
 import { type Language } from '@/stores/language'
 
 export interface I18nName {
@@ -12,6 +12,48 @@ export interface I18nName {
   [Language.Japanese]?: string
   [Language.ChineseTraditional]?: string
   [Language.ChineseSimplified]?: string
+}
+
+export interface FlavorText {
+  [Language.English]?: VersionText
+  [Language.Spanish]?: VersionText
+  [Language.French]?: VersionText
+  [Language.German]?: VersionText
+  [Language.Italian]?: VersionText
+  [Language.Korean]?: VersionText
+  [Language.Japanese]?: VersionText
+  [Language.ChineseTraditional]?: VersionText
+  [Language.ChineseSimplified]?: VersionText
+}
+
+export interface VersionText {
+  [Game.RedBlue]?: string
+  [Game.Yellow]?: string
+  [Game.GoldSilver]?: string
+  [Game.Crystal]?: string
+  [Game.RubySapphire]?: string
+  [Game.Emerald]?: string
+  [Game.FireRedLeafGreen]?: string
+  [Game.DiamondPearl]?: string
+  [Game.Platinum]?: string
+  [Game.HeartGoldSoulSilver]?: string
+  [Game.BlackWhite]?: string
+  [Game.Colosseum]?: string
+  [Game.XD]?: string
+  [Game.Black2White2]?: string
+  [Game.XandY]?: string
+  [Game.OmegaRubyAlphaSapphire]?: string
+  [Game.SunMoon]?: string
+  [Game.UltraSunUltraMoon]?: string
+  [Game.LetSGoPikachuLetSGoEevee]?: string
+  [Game.SwordShield]?: string
+  [Game.TheIsleOfArmor]?: string
+  [Game.TheCrownTundra]?: string
+  [Game.BrilliantDiamondAndShiningPearl]?: string
+  [Game.LegendsArceus]?: string
+  [Game.ScarletViolet]?: string
+  [Game.TheTealMask]?: string
+  [Game.TheIndigoDisk]?: string
 }
 
 export interface PokemonInfo {
@@ -58,13 +100,13 @@ export interface Stats {
 
 export interface Item {
   name: I18nName
-  description: string
+  flavorText: FlavorText
   image: string
 }
 
 export interface Ability {
   name: I18nName
-  description: string
+  flavorText: FlavorText
 }
 
 export interface Move {
@@ -76,7 +118,7 @@ export interface Move {
   power: number
   accuracy: number
   priority: number
-  description: string
+  flavorText: FlavorText
 }
 
 export interface PastType {

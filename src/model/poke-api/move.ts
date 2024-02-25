@@ -1,4 +1,4 @@
-import { type Name, type NamedAPIResource } from './common'
+import { type Name, type NamedAPIResource, type VersionGroupFlavorText } from '@/model/poke-api/common'
 
 export interface IMove {
   id: number
@@ -8,13 +8,7 @@ export interface IMove {
   priority: number
   power: number
   damage_class: NamedAPIResource
-  flavor_text_entries: MoveFlavorText[]
+  flavor_text_entries: VersionGroupFlavorText[]
   names: Name[]
   type: NamedAPIResource
-}
-
-export interface MoveFlavorText {
-  flavor_text: string
-  language: NamedAPIResource
-  version_group: NamedAPIResource
 }

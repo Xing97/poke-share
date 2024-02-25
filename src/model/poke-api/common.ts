@@ -13,7 +13,8 @@ export interface VerboseEffect {
 }
 
 export interface VersionGroupFlavorText {
-  text: string
+  text?: string
+  flavor_text?: string
   language: NamedAPIResource
   version_group: NamedAPIResource
 }

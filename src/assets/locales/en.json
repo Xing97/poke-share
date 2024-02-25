@@ -7,12 +7,24 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "tooltips": {
+    "pokemon": "Pokémon",
+    "input": "Input",
+    "store": "Stored",
+    "share": "Share",
+    "settings": "Settings"
+  },
   "input": {
-    "paste": "Paste your pokemons here",
+    "paste": "Paste your Pokémon here",
     "title": "Title (optional)",
     "update": "Update",
     "error": "Input is not valid",
     "example": "Example"
+  },
+  "store": {
+    "save-current": "Save current",
+    "clear": "Delete all",
+    "untitled": "Untitled"
   },
   "settings": {
     "generations": "Game Generation",
@@ -75,6 +87,19 @@
     "scarlet-violet": "Scarlet / Violet",
     "the-teal-mask": "The Teal Mask",
     "the-indigo-disk": "The Indigo Disk"
+  },
+  "move": {
+    "type": "Type",
+    "category": "Category",
+    "power": "Power",
+    "accuracy": "Accuracy",
+    "pp": "PP",
+    "priority": "Priority"
+  },
+  "category": {
+    "physical": "Physical",
+    "special": "Special",
+    "status": "Status"
   },
   "types": {
     "rock": "Rock",

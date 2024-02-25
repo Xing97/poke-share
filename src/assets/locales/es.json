@@ -7,12 +7,24 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "tooltips": {
+    "pokemon": "Pokémon",
+    "input": "Entrada",
+    "store": "Guardados",
+    "share": "Compartir",
+    "settings": "Configuración"
+  },
   "input": {
-    "paste": "Pega aquí tus pokemons",
-    "title": "Titulo (opcional)",
+    "paste": "Pega aquí tus Pokémon",
+    "title": "Título (opcional)",
     "update": "Actualizar",
     "error": "La entrada no es válida",
     "example": "Ejemplo"
+  },
+  "store": {
+    "save-current": "Guardar actual",
+    "clear": "Eliminar todo",
+    "untitled": "Sin título"
   },
   "settings": {
     "generations": "Generación del juego",
@@ -64,6 +76,19 @@
     "scarlet-violet": "Escarlata / Púrpura",
     "the-teal-mask": "La máscara turquesa",
     "the-indigo-disk": "El disco índigo"
+  },
+  "move": {
+    "type": "Tipo",
+    "category": "Clase",
+    "power": "Potencia",
+    "accuracy": "Precisión",
+    "pp": "PP",
+    "priority": "Prioridad"
+  },
+  "category": {
+    "physical": "Físico",
+    "special": "Especial",
+    "status": "Estado"
   },
   "types": {
     "rock": "Roca",

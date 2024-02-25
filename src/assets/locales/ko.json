@@ -1,13 +1,18 @@
 {
   "labels": {
     "share": "공유 가능한 URL이 클립 보드에 복사되었습니다.",
-    "paste": "포켓몬을 여기에 붙여넣기",
-    "update": "업데이트하다",
     "base": "종족치",
     "evs": "기초 포인트",
     "ivs": "개체값",
     "lvl50": "50",
     "lvl100": "100"
+  },
+  "tooltips": {
+    "pokemon": "포켓몬",
+    "input": "입력",
+    "store": "저장됨",
+    "share": "공유",
+    "settings": "설정"
   },
   "input": {
     "paste": "포켓몬을 여기에 붙여넣기",
@@ -15,6 +20,11 @@
     "update": "업데이트하다",
     "error": "입력이 유효하지 않습니다.",
     "example": "예시"
+  },
+  "store": {
+    "save-current": "현재 저장",
+    "clear": "모두 지우기",
+    "untitled": "제목 없음"
   },
   "settings": {
     "generations": "세대",

@@ -11,7 +11,7 @@ export default function PokemonNature ({ nature }: Props): JSX.Element {
 
   return (
     <div className='flex items-center gap-2'>
-      <NatureIcon height='32px' width='32px' />
+      <NatureIcon className='size-8' />
       <span>{t('natures.' + nature)}</span>
     </div>
   )

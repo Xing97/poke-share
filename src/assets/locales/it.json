@@ -7,12 +7,24 @@
     "lvl50": "50",
     "lvl100": "100"
   },
+  "tooltips": {
+    "pokemon": "Pokémon",
+    "input": "Input",
+    "store": "Memorizzato",
+    "share": "Condividi",
+    "settings": "Impostazioni"
+  },
   "input": {
-    "paste": "Incolla i tuoi pokemon qui",
+    "paste": "Incolla i tuoi Pokémon qui",
     "title": "Titolo (opzionale)",
     "update": "Aggiornamento",
     "error": "L'ingresso non è valido",
     "example": "Esempio"
+  },
+  "store": {
+    "save-current": "儲存當前",
+    "clear": "全部清除",
+    "untitled": "未命名"
   },
   "settings": {
     "generations": "Generazione di Gioco",

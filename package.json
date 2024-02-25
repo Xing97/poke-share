@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "hint.css": "^3.0.0",
     "i18next": "^23.7.11",
     "million": "^2.6.4",
     "pako": "^2.1.0",
@@ -18,6 +19,7 @@
     "react-helmet-async": "^2.0.4",
     "react-i18next": "^14.0.0",
     "sonner": "^1.3.1",
+    "tailwind-merge": "^2.2.1",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

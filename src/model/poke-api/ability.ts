@@ -1,14 +1,8 @@
-import { type Name, type NamedAPIResource } from './common'
+import { type Name, type VersionGroupFlavorText } from '@/model/poke-api/common'
 
 export interface IAbility {
   id: number
   name: string
   names: Name[]
-  flavor_text_entries: AbilityFlavorText[]
-}
-
-export interface AbilityFlavorText {
-  flavor_text: string
-  language: NamedAPIResource
-  version_group: NamedAPIResource
+  flavor_text_entries: VersionGroupFlavorText[]
 }
