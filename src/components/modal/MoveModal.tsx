@@ -56,10 +56,10 @@ function Row ({ name, value, className }: { name: string, value: string | number
 
   return (
     <>
-      <span className={twMerge('text-lg rounded-l-full bg-slate-600 px-6 py-1 text-center font-semibold tracking-wide', className)} >
+      <span className={twMerge('text-white text-lg rounded-l-full bg-slate-600 px-6 py-1 text-center font-semibold tracking-wide', className)} >
         {t('move.' + name)}
       </span>
-      <span className={twMerge('text-lg rounded-r-full bg-slate-600 pl-2 pr-4 py-1 font-medium tracking-wide', className)}>
+      <span className={twMerge('text-white text-lg rounded-r-full bg-slate-600 pl-2 pr-4 py-1 font-medium tracking-wide', className)}>
         {value ?? '—'}
       </span>
     </>
