@@ -1,3 +1,5 @@
+import PokemonModal from '@/components/modal/GenericModal'
+import PokemonItemImage from '@/components/pokemon/PokemonItemImage'
 import useI18n from '@/hooks/useI18n'
 import FemaleIcon from '@/icons/FemaleIcon'
 import MaleIcon from '@/icons/MaleIcon'
@@ -25,8 +27,6 @@ import { Gender, Type, type Pokemon } from '@/model/pokemon'
 import { useModalStore } from '@/stores/modal'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import PokemonModal from '../modal/GenericModal'
-import PokemonItemImage from './PokemonItemImage'
 
 const TERA_TYPES = {
   [Type.Bug]: TeraTypeBug,

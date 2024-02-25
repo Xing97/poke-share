@@ -1,10 +1,10 @@
+import { CATEGORY_BG_COLORS, TYPES_BG_COLORS } from '@/components/styles'
 import useI18n from '@/hooks/useI18n'
 import { getMoveCategory } from '@/model/constants'
 import { type Move } from '@/model/pokemon'
 import { useGameStore } from '@/stores/game'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
-import { CATEGORY_BG_COLORS, TYPES_BG_COLORS } from '../styles'
 
 interface Props {
   move: Move
@@ -25,8 +25,8 @@ export default function MoveModal ({ move }: Props): JSX.Element {
       <header className='flex gap-4'>
         <h1 className='text-3xl font-bold tracking-wide'>{name(move.name)}</h1>
       </header>
-      <main className='flex gap-6'>
-        <div className='mt-6 grid h-fit min-w-fit grid-cols-2 flex-col gap-1'>
+      <main className='mt-6 flex gap-6'>
+        <div className='grid h-fit min-w-fit grid-cols-2 flex-col gap-x-1 gap-y-2'>
           <Row className={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
           <Row className={CATEGORY_BG_COLORS[moveCategory]} name='category' value={t('category.' + moveCategory)} />
           <Row name='pp' value={move.pp} />
@@ -34,9 +34,17 @@ export default function MoveModal ({ move }: Props): JSX.Element {
           <Row name='accuracy' value={move.accuracy} />
           <Row name='priority' value={move.priority} />
         </div>
-        <div>
-          {flavor != null && <p className='mt-6 text-lg font-medium'>{flavor}</p>}
-          {effect != null && <p className='mt-6'>{effect}</p>}
+        <div className='flex flex-col gap-6'>
+          {flavor != null && <p className='text-lg font-medium'>{flavor}</p>}
+          {effect != null && <p>{effect}</p>}
+          <a
+            className='mt-auto self-end align-bottom text-blue-500 underline hover:text-white'
+            href={`https://bulbapedia.bulbagarden.net/wiki/${move.name.en}_(move)`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Bulbapedia
+          </a>
         </div>
       </main>
     </section>
