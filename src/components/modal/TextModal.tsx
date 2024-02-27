@@ -1,7 +1,7 @@
+import '@/github-markdown.css'
 import useI18n from '@/hooks/useI18n'
 import { type EffectText, type FlavorText, type I18nName } from '@/model/pokemon'
 import DOMPurify from 'dompurify'
-import 'github-markdown.css'
 import { marked } from 'marked'
 
 interface Props {
