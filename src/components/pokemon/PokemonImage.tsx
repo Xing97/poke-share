@@ -1,54 +1,18 @@
-import PokemonModal from '@/components/modal/GenericModal'
+import GenericModal from '@/components/modal/GenericModal'
 import PokemonItemImage from '@/components/pokemon/PokemonItemImage'
 import useI18n from '@/hooks/useI18n'
 import FemaleIcon from '@/icons/FemaleIcon'
 import MaleIcon from '@/icons/MaleIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
-import TeraTypeBug from '@/icons/tera-types/TeraTypeBug'
-import TeraTypeDark from '@/icons/tera-types/TeraTypeDark'
-import TeraTypeDragon from '@/icons/tera-types/TeraTypeDragon'
-import TeraTypeElectric from '@/icons/tera-types/TeraTypeElectric'
-import TeraTypeFairy from '@/icons/tera-types/TeraTypeFairy'
-import TeraTypeFighting from '@/icons/tera-types/TeraTypeFighting'
-import TeraTypeFire from '@/icons/tera-types/TeraTypeFire'
-import TeraTypeFlying from '@/icons/tera-types/TeraTypeFlying'
-import TeraTypeGhost from '@/icons/tera-types/TeraTypeGhost'
-import TeraTypeGrass from '@/icons/tera-types/TeraTypeGrass'
-import TeraTypeGround from '@/icons/tera-types/TeraTypeGround'
-import TeraTypeIce from '@/icons/tera-types/TeraTypeIce'
-import TeraTypeNormal from '@/icons/tera-types/TeraTypeNormal'
-import TeraTypePoison from '@/icons/tera-types/TeraTypePoison'
-import TeraTypePsychic from '@/icons/tera-types/TeraTypePsychic'
-import TeraTypeRock from '@/icons/tera-types/TeraTypeRock'
-import TeraTypeSteel from '@/icons/tera-types/TeraTypeSteel'
-import TeraTypeStellar from '@/icons/tera-types/TeraTypeStellar'
-import TeraTypeWater from '@/icons/tera-types/TeraTypeWater'
-import { Gender, Type, type Pokemon } from '@/model/pokemon'
+import { Gender, type Pokemon } from '@/model/pokemon'
 import { useModalStore } from '@/stores/modal'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import lazyWithPreload from 'react-lazy-with-preload'
 
-const TERA_TYPES = {
-  [Type.Bug]: TeraTypeBug,
-  [Type.Dark]: TeraTypeDark,
-  [Type.Dragon]: TeraTypeDragon,
-  [Type.Electric]: TeraTypeElectric,
-  [Type.Fairy]: TeraTypeFairy,
-  [Type.Fighting]: TeraTypeFighting,
-  [Type.Fire]: TeraTypeFire,
-  [Type.Flying]: TeraTypeFlying,
-  [Type.Ghost]: TeraTypeGhost,
-  [Type.Grass]: TeraTypeGrass,
-  [Type.Ground]: TeraTypeGround,
-  [Type.Ice]: TeraTypeIce,
-  [Type.Normal]: TeraTypeNormal,
-  [Type.Poison]: TeraTypePoison,
-  [Type.Psychic]: TeraTypePsychic,
-  [Type.Rock]: TeraTypeRock,
-  [Type.Steel]: TeraTypeSteel,
-  [Type.Water]: TeraTypeWater,
-  [Type.Stellar]: TeraTypeStellar
-}
+const TeraTypeIcon = lazyWithPreload(async () => await import('@/icons/TeraTypeIcon'))
+
+void TeraTypeIcon.preload()
 
 interface Props {
   pokemon: Pokemon
@@ -74,7 +38,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemon.gender === Gender.Female && <FemaleIcon className='absolute left-0 top-0 size-8' />}
       {pokemon.teraType != null &&
         <div className='hint--bottom hint--rounded absolute right-0 top-0 size-8' aria-label={t('types.' + pokemon.teraType)}>
-          {TERA_TYPES[pokemon.teraType]({})}
+          <TeraTypeIcon type={pokemon.teraType} />
         </div>}
       {pokemonItem != null &&
         <div className='absolute bottom-0 right-0'>
@@ -82,7 +46,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
             className='hint--bottom hint--rounded size-12 transition-transform hover:scale-125'
             aria-label={name(pokemonItem.name)}
             onClick={() => {
-              showModal(<PokemonModal
+              showModal(<GenericModal
                 entity={pokemonItem}
                 icon={<PokemonItemImage item={pokemonItem} />}
               />)

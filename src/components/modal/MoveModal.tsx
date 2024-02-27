@@ -4,7 +4,12 @@ import { getMoveCategory } from '@/model/constants'
 import { type Move } from '@/model/pokemon'
 import { useGameStore } from '@/stores/game'
 import { useTranslation } from 'react-i18next'
+import lazyWithPreload from 'react-lazy-with-preload'
 import { twMerge } from 'tailwind-merge'
+
+const TextModal = lazyWithPreload(async () => await import('@/components/modal/TextModal'))
+
+void TextModal.preload()
 
 interface Props {
   move: Move
@@ -12,10 +17,7 @@ interface Props {
 
 export default function MoveModal ({ move }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { name, flavorText, effectText } = useI18n()
-
-  const flavor = flavorText(move.flavorText)
-  const effect = effectText(move.effectText)
+  const { name } = useI18n()
 
   const generation = useGameStore(state => state.generation)
   const moveCategory = getMoveCategory(move, generation)
@@ -34,18 +36,7 @@ export default function MoveModal ({ move }: Props): JSX.Element {
           <Row name='accuracy' value={move.accuracy} />
           <Row name='priority' value={move.priority} />
         </div>
-        <div className='flex flex-col gap-6'>
-          {flavor != null && <p className='text-lg font-medium'>{flavor}</p>}
-          {effect != null && <p>{effect}</p>}
-          <a
-            className='mt-auto self-end align-bottom text-blue-500 underline hover:text-white'
-            href={`https://bulbapedia.bulbagarden.net/wiki/${move.name.en}_(move)`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Bulbapedia
-          </a>
-        </div>
+        <TextModal entity={move} />
       </main>
     </section>
   )
