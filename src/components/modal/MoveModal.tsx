@@ -3,6 +3,7 @@ import useI18n from '@/hooks/useI18n'
 import { getMoveCategory } from '@/model/constants'
 import { type Move } from '@/model/pokemon'
 import { useGameStore } from '@/stores/game'
+import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import lazyWithPreload from 'react-lazy-with-preload'
 import { twMerge } from 'tailwind-merge'
@@ -16,11 +17,13 @@ interface Props {
 }
 
 export default function MoveModal ({ move }: Props): JSX.Element {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { name } = useI18n()
 
   const generation = useGameStore(state => state.generation)
   const moveCategory = getMoveCategory(move, generation)
+
+  const lang = i18n.language
 
   return (
     <section>
@@ -31,18 +34,20 @@ export default function MoveModal ({ move }: Props): JSX.Element {
         <div className='grid h-fit min-w-fit grid-cols-2 flex-col gap-x-1 gap-y-2'>
           <Row className={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
           <Row className={CATEGORY_BG_COLORS[moveCategory]} name='category' value={t('category.' + moveCategory)} />
-          <Row name='pp' value={move.pp} />
-          <Row name='power' value={move.power} />
-          <Row name='accuracy' value={move.accuracy} />
-          <Row name='priority' value={move.priority} />
+          <Row name='pp' value={move.pp.toLocaleString(lang)} />
+          <Row name='power' value={move.power?.toLocaleString(lang)} />
+          <Row name='accuracy' value={move.accuracy?.toLocaleString(lang)} />
+          <Row name='priority' value={move.priority.toLocaleString(lang, { signDisplay: 'exceptZero' })} />
         </div>
-        <TextModal entity={move} />
+        <Suspense>
+          <TextModal entity={move} />
+        </Suspense>
       </main>
     </section>
   )
 }
 
-function Row ({ name, value, className }: { name: string, value: string | number, className?: string }): JSX.Element {
+function Row ({ name, value, className }: { name: string, value?: string, className?: string }): JSX.Element {
   const { t } = useTranslation()
 
   return (

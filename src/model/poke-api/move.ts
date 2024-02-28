@@ -3,10 +3,10 @@ import { type Name, type NamedAPIResource, type VerboseEffect, type VersionGroup
 export interface IMove {
   id: number
   name: string
-  accuracy: number
+  accuracy?: number
   pp: number
   priority: number
-  power: number
+  power?: number
   damage_class: NamedAPIResource
   effect_entries: VerboseEffect[]
   flavor_text_entries: VersionGroupFlavorText[]

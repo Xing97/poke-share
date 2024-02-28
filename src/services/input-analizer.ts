@@ -2,7 +2,7 @@ import { type Gender, type Pokemon, type PokemonInfo, type Stats, type Type } fr
 import { fetchPokemon } from '@/services/poke-api'
 
 const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
-const RE_MOVE = /^- ([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)(?: \[([A-Z][a-z]+)\])?(?: \/ [A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
+const RE_MOVE = /^- ?([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*(?: \[[A-Z][a-z]+\])?)(?: ?\/ ?[A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
 const RE_NATURE = /^([A-Za-z]+) Nature/m
 
 export async function parsePokemons (text: string): Promise<Pokemon[]> {

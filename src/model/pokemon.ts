@@ -134,8 +134,8 @@ export interface Move {
   type: Type
   category: Category
   pp: number
-  power: number
-  accuracy: number
+  power?: number
+  accuracy?: number
   priority: number
   effectText: EffectText
   flavorText: FlavorText

@@ -1,5 +1,6 @@
 import useI18n from '@/hooks/useI18n'
 import { type EffectText, type FlavorText, type I18nName } from '@/model/pokemon'
+import { Suspense } from 'react'
 import lazyWithPreload from 'react-lazy-with-preload'
 
 const TextModal = lazyWithPreload(async () => await import('@/components/modal/TextModal'))
@@ -21,7 +22,9 @@ export default function GenericModal ({ entity, icon, wikiPrefix = '' }: Props):
         {icon}
         <h1 className='text-3xl font-bold tracking-wide'>{name(entity.name)}</h1>
       </header>
-      <TextModal entity={entity} wikiPrefix={wikiPrefix} />
+      <Suspense>
+        <TextModal entity={entity} wikiPrefix={wikiPrefix} />
+      </Suspense>
     </section>
   )
 }

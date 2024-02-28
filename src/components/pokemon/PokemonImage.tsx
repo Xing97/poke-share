@@ -6,7 +6,7 @@ import MaleIcon from '@/icons/MaleIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
 import { Gender, type Pokemon } from '@/model/pokemon'
 import { useModalStore } from '@/stores/modal'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import lazyWithPreload from 'react-lazy-with-preload'
 
@@ -38,7 +38,9 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemon.gender === Gender.Female && <FemaleIcon className='absolute left-0 top-0 size-8' />}
       {pokemon.teraType != null &&
         <div className='hint--bottom hint--rounded absolute right-0 top-0 size-8' aria-label={t('types.' + pokemon.teraType)}>
-          <TeraTypeIcon type={pokemon.teraType} />
+          <Suspense>
+            <TeraTypeIcon type={pokemon.teraType} />
+          </Suspense>
         </div>}
       {pokemonItem != null &&
         <div className='absolute bottom-0 right-0'>

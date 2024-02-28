@@ -107,7 +107,7 @@ async function fetchApi<T> (entity: string, name: string): Promise<T> {
 
   if (isHiddenPower) {
     const data = await response.json() as IMove
-    data.type.name = name.substring(13).toLowerCase()
+    data.type.name = name.substring(13).replace('[', '').replace(']', '').toLowerCase()
     return data as T
   }
 
