@@ -5,6 +5,7 @@ import i18n from '@/setup/i18n'
 import { Sidebar, useSidebarStore } from '@/stores/sidebar'
 import { toast } from 'sonner'
 import { create } from 'zustand'
+import { useHistoryStore } from './history'
 
 interface PokemonStore {
   title: string
@@ -12,7 +13,7 @@ interface PokemonStore {
   pokemonTeam: Pokemon[]
   loading: boolean
   setInput: (input: string) => void
-  submit: (input: string, title: string) => void
+  submit: (input: string, title: string, addHistory?: boolean) => void
 }
 
 export const usePokemonStore = create<PokemonStore>()(
@@ -22,7 +23,7 @@ export const usePokemonStore = create<PokemonStore>()(
     pokemonTeam: [],
     loading: false,
     setInput (input: string) { set({ input }) },
-    submit (input, title) {
+    submit (input, title, addHistory = false) {
       set({ title, input, loading: true })
       parsePokemons(input)
         .then((team) => {
@@ -30,6 +31,9 @@ export const usePokemonStore = create<PokemonStore>()(
           setInputInPath(input, title)
           if (window.matchMedia('(max-width: 768px)').matches) {
             useSidebarStore.getState().setSidebar(Sidebar.Pokemon)
+          }
+          if (addHistory) {
+            useHistoryStore.getState().add(input, title)
           }
         })
         .catch((e) => { toast.error(i18n.t('input.error')); console.error(e) })

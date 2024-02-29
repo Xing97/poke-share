@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Eingabe",
-    "store": "Gespeicherte",
+    "history": "Historie",
     "share": "Teilen",
     "settings": "Einstellungen"
   },
@@ -21,8 +21,7 @@
     "error": "Eingabe ist nicht gültig",
     "example": "Beispiel"
   },
-  "store": {
-    "save-current": "Aktuell speichern",
+  "history": {
     "clear": "Alles löschen",
     "untitled": "Ohne Titel"
   },

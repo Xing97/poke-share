@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Entrée",
-    "store": "Stocké",
+    "history": "Historique",
     "share": "Partager",
     "settings": "Paramètres"
   },
@@ -21,8 +21,7 @@
     "error": "L'entrée n'est pas valide",
     "example": "Exemple"
   },
-  "store": {
-    "save-current": "Enregistrer actuel",
+  "history": {
     "clear": "Tout effacer",
     "untitled": "Sans titre"
   },

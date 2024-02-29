@@ -21,7 +21,7 @@ export default function PokemonInput (): JSX.Element {
     event.preventDefault()
 
     const form = new FormData(event.currentTarget)
-    submit(form.get('paste') as string, form.get('title') as string)
+    submit(form.get('paste') as string, form.get('title') as string, true)
   }
 
   return (

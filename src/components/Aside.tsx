@@ -1,10 +1,10 @@
+import History from '@/components/side-bar/History'
 import PokemonInput from '@/components/side-bar/PokemonInput'
 import Settings from '@/components/side-bar/Settings'
-import Store from '@/components/side-bar/Store'
 import CogIcon from '@/icons/CogIcon'
 import EditIcon from '@/icons/EditIcon'
+import SaveIcon from '@/icons/HistoryIcon'
 import PokeBallIcon from '@/icons/PokeBallIcon'
-import SaveIcon from '@/icons/SaveIcon'
 import ShareIcon from '@/icons/ShareIcon'
 import { Sidebar, useSidebarStore } from '@/stores/sidebar'
 import { useCallback } from 'react'
@@ -14,7 +14,7 @@ import { toast } from 'sonner'
 const SIDE_BAR = {
   [Sidebar.Pokemon]: null,
   [Sidebar.Input]: <PokemonInput />,
-  [Sidebar.Store]: <Store />,
+  [Sidebar.History]: <History />,
   [Sidebar.Settings]: <Settings />
 }
 
@@ -30,7 +30,7 @@ export default function Aside (): JSX.Element {
 
   return (
     <aside className='flex'>
-      <div className='flex w-full justify-between bg-slate-400 md:h-full md:w-16 md:flex-col dark:bg-slate-700'>
+      <div className='flex w-full justify-between bg-slate-400 dark:bg-slate-700 md:h-full md:w-16 md:flex-col'>
         <header className='flex md:block'>
           <Tab name={Sidebar.Pokemon}>
             <PokeBallIcon />
@@ -38,7 +38,7 @@ export default function Aside (): JSX.Element {
           <Tab name={Sidebar.Input}>
             <EditIcon />
           </Tab>
-          <Tab name={Sidebar.Store}>
+          <Tab name={Sidebar.History}>
             <SaveIcon />
           </Tab>
         </header>
@@ -52,7 +52,7 @@ export default function Aside (): JSX.Element {
         </footer>
       </div>
       {selected !== Sidebar.Pokemon &&
-        <div className='scrollbar-thin absolute bottom-0 top-12 z-10 w-full overflow-y-auto bg-slate-200 xs:top-16 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800'>
+        <div className='scrollbar-thin absolute bottom-0 top-12 z-10 w-full overflow-y-auto bg-slate-200 dark:bg-slate-800 xs:top-16 md:static md:h-full md:w-72 lg:w-80 xl:w-96'>
           {SIDE_BAR[selected]}
         </div>}
     </aside>
@@ -67,7 +67,7 @@ function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }):
   return (
     <button
       aria-label={t('tooltips.' + name)}
-      className={`hint--right hint--rounded aspect-square size-12 before:hidden after:hidden xs:h-16 xs:w-16 md:border-l-3 md:before:block md:after:block ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 hover:text-black hover:dark:text-white`}
+      className={`hint--right hint--rounded size-12 before:hidden after:hidden xs:size-16 md:border-l-3 md:before:block md:after:block ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 hover:text-black hover:dark:text-white`}
       onClick={() => { setSelected(name) }}
     >
       {children}
@@ -81,7 +81,7 @@ function Button ({ children, name, onClick }: { children: React.ReactNode, name:
   return (
     <button
       aria-label={t('tooltips.' + name)}
-      className='hint--right hint--rounded aspect-square size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black xs:h-16 xs:w-16 md:border-l-3 dark:text-slate-400 hover:dark:text-white'
+      className='hint--right hint--rounded size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black dark:text-slate-400 hover:dark:text-white xs:size-16 md:border-l-3 md:before:block md:after:block'
       onClick={onClick}
     >
       {children}

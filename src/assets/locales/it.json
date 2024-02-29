@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Input",
-    "store": "Memorizzato",
+    "history": "Storia",
     "share": "Condividi",
     "settings": "Impostazioni"
   },
@@ -21,10 +21,9 @@
     "error": "L'ingresso non è valido",
     "example": "Esempio"
   },
-  "store": {
-    "save-current": "儲存當前",
-    "clear": "全部清除",
-    "untitled": "未命名"
+  "history": {
+    "clear": "Cancella tutto",
+    "untitled": "Senza titolo"
   },
   "settings": {
     "generations": "Generazione di Gioco",
