@@ -76,7 +76,7 @@ export default defineConfig({
     })
   ],
   build: {
-    target: 'ESNext',
+    cssMinify: 'lightningcss',
     rollupOptions: {
       output: {
         manualChunks(id: string) {
