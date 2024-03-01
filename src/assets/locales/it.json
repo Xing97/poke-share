@@ -76,6 +76,19 @@
     "the-teal-mask": "La maschera turchese",
     "the-indigo-disk": "Il disco indaco"
   },
+  "move": {
+    "type": "Tipo",
+    "category": "Categoria",
+    "power": "Potenza",
+    "accuracy": "Precisione",
+    "pp": "PP",
+    "priority": "Priorità"
+  },
+  "category": {
+    "physical": "Fisico",
+    "special": "Speciale",
+    "status": "Stato"
+  },
   "types": {
     "rock": "Roccia",
     "bug": "Coleottero",

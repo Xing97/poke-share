@@ -76,6 +76,19 @@
     "the-teal-mask": "碧之假面",
     "the-indigo-disk": "藍之圓盤"
   },
+  "move": {
+    "type": "屬性",
+    "category": "分類",
+    "power": "威力",
+    "accuracy": "命中",
+    "pp": "ＰＰ",
+    "priority": "優先度"
+  },
+  "category": {
+    "physical": "物理",
+    "special": "特殊",
+    "status": "變化"
+  },
   "types": {
     "rock": "岩石",
     "bug": "蟲",

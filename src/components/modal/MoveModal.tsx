@@ -36,7 +36,7 @@ export default function MoveModal ({ move }: Props): JSX.Element {
           <Row className={CATEGORY_BG_COLORS[moveCategory]} name='category' value={t('category.' + moveCategory)} />
           <Row name='pp' value={move.pp.toLocaleString(lang)} />
           <Row name='power' value={move.power?.toLocaleString(lang)} />
-          <Row name='accuracy' value={move.accuracy?.toLocaleString(lang)} />
+          <Row name='accuracy' value={move.accuracy?.toLocaleString(lang).concat('%')} />
           <Row name='priority' value={move.priority.toLocaleString(lang, { signDisplay: 'exceptZero' })} />
         </div>
         <Suspense>

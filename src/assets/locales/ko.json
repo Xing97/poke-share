@@ -76,6 +76,19 @@
     "the-teal-mask": "벽록의 가면",
     "the-indigo-disk": "남청의 원반"
   },
+  "move": {
+    "type": "타입",
+    "category": "분류",
+    "power": "위력",
+    "accuracy": "명중률",
+    "pp": "PP",
+    "priority": "우선도"
+  },
+  "category": {
+    "physical": "물리",
+    "special": "특수",
+    "status": "변화"
+  },
   "types": {
     "rock": "바위",
     "bug": "벌레",

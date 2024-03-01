@@ -76,6 +76,19 @@
     "the-teal-mask": "碧の仮面",
     "the-indigo-disk": "藍の円盤"
   },
+  "move": {
+    "type": "タイプ",
+    "category": "分類",
+    "power": "威力",
+    "accuracy": "命中率",
+    "pp": "PP",
+    "priority": "優先度"
+  },
+  "category": {
+    "physical": "ぶつり",
+    "special": "とくしゅ",
+    "status": "へんか"
+  },
   "types": {
     "rock": "いわ",
     "bug": "むし",

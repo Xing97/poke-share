@@ -49,15 +49,15 @@ function HistoryElement ({ item, removeSave }: SaveProps): JSX.Element {
   const submit = usePokemonStore(state => state.submit)
 
   return (
-    <li className='group flex min-w-0 grow rounded bg-slate-300 px-3 py-1 text-left hover:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600'>
+    <li className='group flex min-w-0 gap-2 rounded bg-slate-300 px-2 py-1 text-left hover:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600'>
       <button
-        className='group flex grow flex-col text-left'
+        className='group flex grow flex-col truncate text-left'
         onClick={() => { submit(item.input, item.title, false) }}
       >
-        <span className='w-full truncate text-lg font-semibold tracking-wide'>
+        <span className='w-full truncate text-lg font-medium'>
           {(item.title !== '') ? item.title : t('history.untitled')}
         </span>
-        <span className='w-full truncate text-sm italic tracking-wide'>
+        <span className='w-full truncate text-sm italic'>
           {new Date(item.date).toLocaleString(i18n.language)}
         </span>
       </button>

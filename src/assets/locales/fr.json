@@ -76,6 +76,19 @@
     "the-teal-mask": "Le Masque Turquoise",
     "the-indigo-disk": "Le Disque Indigo"
   },
+  "move": {
+    "type": "Type",
+    "category": "Catégorie",
+    "power": "Puissance",
+    "accuracy": "Précision",
+    "pp": "PP",
+    "priority": "Prioritaire"
+  },
+  "category": {
+    "physical": "Physique",
+    "special": "Spéciale",
+    "status": "Statut"
+  },
   "types": {
     "rock": "Roche",
     "bug": "Insecte",

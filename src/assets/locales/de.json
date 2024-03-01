@@ -76,6 +76,19 @@
     "the-teal-mask": "Die Türkisgrüne Maske",
     "the-indigo-disk": "Die Indigoblaue Scheibe"
   },
+  "move": {
+    "type": "Typ",
+    "category": "Kategorie",
+    "power": "Stärke",
+    "accuracy": "Genauigkeit",
+    "pp": "AP",
+    "priority": "Priorität"
+  },
+  "category": {
+    "physical": "Physisch",
+    "special": "Spezial",
+    "status": "Status"
+  },
   "types": {
     "rock": "Gestein",
     "bug": "Käfer",

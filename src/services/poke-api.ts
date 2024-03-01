@@ -97,7 +97,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
 
 async function fetchApi<T> (entity: string, name: string): Promise<T> {
   const isHiddenPower = entity === 'move' && name.startsWith('Hidden Power')
-  const idName = isHiddenPower ? 'hidden-power' : name.toLowerCase().replaceAll(' ', '-')
+  const idName = isHiddenPower ? 'hidden-power' : name.toLowerCase().replaceAll(' ', '-').replaceAll("'", '')
 
   const response = await fetch(`${BASE_URL}/${entity}/${idName}`)
 
