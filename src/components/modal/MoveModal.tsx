@@ -1,6 +1,6 @@
 import { CATEGORY_BG_COLORS, TYPES_BG_COLORS } from '@/components/styles'
 import useI18n from '@/hooks/useI18n'
-import { getMoveCategory } from '@/model/constants'
+import { getMoveCategory, isBeforeGame } from '@/model/constants'
 import { type Move } from '@/model/pokemon'
 import { useGameStore } from '@/stores/game'
 import { Suspense } from 'react'
@@ -17,29 +17,36 @@ interface Props {
 
 export default function MoveModal ({ move }: Props): JSX.Element {
   const { t, i18n } = useTranslation()
-  const { name } = useI18n()
+  const { resolveName } = useI18n()
 
   const generation = useGameStore(state => state.generation)
+  const game = useGameStore(state => state.game)
   const category = getMoveCategory(move, generation)
 
   const lang = i18n.language
 
+  const pp = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.pp != null)?.pp ?? move.pp
+  const power = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.power != null)?.power ?? move.power
+  const accuracy = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.accuracy != null)?.accuracy ?? move.accuracy
+  const type = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.type != null)?.type ?? move.type
+  const effectText = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.effectText != null)?.effectText ?? move.effectText
+
   return (
     <section>
       <header className='flex gap-4'>
-        <h1 className='text-3xl font-bold tracking-wide'>{name(move.name)}</h1>
+        <h1 className='text-3xl font-bold tracking-wide'>{resolveName(move.name)}</h1>
       </header>
       <main className='mt-6 flex gap-6'>
         <div className='grid h-fit min-w-fit grid-cols-2 flex-col gap-x-1 gap-y-2'>
-          <Row bg={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
+          <Row bg={TYPES_BG_COLORS[type]} name='type' value={t('types.' + type)} />
           <Row bg={CATEGORY_BG_COLORS[category]} name='category' value={t('category.' + category)} />
-          <Row name='pp' value={move.pp.toLocaleString(lang)} />
-          <Row name='power' value={move.power?.toLocaleString(lang)} />
-          <Row name='accuracy' value={move.accuracy?.toLocaleString(lang).concat('%')} />
+          <Row name='pp' value={pp.toLocaleString(lang)} />
+          <Row name='power' value={power?.toLocaleString(lang)} />
+          <Row name='accuracy' value={accuracy?.toLocaleString(lang).concat('%')} />
           <Row name='priority' value={move.priority.toLocaleString(lang, { signDisplay: 'exceptZero' })} />
         </div>
         <Suspense>
-          <TextModal entity={move} />
+          <TextModal name={move.name} flavorText={move.flavorText} effectText={effectText} />
         </Suspense>
       </main>
     </section>

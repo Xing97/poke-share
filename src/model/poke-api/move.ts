@@ -12,4 +12,14 @@ export interface IMove {
   flavor_text_entries: VersionGroupFlavorText[]
   names: Name[]
   type: NamedAPIResource
+  past_values: PastMoveStatValues[]
+}
+
+export interface PastMoveStatValues {
+  accuracy?: number
+  power?: number
+  pp?: number
+  effect_entries: VerboseEffect[]
+  type?: NamedAPIResource
+  version_group: NamedAPIResource
 }

@@ -69,7 +69,15 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
       accuracy: m.accuracy,
       priority: m.priority,
       effectText: mapEffectText(m.effect_entries),
-      flavorText: mapFlavorText(m.flavor_text_entries)
+      flavorText: mapFlavorText(m.flavor_text_entries),
+      pastValues: m.past_values.map(v => ({
+        accuracy: v.accuracy,
+        power: v.power,
+        pp: v.pp,
+        effectText: mapEffectText(v.effect_entries),
+        type: v.type?.name as Type,
+        game: v.version_group.name as Game
+      }))
     })),
     image: pokeInput.shiny === true ? _pokemon.sprites.front_shiny : _pokemon.sprites.front_default,
     stats: {

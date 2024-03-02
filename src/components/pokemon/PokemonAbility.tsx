@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function PokemonAbility ({ ability }: Props): JSX.Element {
-  const { name } = useI18n()
+  const { resolveName } = useI18n()
   const showModal = useModalStore(state => state.showModal)
 
   return (
@@ -24,7 +24,7 @@ export default function PokemonAbility ({ ability }: Props): JSX.Element {
       }}
     >
       <AbilityIcon className='size-8' />
-      <span>{name(ability.name)}</span>
+      <span>{resolveName(ability.name)}</span>
     </button>
   )
 }

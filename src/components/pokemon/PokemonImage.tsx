@@ -20,7 +20,7 @@ interface Props {
 
 export default function PokemonImage ({ pokemon }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { name } = useI18n()
+  const { resolveName } = useI18n()
   const [pokemonImageError, setPokemonImageError] = useState(false)
   const showModal = useModalStore(state => state.showModal)
 
@@ -31,7 +31,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemonImageError || pokemon.image == null
         ? <PokeBallIcon className='size-20' />
         : <img
-            className='img-pokemon size-full' src={pokemon.image} alt={name(pokemon.name)}
+            className='img-pokemon size-full' src={pokemon.image} alt={resolveName(pokemon.name)}
             onError={() => { setPokemonImageError(true) }}
         />}
       {pokemon.gender === Gender.Male && <MaleIcon className='absolute left-0 top-0 size-8' />}
@@ -46,7 +46,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
         <div className='absolute bottom-0 right-0'>
           <button
             className='hint--bottom hint--rounded size-12 transition-transform hover:scale-125'
-            aria-label={name(pokemonItem.name)}
+            aria-label={resolveName(pokemonItem.name)}
             onClick={() => {
               showModal(<GenericModal
                 entity={pokemonItem}

@@ -8,19 +8,19 @@ interface Props {
 }
 
 export default function PokemonItemImage ({ item }: Props): JSX.Element {
-  const { name } = useI18n()
+  const { resolveName } = useI18n()
   const [itemImageError, setItemImageError] = useState(false)
 
   return (itemImageError || item.image == null
     ? <QuestionIcon
         className='h-full p-2'
-        aria-label={name(item.name)}
+        aria-label={resolveName(item.name)}
     />
     : <img
         className='img-item h-full'
         src={item.image}
-        alt={name(item.name)}
-        aria-label={name(item.name)}
+        alt={resolveName(item.name)}
+        aria-label={resolveName(item.name)}
         onError={() => { setItemImageError(true) }}
     />)
 }

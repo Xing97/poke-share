@@ -14,16 +14,21 @@ interface Props {
 }
 
 export default function GenericModal ({ entity, icon, wikiPrefix = '' }: Props): JSX.Element {
-  const { name } = useI18n()
+  const { resolveName } = useI18n()
 
   return (
     <section className='flex flex-col gap-4'>
       <header className='flex h-14 items-center gap-2'>
         {icon}
-        <h1 className='text-3xl font-bold tracking-wide'>{name(entity.name)}</h1>
+        <h1 className='text-3xl font-bold tracking-wide'>{resolveName(entity.name)}</h1>
       </header>
       <Suspense>
-        <TextModal entity={entity} wikiPrefix={wikiPrefix} />
+        <TextModal
+          name={entity.name}
+          flavorText={entity.flavorText}
+          effectText={entity.effectText}
+          wikiPrefix={wikiPrefix}
+        />
       </Suspense>
     </section>
   )

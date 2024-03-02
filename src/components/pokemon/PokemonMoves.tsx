@@ -1,7 +1,7 @@
 import MoveModal from '@/components/modal/MoveModal'
 import PokemonType from '@/components/pokemon/PokemonType'
 import useI18n from '@/hooks/useI18n'
-import { getMoveCategory } from '@/model/constants'
+import { getMoveCategory, isBeforeGame } from '@/model/constants'
 import { type Move } from '@/model/pokemon'
 import { useGameStore } from '@/stores/game'
 import { useModalStore } from '@/stores/modal'
@@ -11,8 +11,9 @@ interface Props {
 }
 
 export default function PokemonMoves ({ moves }: Props): JSX.Element {
-  const { name } = useI18n()
+  const { resolveName } = useI18n()
   const generation = useGameStore(state => state.generation)
+  const game = useGameStore(state => state.game)
   const showModal = useModalStore(state => state.showModal)
 
   return (
@@ -25,10 +26,10 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
         >
           <PokemonType
             className='flex h-9 items-center justify-between rounded-xl px-2 shadow'
-            type={move.type}
+            type={move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.type != null)?.type ?? move.type}
           >
             <span className='text-shadow truncate px-1 font-bold tracking-wider'>
-              {name(move.name)}
+              {resolveName(move.name)}
             </span>
             <img
               className='h-full p-0.5'

@@ -140,6 +140,16 @@ export interface Move {
   priority: number
   effectText: EffectText
   flavorText: FlavorText
+  pastValues: PastMoveStatValues[]
+}
+
+export interface PastMoveStatValues {
+  game: Game
+  effectText: EffectText
+  accuracy?: number
+  power?: number
+  pp?: number
+  type?: Type
 }
 
 export interface PastType {

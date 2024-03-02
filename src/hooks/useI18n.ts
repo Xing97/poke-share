@@ -6,22 +6,22 @@ import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface I18n {
-  name: (field: I18nName) => string
-  flavorText: (field: FlavorText) => string | undefined
-  effectText: (field: EffectText) => string | undefined
+  resolveName: (field: I18nName) => string
+  resolveFlavorText: (field: FlavorText) => string | undefined
+  resolveEffectText: (field: EffectText) => string | undefined
 }
 
 export default function useI18n (): I18n {
   const { i18n } = useTranslation()
   const language = i18n.language as Language
 
-  const name = useCallback((field: I18nName) =>
+  const resolveName = useCallback((field: I18nName) =>
     field[language] ??
     field[i18n.options.fallbackLng as Language] ??
     field.name,
   [i18n.options.fallbackLng, language])
 
-  const effectText = useCallback((field: EffectText) =>
+  const resolveEffectText = useCallback((field: EffectText) =>
     (field[language] ?? field[i18n.options.fallbackLng as Language])?.effect,
   [i18n.options.fallbackLng, language])
 
@@ -33,7 +33,7 @@ export default function useI18n (): I18n {
     return GAMES.slice(index).concat(GAMES.slice(0, index).reverse())
   }, [generation])
 
-  const flavorText = useCallback((field: FlavorText) => {
+  const resolveFlavorText = useCallback((field: FlavorText) => {
     const lang = field[language] ?? field[i18n.options.fallbackLng as Language]
 
     if (lang == null) return undefined
@@ -46,8 +46,8 @@ export default function useI18n (): I18n {
   }, [game, i18n.options.fallbackLng, language, sortedGames])
 
   return {
-    name,
-    flavorText,
-    effectText
+    resolveName,
+    resolveFlavorText,
+    resolveEffectText
   }
 }

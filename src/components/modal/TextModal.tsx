@@ -5,19 +5,17 @@ import DOMPurify from 'dompurify'
 import { marked } from 'marked'
 
 interface Props {
-  entity: {
-    name: I18nName
-    flavorText: FlavorText
-    effectText: EffectText
-  }
+  name: I18nName
+  flavorText: FlavorText
+  effectText: EffectText
   wikiPrefix?: string
 }
 
-export default function TextModal ({ entity, wikiPrefix = '' }: Props): JSX.Element {
-  const { flavorText, effectText } = useI18n()
+export default function TextModal ({ name, flavorText, effectText, wikiPrefix = '' }: Props): JSX.Element {
+  const { resolveFlavorText, resolveEffectText } = useI18n()
 
-  const flavor = flavorText(entity.flavorText)
-  const effect = effectText(entity.effectText)?.replaceAll(/^\s{4,}/gm, '')
+  const flavor = resolveFlavorText(flavorText)
+  const effect = resolveEffectText(effectText)?.replaceAll(/^\s{4,}/gm, '')
 
   return (
     <div className='flex flex-col gap-6'>
@@ -29,7 +27,7 @@ export default function TextModal ({ entity, wikiPrefix = '' }: Props): JSX.Elem
       />}
       <a
         className='mt-auto self-end align-bottom text-blue-500 underline hover:text-blue-800 dark:hover:text-white'
-        href={`https://bulbapedia.bulbagarden.net/wiki/${entity.name.en + wikiPrefix}`}
+        href={`https://bulbapedia.bulbagarden.net/wiki/${name.en + wikiPrefix}`}
         target='_blank'
         rel='noopener noreferrer'
       >

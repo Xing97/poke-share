@@ -8,12 +8,12 @@ interface Props {
 
 export default function PokemonHeader ({ pokemon }: Props): JSX.Element {
   const { i18n } = useTranslation()
-  const { name } = useI18n()
+  const { resolveName } = useI18n()
 
   const number = '#' + pokemon.order.toString().padStart(3, '0')
-  const pokemonName = name(pokemon.name)
+  const pokemonName = resolveName(pokemon.name)
   const pokemonForm = pokemon.forms
-    .map(f => name(f))
+    .map(f => resolveName(f))
     // @ts-expect-error
     .toLocaleString(i18n.language)
 
