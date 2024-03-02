@@ -6,11 +6,11 @@ import { type IPokemon } from '@/model/poke-api/pokemon'
 import { type IPokemonForm } from '@/model/poke-api/pokemon-form'
 import { type IPokemonSpecies } from '@/model/poke-api/pokemon-species'
 import {
+  Nature,
   type Category,
   type EffectText,
   type FlavorText,
   type I18nName,
-  type Nature,
   type Pokemon,
   type PokemonInfo,
   type Type
@@ -51,8 +51,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
     forms: _forms.map(f => mapNames(f.form_names, f.name)),
     nickname: pokeInput.nickname,
     gender: pokeInput.gender,
-    item: undefined,
-    nature: pokeInput.nature as Nature,
+    nature: pokeInput.nature as Nature ?? Nature.Hardy,
     ability: {
       name: mapNames(_ability.names, _ability.name),
       effectText: mapEffectText(_ability.effect_entries),

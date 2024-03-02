@@ -6,7 +6,6 @@ import { useGameStore } from '@/stores/game'
 import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import lazyWithPreload from 'react-lazy-with-preload'
-import { twMerge } from 'tailwind-merge'
 
 const TextModal = lazyWithPreload(async () => await import('@/components/modal/TextModal'))
 
@@ -21,7 +20,7 @@ export default function MoveModal ({ move }: Props): JSX.Element {
   const { name } = useI18n()
 
   const generation = useGameStore(state => state.generation)
-  const moveCategory = getMoveCategory(move, generation)
+  const category = getMoveCategory(move, generation)
 
   const lang = i18n.language
 
@@ -32,8 +31,8 @@ export default function MoveModal ({ move }: Props): JSX.Element {
       </header>
       <main className='mt-6 flex gap-6'>
         <div className='grid h-fit min-w-fit grid-cols-2 flex-col gap-x-1 gap-y-2'>
-          <Row className={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
-          <Row className={CATEGORY_BG_COLORS[moveCategory]} name='category' value={t('category.' + moveCategory)} />
+          <Row bg={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
+          <Row bg={CATEGORY_BG_COLORS[category]} name='category' value={t('category.' + category)} />
           <Row name='pp' value={move.pp.toLocaleString(lang)} />
           <Row name='power' value={move.power?.toLocaleString(lang)} />
           <Row name='accuracy' value={move.accuracy?.toLocaleString(lang).concat('%')} />
@@ -47,15 +46,15 @@ export default function MoveModal ({ move }: Props): JSX.Element {
   )
 }
 
-function Row ({ name, value, className }: { name: string, value?: string, className?: string }): JSX.Element {
+function Row ({ name, value, bg = 'bg-slate-600' }: { name: string, value?: string, bg?: string }): JSX.Element {
   const { t } = useTranslation()
 
   return (
     <>
-      <span className={twMerge('text-white text-lg rounded-l-full bg-slate-600 px-6 py-1 text-center font-semibold tracking-wide', className)} >
+      <span className={'text-white text-lg rounded-l-full px-6 py-1 text-center font-semibold tracking-wide ' + bg} >
         {t('move.' + name)}
       </span>
-      <span className={twMerge('text-white text-lg rounded-r-full bg-slate-600 pl-2 pr-4 py-1 font-medium tracking-wide', className)}>
+      <span className={'text-white text-lg rounded-r-full pl-2 pr-4 py-1 font-medium tracking-wide ' + bg}>
         {value ?? '—'}
       </span>
     </>

@@ -9,7 +9,7 @@ interface Props {
 
 export default function PokemonType ({ children, type, className }: Props): JSX.Element {
   return (
-    <div className={`${TYPES_BG_COLORS[type]} ${className} border-3 border-black/25 py-0.5 text-white shadow`}>
+    <div className={`${TYPES_BG_COLORS[type]} ${className} border-3 border-black/25 py-0.5 text-white`}>
       {children}
     </div>
   )

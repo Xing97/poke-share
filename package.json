@@ -22,7 +22,6 @@
     "react-i18next": "^14.0.5",
     "react-lazy-with-preload": "^2.2.1",
     "sonner": "^1.4.1",
-    "tailwind-merge": "^2.2.1",
     "zustand": "^4.5.1"
   },
   "devDependencies": {
