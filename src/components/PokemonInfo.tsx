@@ -15,7 +15,7 @@ interface Props {
 }
 
 function getTypes (pokemon: Pokemon, generation: Generation): Type[] {
-  return pokemon.past_types
+  return pokemon.pastTypes
     .find((pastType) => isIncludedGeneration(pastType.generation, generation))?.types ??
     pokemon.types
 }

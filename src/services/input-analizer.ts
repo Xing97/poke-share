@@ -58,8 +58,8 @@ function parseStats (text: string | undefined, defaultValue: number): Stats {
     hp: defaultValue,
     attack: defaultValue,
     defense: defaultValue,
-    special_attack: defaultValue,
-    special_defense: defaultValue,
+    specialAttack: defaultValue,
+    specialDefense: defaultValue,
     speed: defaultValue
   }
 
@@ -79,9 +79,9 @@ function parseStats (text: string | undefined, defaultValue: number): Stats {
       } else if (key === 'Def') {
         stats.defense = parseInt(value)
       } else if (key === 'SpA') {
-        stats.special_attack = parseInt(value)
+        stats.specialAttack = parseInt(value)
       } else if (key === 'SpD') {
-        stats.special_defense = parseInt(value)
+        stats.specialDefense = parseInt(value)
       } else if (key === 'Spe') {
         stats.speed = parseInt(value)
       }

@@ -91,6 +91,7 @@ export interface Pokemon {
   id: number
   order: number
   name: I18nName
+  forms: I18nName[]
   nickname?: string
   gender?: Gender
   item?: Item
@@ -102,7 +103,7 @@ export interface Pokemon {
   image: string
   stats: Stats
   types: Type[]
-  past_types: PastType[]
+  pastTypes: PastType[]
   teraType?: Type
 }
 
@@ -110,8 +111,8 @@ export interface Stats {
   hp: number
   attack: number
   defense: number
-  special_attack: number
-  special_defense: number
+  specialAttack: number
+  specialDefense: number
   speed: number
 }
 
