@@ -1,4 +1,3 @@
-import '@/github-markdown.css'
 import useI18n from '@/hooks/useI18n'
 import { type EffectText, type FlavorText, type I18nName } from '@/model/pokemon'
 import DOMPurify from 'dompurify'
@@ -21,7 +20,7 @@ export default function TextModal ({ name, flavorText, effectText, wikiPrefix = 
     <div className='flex flex-col gap-6'>
       {flavor != null && <p className='text-lg font-medium'>{flavor}</p>}
       {effect != null && <article
-        className='markdown-body' dangerouslySetInnerHTML={{
+        className='markdown' dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize((marked.parse(effect) as string))
         }}
       />}
