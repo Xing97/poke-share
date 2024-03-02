@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Input",
-    "store": "Stored",
+    "history": "History",
     "share": "Share",
     "settings": "Settings"
   },
@@ -21,10 +21,11 @@
     "error": "Input is not valid",
     "example": "Example"
   },
-  "store": {
-    "save-current": "Save current",
+  "history": {
     "clear": "Delete all",
-    "untitled": "Untitled"
+    "untitled": "Untitled",
+    "cleared": "All history has been deleted",
+    "undo": "Undo"
   },
   "settings": {
     "generations": "Game Generation",

@@ -4,6 +4,71 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
+  }
+}
+
+/* Markdown Github style */
+@layer components {
+  .markdown > *:last-child {
+    @apply mb-0
+  }
+
+  .markdown p,
+  .markdown table,
+  .markdown ul {
+    @apply mb-4
+  }
+
+  .markdown p:first-letter,
+  .markdown li:first-letter {
+    @apply uppercase
+  }
+
+  .markdown table {
+    @apply block w-max max-w-full border-collapse border-spacing-0 overflow-auto
+  }
+
+  .markdown table th {
+    @apply font-semibold
+  }
+
+  .markdown table th,
+  .markdown table td {
+    @apply border border-slate-400 px-3.5 py-1.5 dark:border-slate-700
+  }
+
+  .markdown table tr {
+    @apply bg-slate-200 dark:bg-slate-950
+  }
+
+  .markdown table tr:nth-child(2n) {
+    @apply bg-slate-300 dark:bg-slate-900
+  }
+
+  .markdown ul,
+  .markdown ol {
+    @apply pl-8
+  }
+
+  .markdown li+li {
+    @apply mt-1
+  }
+
+  .markdown li>p {
+    @apply mt-4
+  }
+
+  .markdown code {
+    @apply whitespace-nowrap rounded-md bg-slate-200 px-1.5 py-1 text-sm dark:bg-slate-700
+  }
+}
+
 :root {
   color-scheme: dark light;
 }

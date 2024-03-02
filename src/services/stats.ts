@@ -21,8 +21,8 @@ export function calculateStats (pokemon: Pokemon, level: number): Stats {
     hp: calculateHP(base.hp, evs.hp, ivs.hp, level),
     attack: calculateStat(base.attack, evs.attack, ivs.attack, level, INCREASE_ATTACK.includes(pokemon.nature) ? 1.1 : DECREASE_ATTACK.includes(pokemon.nature) ? 0.9 : 1),
     defense: calculateStat(base.defense, evs.defense, ivs.defense, level, INCREASE_DEFENSE.includes(pokemon.nature) ? 1.1 : DECREASE_DEFENSE.includes(pokemon.nature) ? 0.9 : 1),
-    special_attack: calculateStat(base.special_attack, evs.special_attack, ivs.special_attack, level, INCREASE_SPECIAL_ATTACK.includes(pokemon.nature) ? 1.1 : DECREASE_SPECIAL_ATTACK.includes(pokemon.nature) ? 0.9 : 1),
-    special_defense: calculateStat(base.special_defense, evs.special_defense, ivs.special_defense, level, INCREASE_SPECIAL_DEFENSE.includes(pokemon.nature) ? 1.1 : DECREASE_SPECIAL_DEFENSE.includes(pokemon.nature) ? 0.9 : 1),
+    specialAttack: calculateStat(base.specialAttack, evs.specialAttack, ivs.specialAttack, level, INCREASE_SPECIAL_ATTACK.includes(pokemon.nature) ? 1.1 : DECREASE_SPECIAL_ATTACK.includes(pokemon.nature) ? 0.9 : 1),
+    specialDefense: calculateStat(base.specialDefense, evs.specialDefense, ivs.specialDefense, level, INCREASE_SPECIAL_DEFENSE.includes(pokemon.nature) ? 1.1 : DECREASE_SPECIAL_DEFENSE.includes(pokemon.nature) ? 0.9 : 1),
     speed: calculateStat(base.speed, evs.speed, ivs.speed, level, INCREASE_SPEED.includes(pokemon.nature) ? 1.1 : DECREASE_SPEED.includes(pokemon.nature) ? 0.9 : 1)
   }
 }

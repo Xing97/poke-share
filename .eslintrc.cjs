@@ -39,6 +39,7 @@ module.exports = {
     '@stylistic/jsx-self-closing-comp': 2,
     '@stylistic/jsx-tag-spacing': 2,
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'tailwindcss/no-custom-classname': [1, {
       'whitelist': ['hint--.*']
     }]

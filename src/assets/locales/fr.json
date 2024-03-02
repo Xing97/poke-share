@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Entrée",
-    "store": "Stocké",
+    "history": "Historique",
     "share": "Partager",
     "settings": "Paramètres"
   },
@@ -21,11 +21,13 @@
     "error": "L'entrée n'est pas valide",
     "example": "Exemple"
   },
-  "store": {
-    "save-current": "Enregistrer actuel",
-    "clear": "Tout effacer",
-    "untitled": "Sans titre"
-  },
+  "history": {
+    "clear": "Effacer tout",
+    "untitled": "Sans titre",
+    "cleared": "Tout l'historique a été effacé",
+    "undo": "Annuler"
+  }
+,
   "settings": {
     "generations": "Game Generation",
     "version-groups": "Game Version",
@@ -76,6 +78,19 @@
     "scarlet-violet": "Écarlate / Violet",
     "the-teal-mask": "Le Masque Turquoise",
     "the-indigo-disk": "Le Disque Indigo"
+  },
+  "move": {
+    "type": "Type",
+    "category": "Catégorie",
+    "power": "Puissance",
+    "accuracy": "Précision",
+    "pp": "PP",
+    "priority": "Prioritaire"
+  },
+  "category": {
+    "physical": "Physique",
+    "special": "Spéciale",
+    "status": "Statut"
   },
   "types": {
     "rock": "Roche",

@@ -76,13 +76,10 @@ export default defineConfig({
     })
   ],
   build: {
-    target: 'ESNext',
+    cssMinify: 'lightningcss',
     rollupOptions: {
       output: {
         manualChunks(id: string) {
-          if (id.includes('icons/tera-types')) {
-            return 'tera-types'
-          }
           if (id.includes('locales') && !id.includes('en.json')) {
             return 'locales';
           }

@@ -56,6 +56,23 @@ export interface VersionText {
   [Game.TheIndigoDisk]?: string
 }
 
+export interface EffectText {
+  [Language.English]?: Effect
+  [Language.Spanish]?: Effect
+  [Language.French]?: Effect
+  [Language.German]?: Effect
+  [Language.Italian]?: Effect
+  [Language.Korean]?: Effect
+  [Language.Japanese]?: Effect
+  [Language.ChineseTraditional]?: Effect
+  [Language.ChineseSimplified]?: Effect
+}
+
+export interface Effect {
+  effect: string
+  sortEffect: string
+}
+
 export interface PokemonInfo {
   name: string
   nickname?: string
@@ -74,6 +91,7 @@ export interface Pokemon {
   id: number
   order: number
   name: I18nName
+  forms: I18nName[]
   nickname?: string
   gender?: Gender
   item?: Item
@@ -85,7 +103,7 @@ export interface Pokemon {
   image: string
   stats: Stats
   types: Type[]
-  past_types: PastType[]
+  pastTypes: PastType[]
   teraType?: Type
 }
 
@@ -93,19 +111,21 @@ export interface Stats {
   hp: number
   attack: number
   defense: number
-  special_attack: number
-  special_defense: number
+  specialAttack: number
+  specialDefense: number
   speed: number
 }
 
 export interface Item {
   name: I18nName
+  effectText: EffectText
   flavorText: FlavorText
   image: string
 }
 
 export interface Ability {
   name: I18nName
+  effectText: EffectText
   flavorText: FlavorText
 }
 
@@ -115,10 +135,21 @@ export interface Move {
   type: Type
   category: Category
   pp: number
-  power: number
-  accuracy: number
+  power?: number
+  accuracy?: number
   priority: number
+  effectText: EffectText
   flavorText: FlavorText
+  pastValues: PastMoveStatValues[]
+}
+
+export interface PastMoveStatValues {
+  game: Game
+  effectText: EffectText
+  accuracy?: number
+  power?: number
+  pp?: number
+  type?: Type
 }
 
 export interface PastType {

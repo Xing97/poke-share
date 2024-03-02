@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Input",
-    "store": "Memorizzato",
+    "history": "Storia",
     "share": "Condividi",
     "settings": "Impostazioni"
   },
@@ -21,11 +21,13 @@
     "error": "L'ingresso non è valido",
     "example": "Esempio"
   },
-  "store": {
-    "save-current": "儲存當前",
-    "clear": "全部清除",
-    "untitled": "未命名"
-  },
+  "history": {
+    "clear": "Cancella tutto",
+    "untitled": "Senza titolo",
+    "cleared": "Tutto lo storico è stato cancellato",
+    "undo": "Annulla"
+  }
+,
   "settings": {
     "generations": "Generazione di Gioco",
     "version-groups": "Versione di gioco",
@@ -76,6 +78,19 @@
     "scarlet-violet": "Scarlatto / Violetto",
     "the-teal-mask": "La maschera turchese",
     "the-indigo-disk": "Il disco indaco"
+  },
+  "move": {
+    "type": "Tipo",
+    "category": "Categoria",
+    "power": "Potenza",
+    "accuracy": "Precisione",
+    "pp": "PP",
+    "priority": "Priorità"
+  },
+  "category": {
+    "physical": "Fisico",
+    "special": "Speciale",
+    "status": "Stato"
   },
   "types": {
     "rock": "Roccia",

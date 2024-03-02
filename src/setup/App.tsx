@@ -10,13 +10,13 @@ export default function App (): JSX.Element {
   const loading = usePokemonStore(store => store.loading)
 
   return (
-    <div className='flex h-dvh w-screen flex-col transition-colors duration-300 md:flex-row'>
-      <Aside />
+    <div className='flex h-dvh w-screen flex-col-reverse transition-colors duration-300 md:flex-row-reverse'>
       <main className='flex size-full grow flex-col items-center gap-6 self-center overflow-y-auto p-6'>
         {loading
           ? <LoadingIcon className='m-auto size-20 animate-spin' />
           : <PokemonTeam />}
       </main>
+      <Aside />
       <Toaster expand={true} richColors theme={theme} />
     </div>
   )

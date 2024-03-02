@@ -1,54 +1,67 @@
-import useFlavorText from '@/hooks/useFlavorText'
-import { useI18nName } from '@/hooks/useI18nName'
-import { getMoveCategory } from '@/model/constants'
+import { CATEGORY_BG_COLORS, TYPES_BG_COLORS } from '@/components/styles'
+import useI18n from '@/hooks/useI18n'
+import { getMoveCategory, isBeforeGame } from '@/model/constants'
 import { type Move } from '@/model/pokemon'
 import { useGameStore } from '@/stores/game'
+import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
-import { twMerge } from 'tailwind-merge'
-import { CATEGORY_BG_COLORS, TYPES_BG_COLORS } from '../styles'
+import lazyWithPreload from 'react-lazy-with-preload'
+
+const TextModal = lazyWithPreload(async () => await import('@/components/modal/TextModal'))
+
+void TextModal.preload()
 
 interface Props {
   move: Move
 }
 
 export default function MoveModal ({ move }: Props): JSX.Element {
-  const { t } = useTranslation()
-  const i18n = useI18nName()
-  const flavorText = useFlavorText()
+  const { t, i18n } = useTranslation()
+  const { resolveName } = useI18n()
 
   const generation = useGameStore(state => state.generation)
+  const game = useGameStore(state => state.game)
+  const category = getMoveCategory(move, generation)
 
-  const moveCategory = getMoveCategory(move, generation)
+  const lang = i18n.language
+
+  const pp = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.pp != null)?.pp ?? move.pp
+  const power = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.power != null)?.power ?? move.power
+  const accuracy = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.accuracy != null)?.accuracy ?? move.accuracy
+  const type = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.type != null)?.type ?? move.type
+  const effectText = move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.effectText != null)?.effectText ?? move.effectText
 
   return (
-    <section className='flex flex-col gap-6'>
-      <header className='flex items-center gap-4'>
-        <h1 className='text-2xl font-bold tracking-wide'>{i18n(move.name)}</h1>
+    <section>
+      <header className='flex gap-4'>
+        <h1 className='text-3xl font-bold tracking-wide'>{resolveName(move.name)}</h1>
       </header>
-      <main className='flex gap-6'>
-        <div className='grid min-w-fit grid-cols-2 flex-col gap-1'>
-          <Row className={TYPES_BG_COLORS[move.type]} name='type' value={t('types.' + move.type)} />
-          <Row className={CATEGORY_BG_COLORS[moveCategory]} name='category' value={t('category.' + moveCategory)} />
-          <Row name='pp' value={move.pp} />
-          <Row name='power' value={move.power} />
-          <Row name='accuracy' value={move.accuracy} />
-          <Row name='priority' value={move.priority} />
+      <main className='mt-6 flex gap-6'>
+        <div className='grid h-fit min-w-fit grid-cols-2 flex-col gap-x-1 gap-y-2'>
+          <Row bg={TYPES_BG_COLORS[type]} name='type' value={t('types.' + type)} />
+          <Row bg={CATEGORY_BG_COLORS[category]} name='category' value={t('category.' + category)} />
+          <Row name='pp' value={pp.toLocaleString(lang)} />
+          <Row name='power' value={power?.toLocaleString(lang)} />
+          <Row name='accuracy' value={accuracy?.toLocaleString(lang).concat('%')} />
+          <Row name='priority' value={move.priority.toLocaleString(lang, { signDisplay: 'exceptZero' })} />
         </div>
-        <p>{flavorText(move.flavorText) ?? '???'}</p>
+        <Suspense>
+          <TextModal name={move.name} flavorText={move.flavorText} effectText={effectText} />
+        </Suspense>
       </main>
     </section>
   )
 }
 
-function Row ({ name, value, className }: { name: string, value: string | number, className?: string }): JSX.Element {
+function Row ({ name, value, bg = 'bg-slate-600' }: { name: string, value?: string, bg?: string }): JSX.Element {
   const { t } = useTranslation()
 
   return (
     <>
-      <span className={twMerge('rounded-l-full bg-slate-600 px-6 py-1 text-center font-bold tracking-wide', className)} >
+      <span className={'text-white text-lg rounded-l-full px-6 py-1 text-center font-semibold tracking-wide ' + bg} >
         {t('move.' + name)}
       </span>
-      <span className={twMerge('rounded-r-full bg-slate-600 pl-2 pr-4 py-1 font-medium tracking-wide', className)}>
+      <span className={'text-white text-lg rounded-r-full pl-2 pr-4 py-1 font-medium tracking-wide ' + bg}>
         {value ?? '—'}
       </span>
     </>

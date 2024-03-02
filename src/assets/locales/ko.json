@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "포켓몬",
     "input": "입력",
-    "store": "저장됨",
+    "history": "역사",
     "share": "공유",
     "settings": "설정"
   },
@@ -21,10 +21,11 @@
     "error": "입력이 유효하지 않습니다.",
     "example": "예시"
   },
-  "store": {
-    "save-current": "현재 저장",
+  "history": {
     "clear": "모두 지우기",
-    "untitled": "제목 없음"
+    "untitled": "제목 없음",
+    "cleared": "모든 기록이 삭제되었습니다",
+    "undo": "되돌리기"
   },
   "settings": {
     "generations": "세대",
@@ -76,6 +77,19 @@
     "scarlet-violet": "스칼렛 / 바이올렛",
     "the-teal-mask": "벽록의 가면",
     "the-indigo-disk": "남청의 원반"
+  },
+  "move": {
+    "type": "타입",
+    "category": "분류",
+    "power": "위력",
+    "accuracy": "명중률",
+    "pp": "PP",
+    "priority": "우선도"
+  },
+  "category": {
+    "physical": "물리",
+    "special": "특수",
+    "status": "변화"
   },
   "types": {
     "rock": "바위",

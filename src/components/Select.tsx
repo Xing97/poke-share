@@ -2,12 +2,13 @@ import { useTranslation } from 'react-i18next'
 
 interface TestProps<T extends string> {
   name: string
+  description?: string
   options: T[]
   selected: T
   setSelected: (option: T) => void
 }
 
-export default function Select<T extends string> ({ name, options, setSelected, selected }: TestProps<T>): JSX.Element {
+export default function Select<T extends string> ({ name, description, options, setSelected, selected }: TestProps<T>): JSX.Element {
   const { t } = useTranslation()
 
   return (
@@ -28,6 +29,7 @@ export default function Select<T extends string> ({ name, options, setSelected, 
           </option>
         ))}
       </select>
+      {description != null && <p className='text-slate-600 dark:text-slate-400'>{description}</p>}
     </div>
   )
 }

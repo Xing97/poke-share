@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "宝可梦",
     "input": "输入",
-    "store": "存储",
+    "history": "历史",
     "share": "分享",
     "settings": "设置"
   },
@@ -21,10 +21,11 @@
     "error": "输入无效",
     "example": "例子"
   },
-  "store": {
-    "save-current": "保存当前",
-    "clear": "全部清除",
-    "untitled": "未命名"
+  "history": {
+    "clear": "清除全部",
+    "untitled": "无标题",
+    "cleared": "所有历史记录已删除",
+    "undo": "撤销"
   },
   "settings": {
     "generations": "游戏世代",
@@ -76,6 +77,19 @@
     "scarlet-violet": "朱 / 紫",
     "the-teal-mask": "碧之假面",
     "the-indigo-disk": "藍之圓盤"
+  },
+  "move": {
+    "type": "属性",
+    "category": "分类",
+    "power": "威力",
+    "accuracy": "命中",
+    "pp": "ＰＰ",
+    "priority": "优先度"
+  },
+  "category": {
+    "physical": "物理",
+    "special": "特殊",
+    "status": "变化"
   },
   "types": {
     "rock": "岩石",

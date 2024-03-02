@@ -100,6 +100,10 @@ export function getMoveCategory (move: Move, generation: Generation): Category {
 
 export const GAMES = Object.values(Game)
 
+export function isBeforeGame (max: Game, actual: Game): boolean {
+  return GAMES.indexOf(max) > GAMES.indexOf(actual)
+}
+
 export const GEN_GAME = {
   [Generation.I]: Game.RedBlue,
   [Generation.II]: Game.GoldSilver,

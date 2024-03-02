@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Entrada",
-    "store": "Guardados",
+    "history": "Historial",
     "share": "Compartir",
     "settings": "Configuración"
   },
@@ -21,11 +21,13 @@
     "error": "La entrada no es válida",
     "example": "Ejemplo"
   },
-  "store": {
-    "save-current": "Guardar actual",
-    "clear": "Eliminar todo",
-    "untitled": "Sin título"
-  },
+  "history": {
+    "clear": "Borrar todo",
+    "untitled": "Sin título",
+    "cleared": "Se ha borrado todo el historial",
+    "undo": "Deshacer"
+  }
+,
   "settings": {
     "generations": "Generación del juego",
     "version-groups": "Versión del juego",

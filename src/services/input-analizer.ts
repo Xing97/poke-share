@@ -2,7 +2,7 @@ import { type Gender, type Pokemon, type PokemonInfo, type Stats, type Type } fr
 import { fetchPokemon } from '@/services/poke-api'
 
 const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
-const RE_MOVE = /^- ([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)(?: \[([A-Z][a-z]+)\])?(?: \/ [A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
+const RE_MOVE = /^- ?([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*(?: \[[A-Z][a-z]+\])?)(?: ?\/ ?[A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
 const RE_NATURE = /^([A-Za-z]+) Nature/m
 
 export async function parsePokemons (text: string): Promise<Pokemon[]> {
@@ -58,8 +58,8 @@ function parseStats (text: string | undefined, defaultValue: number): Stats {
     hp: defaultValue,
     attack: defaultValue,
     defense: defaultValue,
-    special_attack: defaultValue,
-    special_defense: defaultValue,
+    specialAttack: defaultValue,
+    specialDefense: defaultValue,
     speed: defaultValue
   }
 
@@ -79,9 +79,9 @@ function parseStats (text: string | undefined, defaultValue: number): Stats {
       } else if (key === 'Def') {
         stats.defense = parseInt(value)
       } else if (key === 'SpA') {
-        stats.special_attack = parseInt(value)
+        stats.specialAttack = parseInt(value)
       } else if (key === 'SpD') {
-        stats.special_defense = parseInt(value)
+        stats.specialDefense = parseInt(value)
       } else if (key === 'Spe') {
         stats.speed = parseInt(value)
       }

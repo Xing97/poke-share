@@ -1,15 +1,16 @@
 import { type IAbility } from '@/model/poke-api/ability'
-import { type Name, type VersionGroupFlavorText } from '@/model/poke-api/common'
+import { type Name, type VerboseEffect, type VersionGroupFlavorText } from '@/model/poke-api/common'
 import { type IItem } from '@/model/poke-api/item'
 import { type IMove } from '@/model/poke-api/move'
 import { type IPokemon } from '@/model/poke-api/pokemon'
+import { type IPokemonForm } from '@/model/poke-api/pokemon-form'
 import { type IPokemonSpecies } from '@/model/poke-api/pokemon-species'
 import {
+  Nature,
   type Category,
+  type EffectText,
   type FlavorText,
   type I18nName,
-  type Move,
-  type Nature,
   type Pokemon,
   type PokemonInfo,
   type Type
@@ -36,23 +37,29 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
     _ability = await fetchApi<IAbility>('ability', defaultAbility.ability.name)
   }
 
-  const _specie = await fetchApi<IPokemonSpecies>('pokemon-species', _pokemon.species.name)
+  const [_specie, _forms] = await Promise.all([
+    fetchApi<IPokemonSpecies>('pokemon-species', _pokemon.species.name),
+    Promise.all(_pokemon.forms
+      .filter(f => f.name !== _pokemon.species.name)
+      .map(async f => await fetchApi<IPokemonForm>('pokemon-form', f.name)))
+  ])
 
   const pokemon: Pokemon = {
     id: _pokemon.id,
     order: _specie.pokedex_numbers.find(p => p.pokedex.name === 'national')?.entry_number ?? _specie.id,
     name: mapNames(_specie.names, _pokemon.name),
+    forms: _forms.map(f => mapNames(f.form_names, f.name)),
     nickname: pokeInput.nickname,
     gender: pokeInput.gender,
-    item: undefined,
-    nature: pokeInput.nature as Nature,
+    nature: pokeInput.nature as Nature ?? Nature.Hardy,
     ability: {
       name: mapNames(_ability.names, _ability.name),
+      effectText: mapEffectText(_ability.effect_entries),
       flavorText: mapFlavorText(_ability.flavor_text_entries)
     },
     evs: pokeInput.evs,
     ivs: pokeInput.ivs,
-    moves: _moves.map<Move>(m => ({
+    moves: _moves.map(m => ({
       id: m.id,
       name: mapNames(m.names, m.name),
       type: m.type.name as Type,
@@ -61,19 +68,28 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
       power: m.power,
       accuracy: m.accuracy,
       priority: m.priority,
-      flavorText: mapFlavorText(m.flavor_text_entries)
+      effectText: mapEffectText(m.effect_entries),
+      flavorText: mapFlavorText(m.flavor_text_entries),
+      pastValues: m.past_values.map(v => ({
+        accuracy: v.accuracy,
+        power: v.power,
+        pp: v.pp,
+        effectText: mapEffectText(v.effect_entries),
+        type: v.type?.name as Type,
+        game: v.version_group.name as Game
+      }))
     })),
     image: pokeInput.shiny === true ? _pokemon.sprites.front_shiny : _pokemon.sprites.front_default,
     stats: {
       hp: _pokemon.stats.find(s => s.stat.name === 'hp')?.base_stat ?? NaN,
       attack: _pokemon.stats.find(s => s.stat.name === 'attack')?.base_stat ?? NaN,
       defense: _pokemon.stats.find(s => s.stat.name === 'defense')?.base_stat ?? NaN,
-      special_attack: _pokemon.stats.find(s => s.stat.name === 'special-attack')?.base_stat ?? NaN,
-      special_defense: _pokemon.stats.find(s => s.stat.name === 'special-defense')?.base_stat ?? NaN,
+      specialAttack: _pokemon.stats.find(s => s.stat.name === 'special-attack')?.base_stat ?? NaN,
+      specialDefense: _pokemon.stats.find(s => s.stat.name === 'special-defense')?.base_stat ?? NaN,
       speed: _pokemon.stats.find(s => s.stat.name === 'speed')?.base_stat ?? NaN
     },
     types: _pokemon.types.map(t => t.type.name as Type),
-    past_types: _pokemon.past_types.map(t => ({
+    pastTypes: _pokemon.past_types.map(t => ({
       generation: t.generation.name as Generation,
       types: t.types.map(t => t.type.name as Type)
     })),
@@ -83,6 +99,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
   if (_item !== undefined) {
     pokemon.item = {
       name: mapNames(_item.names, _item.name),
+      effectText: mapEffectText(_item.effect_entries),
       flavorText: mapFlavorText(_item.flavor_text_entries),
       image: _item.sprites.default
     }
@@ -93,7 +110,7 @@ export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
 
 async function fetchApi<T> (entity: string, name: string): Promise<T> {
   const isHiddenPower = entity === 'move' && name.startsWith('Hidden Power')
-  const idName = isHiddenPower ? 'hidden-power' : name.toLowerCase().replaceAll(' ', '-')
+  const idName = isHiddenPower ? 'hidden-power' : name.toLowerCase().replaceAll(' ', '-').replaceAll("'", '')
 
   const response = await fetch(`${BASE_URL}/${entity}/${idName}`)
 
@@ -103,7 +120,7 @@ async function fetchApi<T> (entity: string, name: string): Promise<T> {
 
   if (isHiddenPower) {
     const data = await response.json() as IMove
-    data.type.name = name.substring(13).toLowerCase()
+    data.type.name = name.substring(13).replace('[', '').replace(']', '').toLowerCase()
     return data as T
   }
 
@@ -131,6 +148,13 @@ function mapFlavorText (list: VersionGroupFlavorText[]): FlavorText {
     const lang = acc[item.language.name as Language] ?? {}
     lang[item.version_group.name as Game] = item.text ?? item.flavor_text
     acc[item.language.name as Language] = lang
+    return acc
+  }, {})
+}
+
+function mapEffectText (list: VerboseEffect[]): EffectText {
+  return list.reduce<EffectText>((acc, item) => {
+    acc[item.language.name as Language] = { effect: item.effect, sortEffect: item.short_effect }
     return acc
   }, {})
 }

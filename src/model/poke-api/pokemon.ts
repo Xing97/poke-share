@@ -4,6 +4,7 @@ export interface IPokemon {
   id: number
   name: string
   abilities: PokemonAbility[]
+  forms: NamedAPIResource[]
   past_types: PokemonPastType[]
   sprites: PokemonSprites
   species: NamedAPIResource

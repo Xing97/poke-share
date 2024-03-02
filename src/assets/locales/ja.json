@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "ポケモン",
     "input": "入力",
-    "store": "保存",
+    "history": "履歴",
     "share": "共有",
     "settings": "設定"
   },
@@ -21,11 +21,13 @@
     "error": "入力が無効",
     "example": "例"
   },
-  "store": {
-    "save-current": "現在保存",
-    "clear": "すべてクリア",
-    "untitled": "タイトルなし"
-  },
+  "history": {
+    "clear": "すべて削除",
+    "untitled": "無題",
+    "cleared": "すべての履歴が削除されました",
+    "undo": "元に戻す"
+  }
+,
   "settings": {
     "generations": "ゲーム世代",
     "version-groups": "ゲームバージョン",
@@ -76,6 +78,19 @@
     "scarlet-violet": "スカーレット / バイオレット",
     "the-teal-mask": "碧の仮面",
     "the-indigo-disk": "藍の円盤"
+  },
+  "move": {
+    "type": "タイプ",
+    "category": "分類",
+    "power": "威力",
+    "accuracy": "命中率",
+    "pp": "PP",
+    "priority": "優先度"
+  },
+  "category": {
+    "physical": "ぶつり",
+    "special": "とくしゅ",
+    "status": "へんか"
   },
   "types": {
     "rock": "いわ",

@@ -10,7 +10,7 @@
   "tooltips": {
     "pokemon": "Pokémon",
     "input": "Eingabe",
-    "store": "Gespeicherte",
+    "history": "Historie",
     "share": "Teilen",
     "settings": "Einstellungen"
   },
@@ -21,10 +21,11 @@
     "error": "Eingabe ist nicht gültig",
     "example": "Beispiel"
   },
-  "store": {
-    "save-current": "Aktuell speichern",
+  "history": {
     "clear": "Alles löschen",
-    "untitled": "Ohne Titel"
+    "untitled": "Ohne Titel",
+    "cleared": "Die gesamte Historie wurde gelöscht",
+    "undo": "Rückgängig machen"
   },
   "settings": {
     "generations": "Spielgeneration",
@@ -76,6 +77,19 @@
     "scarlet-violet": "Karmesin / Purpur",
     "the-teal-mask": "Die Türkisgrüne Maske",
     "the-indigo-disk": "Die Indigoblaue Scheibe"
+  },
+  "move": {
+    "type": "Typ",
+    "category": "Kategorie",
+    "power": "Stärke",
+    "accuracy": "Genauigkeit",
+    "pp": "AP",
+    "priority": "Priorität"
+  },
+  "category": {
+    "physical": "Physisch",
+    "special": "Spezial",
+    "status": "Status"
   },
   "types": {
     "rock": "Gestein",

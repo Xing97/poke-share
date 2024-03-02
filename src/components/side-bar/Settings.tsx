@@ -33,6 +33,7 @@ export default function Settings (): JSX.Element {
       />
       <Select
         name='languages'
+        description='English has the most accurate information'
         options={Object.values(Language)}
         selected={language}
         setSelected={setLanguage}

@@ -97,14 +97,14 @@ export default function PokemonStats ({ pokemon }: Props): JSX.Element {
         />
         <Stat
           stat='special-attack'
-          value={stats.special_attack}
+          value={stats.specialAttack}
           max={max}
           increase={INCREASE_SPECIAL_ATTACK.includes(nature)}
           decrease={DECREASE_SPECIAL_ATTACK.includes(nature)}
         />
         <Stat
           stat='special-defense'
-          value={stats.special_defense}
+          value={stats.specialDefense}
           max={max}
           increase={INCREASE_SPECIAL_DEFENSE.includes(nature)}
           decrease={DECREASE_SPECIAL_DEFENSE.includes(nature)}
@@ -134,7 +134,7 @@ function Stat ({ stat, value, max, increase = false, decrease = false }: StatPro
 
   return (
     <>
-      <span className={`font-semibold tracking-wide ${increase ? 'text-green-500' : decrease ? 'text-red-500' : ''}`}>
+      <span className={`font-semibold tracking-wide${increase ? ' text-green-500' : decrease ? ' text-red-500' : ''}`}>
         {t('stats.' + stat)}
       </span>
       <span className='justify-self-end font-semibold'>{value}</span>
