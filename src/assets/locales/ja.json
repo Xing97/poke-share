@@ -22,9 +22,12 @@
     "example": "例"
   },
   "history": {
-    "clear": "すべてクリア",
-    "untitled": "タイトルなし"
-  },
+    "clear": "すべて削除",
+    "untitled": "無題",
+    "cleared": "すべての履歴が削除されました",
+    "undo": "元に戻す"
+  }
+,
   "settings": {
     "generations": "ゲーム世代",
     "version-groups": "ゲームバージョン",

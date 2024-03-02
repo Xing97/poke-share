@@ -22,9 +22,12 @@
     "example": "Exemple"
   },
   "history": {
-    "clear": "Tout effacer",
-    "untitled": "Sans titre"
-  },
+    "clear": "Effacer tout",
+    "untitled": "Sans titre",
+    "cleared": "Tout l'historique a été effacé",
+    "undo": "Annuler"
+  }
+,
   "settings": {
     "generations": "Game Generation",
     "version-groups": "Game Version",

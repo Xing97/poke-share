@@ -23,7 +23,9 @@
   },
   "history": {
     "clear": "Delete all",
-    "untitled": "Untitled"
+    "untitled": "Untitled",
+    "cleared": "All history has been deleted",
+    "undo": "Undo"
   },
   "settings": {
     "generations": "Game Generation",

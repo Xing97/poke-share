@@ -23,7 +23,9 @@
   },
   "history": {
     "clear": "모두 지우기",
-    "untitled": "제목 없음"
+    "untitled": "제목 없음",
+    "cleared": "모든 기록이 삭제되었습니다",
+    "undo": "되돌리기"
   },
   "settings": {
     "generations": "세대",

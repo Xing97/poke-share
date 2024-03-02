@@ -23,7 +23,9 @@
   },
   "history": {
     "clear": "Alles löschen",
-    "untitled": "Ohne Titel"
+    "untitled": "Ohne Titel",
+    "cleared": "Die gesamte Historie wurde gelöscht",
+    "undo": "Rückgängig machen"
   },
   "settings": {
     "generations": "Spielgeneration",

@@ -22,8 +22,10 @@
     "example": "例子"
   },
   "history": {
-    "clear": "全部清除",
-    "untitled": "未命名"
+    "clear": "清除全部",
+    "untitled": "无标题",
+    "cleared": "所有历史记录已删除",
+    "undo": "撤销"
   },
   "settings": {
     "generations": "游戏世代",

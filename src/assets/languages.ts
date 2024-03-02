@@ -66,6 +66,8 @@ interface Input {
 interface History {
   clear: string
   untitled: string
+  cleared: string
+  undo: string
 }
 
 interface Settings {

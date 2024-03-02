@@ -23,8 +23,11 @@
   },
   "history": {
     "clear": "Cancella tutto",
-    "untitled": "Senza titolo"
-  },
+    "untitled": "Senza titolo",
+    "cleared": "Tutto lo storico è stato cancellato",
+    "undo": "Annulla"
+  }
+,
   "settings": {
     "generations": "Generazione di Gioco",
     "version-groups": "Versione di gioco",
