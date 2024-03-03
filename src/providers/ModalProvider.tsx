@@ -19,7 +19,7 @@ export default function ModalProvider (): JSX.Element | null {
     <dialog
       ref={dialog}
       onClick={closeModal}
-      className='scrollbar-thin inset-0 m-auto max-w-4xl rounded-lg border border-slate-600 bg-slate-100 text-black backdrop:bg-black/50 dark:bg-slate-800 dark:text-white'
+      className='scrollbar-thin inset-0 m-auto max-w-4xl animate-zoom-in rounded-lg border border-slate-600 bg-slate-100 text-black animate-duration-fast backdrop:animate-fade-in backdrop:bg-black/50 backdrop:animate-duration-fast dark:bg-slate-800 dark:text-white'
     >
       <div className='size-full py-6 pl-6 pr-10' onClick={e => { e.stopPropagation() }}>
         <button

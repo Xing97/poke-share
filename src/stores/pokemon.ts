@@ -45,5 +45,5 @@ export const usePokemonStore = create<PokemonStore>()(
 const { title, input } = getInputFromPath()
 
 if (input !== '') {
-  usePokemonStore.getState().submit(input, title)
+  usePokemonStore.getState().submit(input, title, true)
 }
