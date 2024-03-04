@@ -17,7 +17,9 @@ export default function PokemonHeader ({ pokemon }: Props): JSX.Element {
     // @ts-expect-error
     .toLocaleString(i18n.language)
 
-  const displayName = pokemonName + ' ' + pokemonForm
+  const displayName = pokemonForm !== ''
+    ? `${pokemonName} ${pokemonForm}`
+    : pokemonName
 
   return (
     <div className='flex items-center gap-2'>
