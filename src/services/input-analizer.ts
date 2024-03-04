@@ -5,8 +5,8 @@ const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.
 const RE_MOVE = /^- ?([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*(?: \[[A-Z][a-z]+\])?)(?: ?\/ ?[A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
 const RE_NATURE = /^([A-Za-z]+) Nature/m
 
-export async function parsePokemons (text: string): Promise<Pokemon[]> {
-  return await Promise.all(text.trim().split(/^\s*\n/m)
+export async function parsePokemons (text: string): Promise<Array<PromiseSettledResult<Pokemon>>> {
+  return await Promise.allSettled(text.trim().split(/^\s*\n/m)
     .map(parsePokemon)
     .map(fetchPokemon))
 }
