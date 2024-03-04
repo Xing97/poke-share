@@ -19,7 +19,7 @@ export default function PokemonAbility ({ ability }: Props): JSX.Element {
         showModal(<GenericModal
           entity={ability}
           icon={<AbilityIcon className='h-full p-3' />}
-          wikiPrefix='_(Ability)'
+          entityType='ability'
         />)
       }}
     >

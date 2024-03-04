@@ -46,7 +46,12 @@ export default function MoveModal ({ move }: Props): JSX.Element {
           <Row name='priority' value={move.priority.toLocaleString(lang, { signDisplay: 'exceptZero' })} />
         </div>
         <Suspense>
-          <TextModal name={move.name} flavorText={move.flavorText} effectText={effectText} />
+          <TextModal
+            name={move.name}
+            entity='move'
+            flavorText={move.flavorText}
+            effectText={effectText}
+          />
         </Suspense>
       </main>
     </section>

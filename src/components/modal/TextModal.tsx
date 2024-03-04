@@ -3,14 +3,33 @@ import { type EffectText, type FlavorText, type I18nName } from '@/model/pokemon
 import DOMPurify from 'dompurify'
 import { marked } from 'marked'
 
-interface Props {
-  name: I18nName
-  flavorText: FlavorText
-  effectText: EffectText
-  wikiPrefix?: string
+const BULBAPEDIA_MAP: Record<string, string> = {
+  ability: '_(Ability)',
+  item: '',
+  move: '_(move)'
 }
 
-export default function TextModal ({ name, flavorText, effectText, wikiPrefix = '' }: Props): JSX.Element {
+const EXTERNAL_LINKS = [
+  {
+    website: 'Bulbapedia',
+    getHref: (entity: string, name?: string) =>
+    `https://bulbapedia.bulbagarden.net/wiki/${name}${BULBAPEDIA_MAP[entity]}`
+  },
+  {
+    website: 'Pokémon Database',
+    getHref: (entity: string, name?: string) =>
+    `https://pokemondb.net/${entity}/${name?.replaceAll(' ', '-')}`
+  }
+]
+
+interface Props {
+  name: I18nName
+  entity: string
+  flavorText: FlavorText
+  effectText: EffectText
+}
+
+export default function TextModal ({ name, entity, flavorText, effectText }: Props): JSX.Element {
   const { resolveFlavorText, resolveEffectText } = useI18n()
 
   const flavor = resolveFlavorText(flavorText)
@@ -21,17 +40,36 @@ export default function TextModal ({ name, flavorText, effectText, wikiPrefix = 
       {flavor != null && <p className='text-lg font-medium'>{flavor}</p>}
       {effect != null && <article
         className='markdown' dangerouslySetInnerHTML={{
-          __html: DOMPurify.sanitize((marked.parse(effect) as string))
+          __html: DOMPurify.sanitize(marked.parse(effect) as string)
         }}
       />}
-      <a
-        className='mt-auto self-end align-bottom text-blue-500 underline hover:text-blue-800 dark:hover:text-white'
-        href={`https://bulbapedia.bulbagarden.net/wiki/${name.en + wikiPrefix}`}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        Bulbapedia
-      </a>
+      <footer className='mt-auto flex gap-4 self-end'>
+        {EXTERNAL_LINKS.map(({ website, getHref }) => (
+          <Anchor
+            key={website + name.en}
+            website={website}
+            href={getHref(entity, name.en)}
+          />
+        ))}
+      </footer>
     </div>
+  )
+}
+
+interface AnchorProps {
+  website: string
+  href: string
+}
+
+function Anchor ({ website, href }: AnchorProps): JSX.Element {
+  return (
+    <a
+      className='text-blue-500 underline hover:text-blue-800 dark:hover:text-white'
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
+      {website}
+    </a>
   )
 }
