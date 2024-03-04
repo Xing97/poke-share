@@ -19,6 +19,7 @@
     "title": "Titel (optional)",
     "update": "Updaten",
     "error": "Eingabe ist nicht gültig",
+    "some-error": "Einige Pokémon sind ungültig",
     "example": "Beispiel"
   },
   "history": {

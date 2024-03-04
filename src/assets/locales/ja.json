@@ -19,6 +19,7 @@
     "title": "タイトル（任意）",
     "update": "更新する",
     "error": "入力が無効",
+    "some-error": "一部のポケモンは無効です",
     "example": "例"
   },
   "history": {
@@ -26,8 +27,7 @@
     "untitled": "無題",
     "cleared": "すべての履歴が削除されました",
     "undo": "元に戻す"
-  }
-,
+  },
   "settings": {
     "generations": "ゲーム世代",
     "version-groups": "ゲームバージョン",

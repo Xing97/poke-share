@@ -19,6 +19,7 @@
     "title": "標題（可選）",
     "update": "更新",
     "error": "輸入無效",
+    "some-error": "一些寶可夢是無效的",
     "example": "例子"
   },
   "history": {

@@ -19,6 +19,7 @@
     "title": "Title (optional)",
     "update": "Update",
     "error": "Input is not valid",
+    "some-error": "Some Pokémon are invalid",
     "example": "Example"
   },
   "history": {
