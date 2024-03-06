@@ -9,19 +9,6 @@ const BULBAPEDIA_MAP: Record<string, string> = {
   move: '_(move)'
 }
 
-const EXTERNAL_LINKS = [
-  {
-    website: 'Bulbapedia',
-    getHref: (entity: string, name?: string) =>
-    `https://bulbapedia.bulbagarden.net/wiki/${name}${BULBAPEDIA_MAP[entity]}`
-  },
-  {
-    website: 'Pokémon Database',
-    getHref: (entity: string, name?: string) =>
-    `https://pokemondb.net/${entity}/${name?.replaceAll(' ', '-')}`
-  }
-]
-
 interface Props {
   name: I18nName
   entity: string
@@ -36,7 +23,7 @@ export default function TextModal ({ name, entity, flavorText, effectText }: Pro
   const effect = resolveEffectText(effectText)?.replaceAll(/^\s{4,}/gm, '')
 
   return (
-    <div className='flex flex-col gap-6'>
+    <div className='flex flex-1 basis-96 flex-col gap-6'>
       {flavor != null && <p className='text-lg font-medium'>{flavor}</p>}
       {effect != null && <article
         className='markdown' dangerouslySetInnerHTML={{
@@ -44,13 +31,14 @@ export default function TextModal ({ name, entity, flavorText, effectText }: Pro
         }}
       />}
       <footer className='mt-auto flex gap-4 self-end'>
-        {EXTERNAL_LINKS.map(({ website, getHref }) => (
-          <Anchor
-            key={website + name.en}
-            website={website}
-            href={getHref(entity, name.en)}
-          />
-        ))}
+        <Anchor
+          website='Bulbapedia'
+          href={`https://bulbapedia.bulbagarden.net/wiki/${name.en}${BULBAPEDIA_MAP[entity]}`}
+        />
+        <Anchor
+          website='Pokémon Database'
+          href={`https://pokemondb.net/${entity}/${name.en?.replaceAll(' ', '-')}`}
+        />
       </footer>
     </div>
   )
