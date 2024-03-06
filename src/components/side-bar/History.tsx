@@ -27,10 +27,10 @@ export default function History (): JSX.Element {
   return (
     <div className='flex w-full flex-col gap-4 p-4'>
       <h1 className='text-xl font-bold'>{t('tooltips.history')}</h1>
-      <button className='self-end rounded-full bg-red-600 px-4 py-1 font-semibold tracking-wide text-white hover:scale-105 hover:bg-red-700' onClick={clearAll}>
+      <button className='self-end rounded-full bg-red-600 px-4 py-1 font-semibold tracking-wide text-white hover:bg-red-700' onClick={clearAll}>
         {t('history.clear')}
       </button>
-      <ul className='peer flex w-full flex-col gap-3'>
+      <ul className='peer flex w-full flex-col gap-2'>
         {history.map((item, index) =>
           <HistoryElement key={index} item={item} removeSave={() => { removeSave(index) }} />)}
       </ul>

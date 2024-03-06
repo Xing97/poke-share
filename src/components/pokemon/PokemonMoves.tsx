@@ -17,11 +17,11 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
   const showModal = useModalStore(state => state.showModal)
 
   return (
-    <div className='grid grid-cols-pokemon-moves gap-3'>
+    <div className='grid grid-cols-pokemon-moves gap-4'>
       {moves.map(move =>
         <button
           key={move.id}
-          className='transition-transform hover:scale-105'
+          className='transition-transform hover:scale-110'
           onClick={() => { showModal(<MoveModal move={move} />) }}
         >
           <PokemonType

@@ -14,7 +14,7 @@ export default function PokemonAbility ({ ability }: Props): JSX.Element {
 
   return (
     <button
-      className='mr-auto flex items-center gap-2 transition-transform hover:scale-125'
+      className='mr-auto flex items-center gap-2 transition-transform hover:scale-110'
       onClick={() => {
         showModal(<GenericModal
           entity={ability}

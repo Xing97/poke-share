@@ -14,16 +14,17 @@ interface Props {
   entity: string
   flavorText: FlavorText
   effectText: EffectText
+  className?: string
 }
 
-export default function TextModal ({ name, entity, flavorText, effectText }: Props): JSX.Element {
+export default function TextModal ({ name, entity, flavorText, effectText, className = '' }: Props): JSX.Element {
   const { resolveFlavorText, resolveEffectText } = useI18n()
 
   const flavor = resolveFlavorText(flavorText)
   const effect = resolveEffectText(effectText)?.replaceAll(/^\s{4,}/gm, '')
 
   return (
-    <div className='flex flex-1 basis-96 flex-col gap-6'>
+    <div className={'flex flex-col gap-6 ' + className}>
       {flavor != null && <p className='text-lg font-medium'>{flavor}</p>}
       {effect != null && <article
         className='markdown' dangerouslySetInnerHTML={{

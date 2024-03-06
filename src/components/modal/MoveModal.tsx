@@ -47,6 +47,7 @@ export default function MoveModal ({ move }: Props): JSX.Element {
         </div>
         <Suspense>
           <TextModal
+            className='flex-1 basis-96'
             name={move.name}
             entity='move'
             flavorText={move.flavorText}
