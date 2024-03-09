@@ -195,7 +195,7 @@ export const GAME_GEN = {
 }
 
 export const INPUT_EXAMPLE =
-`Meowscarada @ Heavy-Duty Boots
+`Meowscarada (F) @ Choice Band
 Ability: Protean
 EVs: 252 Atk / 4 SpD / 252 Spe
 Tera Type: Dark
@@ -205,17 +205,17 @@ Jolly Nature
 - Triple Axel
 - U-turn
 
-Skeledirge @ Heavy-Duty Boots
+Skeledirge (M) @ Leftovers
 Ability: Unaware
 EVs: 248 HP / 132 SpD / 128 Spe
 Tera Type: Fairy
 Calm Nature
 - Torch Song
 - Will-O-Wisp
-- Slack Off
+- Hidden Power [Dragon]
 - Hex
 
-Quaquaval @ Leftovers
+Quaquaval (F) @ Lum Berry
 Ability: Moxie
 EVs: 252 Atk / 4 SpD / 252 Spe
 Tera Type: Steel
