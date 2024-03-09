@@ -18,6 +18,7 @@
     "paste": "Paste your Pokémon here",
     "title": "Title (optional)",
     "update": "Update",
+    "loading": "Loading...",
     "error": "Input is not valid",
     "some-error": "Some Pokémon are invalid",
     "example": "Example"

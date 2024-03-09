@@ -18,6 +18,7 @@
     "paste": "在此处粘贴您的宠物精灵",
     "title": "标题（可选）",
     "update": "更新",
+    "loading": "加载中...",
     "error": "输入无效",
     "some-error": "一些宝可梦是无效的",
     "example": "例子"

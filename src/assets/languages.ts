@@ -58,6 +58,7 @@ interface Input {
   paste: string
   title: string
   update: string
+  loading: string
   error: string
   'some-error': string
   example: string

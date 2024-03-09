@@ -18,6 +18,7 @@
     "paste": "Collez vos Pokémon ici",
     "title": "Titre (optionnel)",
     "update": "Mettre à jour",
+    "loading": "Chargement...",
     "error": "L'entrée n'est pas valide",
     "some-error": "Certains Pokémon sont invalides",
     "example": "Exemple"
