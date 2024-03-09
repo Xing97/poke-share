@@ -34,7 +34,7 @@ export default function TextModal ({ name, entity, flavorText, effectText, class
       <footer className='mt-auto flex gap-4 self-end'>
         <Anchor
           website='Bulbapedia'
-          href={`https://bulbapedia.bulbagarden.net/wiki/${name.en}${BULBAPEDIA_MAP[entity]}`}
+          href={`https://bulbapedia.bulbagarden.net/wiki/${name.en?.replaceAll(' ', '_')}${BULBAPEDIA_MAP[entity]}`}
         />
         <Anchor
           website='Pokémon Database'
