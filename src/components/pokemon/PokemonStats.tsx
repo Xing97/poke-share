@@ -22,12 +22,12 @@ const MAX_IV = 31
 const MAX_TOTAL = 550
 
 const COLOR_BAR: Record<string, string> = {
-  hp: 'bg-red-400 dark:bg-red-600',
-  attack: 'bg-orange-400 dark:bg-orange-600',
-  defense: 'bg-yellow-400 dark:bg-yellow-600',
-  'special-attack': 'bg-green-400 dark:bg-green-600',
-  'special-defense': 'bg-blue-400 dark:bg-blue-600',
-  speed: 'bg-pink-400 dark:bg-pink-600'
+  hp: 'bg-red-500 dark:bg-red-600',
+  attack: 'bg-orange-500 dark:bg-orange-600',
+  defense: 'bg-yellow-500 dark:bg-yellow-600',
+  'special-attack': 'bg-green-500 dark:bg-green-600',
+  'special-defense': 'bg-blue-500 dark:bg-blue-600',
+  speed: 'bg-pink-500 dark:bg-pink-600'
 }
 
 interface Props {

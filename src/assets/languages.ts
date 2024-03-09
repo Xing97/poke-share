@@ -27,7 +27,6 @@ interface Translations {
   input: Input
   history: History
   settings: Settings
-  languages?: Languages
   themes: Themes
   generations: Generations
   'version-groups': VersionGroups
@@ -59,7 +58,9 @@ interface Input {
   paste: string
   title: string
   update: string
+  loading: string
   error: string
+  'some-error': string
   example: string
 }
 
@@ -75,18 +76,6 @@ interface Settings {
   'version-groups': string
   languages: string
   themes: string
-}
-
-interface Languages {
-  en: string
-  fr: string
-  de: string
-  es: string
-  it: string
-  ja: string
-  ko: string
-  'zh-Hans': string
-  'zh-Hant': string
 }
 
 interface Themes {

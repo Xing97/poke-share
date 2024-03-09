@@ -36,7 +36,7 @@ export default function MoveModal ({ move }: Props): JSX.Element {
       <header className='flex gap-4'>
         <h1 className='text-3xl font-bold tracking-wide'>{resolveName(move.name)}</h1>
       </header>
-      <main className='mt-6 flex gap-6'>
+      <main className='mt-6 flex flex-wrap gap-6'>
         <div className='grid h-fit min-w-fit grid-cols-2 flex-col gap-x-1 gap-y-2'>
           <Row bg={TYPES_BG_COLORS[type]} name='type' value={t('types.' + type)} />
           <Row bg={CATEGORY_BG_COLORS[category]} name='category' value={t('category.' + category)} />
@@ -46,7 +46,13 @@ export default function MoveModal ({ move }: Props): JSX.Element {
           <Row name='priority' value={move.priority.toLocaleString(lang, { signDisplay: 'exceptZero' })} />
         </div>
         <Suspense>
-          <TextModal name={move.name} flavorText={move.flavorText} effectText={effectText} />
+          <TextModal
+            className='flex-1 basis-96'
+            name={move.name}
+            entity='move'
+            flavorText={move.flavorText}
+            effectText={effectText}
+          />
         </Suspense>
       </main>
     </section>

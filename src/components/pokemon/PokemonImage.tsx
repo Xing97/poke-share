@@ -50,6 +50,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
             onClick={() => {
               showModal(<GenericModal
                 entity={pokemonItem}
+                entityType='item'
                 icon={<PokemonItemImage item={pokemonItem} />}
               />)
             }}

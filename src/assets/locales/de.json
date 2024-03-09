@@ -18,7 +18,9 @@
     "paste": "Füge deine Pokémon hier ein",
     "title": "Titel (optional)",
     "update": "Updaten",
+    "loading": "Laden...",
     "error": "Eingabe ist nicht gültig",
+    "some-error": "Einige Pokémon sind ungültig",
     "example": "Beispiel"
   },
   "history": {

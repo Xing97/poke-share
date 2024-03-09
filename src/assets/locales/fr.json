@@ -18,7 +18,9 @@
     "paste": "Collez vos Pokémon ici",
     "title": "Titre (optionnel)",
     "update": "Mettre à jour",
+    "loading": "Chargement...",
     "error": "L'entrée n'est pas valide",
+    "some-error": "Certains Pokémon sont invalides",
     "example": "Exemple"
   },
   "history": {
@@ -26,8 +28,7 @@
     "untitled": "Sans titre",
     "cleared": "Tout l'historique a été effacé",
     "undo": "Annuler"
-  }
-,
+  },
   "settings": {
     "generations": "Game Generation",
     "version-groups": "Game Version",

@@ -9,11 +9,11 @@ void TextModal.preload()
 
 interface Props {
   entity: { name: I18nName, flavorText: FlavorText, effectText: EffectText }
+  entityType: string
   icon?: JSX.Element
-  wikiPrefix?: string
 }
 
-export default function GenericModal ({ entity, icon, wikiPrefix = '' }: Props): JSX.Element {
+export default function GenericModal ({ entity, entityType, icon }: Props): JSX.Element {
   const { resolveName } = useI18n()
 
   return (
@@ -25,9 +25,9 @@ export default function GenericModal ({ entity, icon, wikiPrefix = '' }: Props):
       <Suspense>
         <TextModal
           name={entity.name}
+          entity={entityType}
           flavorText={entity.flavorText}
           effectText={entity.effectText}
-          wikiPrefix={wikiPrefix}
         />
       </Suspense>
     </section>
