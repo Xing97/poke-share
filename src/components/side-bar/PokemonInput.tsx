@@ -1,4 +1,5 @@
 import HelpModal from '@/components/modal/HelpModal'
+import { LoadingIcon } from '@/icons/LoadingIcon'
 import QuestionIcon from '@/icons/QuestionIcon'
 import { INPUT_EXAMPLE } from '@/model/constants'
 import { useModalStore } from '@/stores/modal'
@@ -59,11 +60,12 @@ export default function PokemonInput (): JSX.Element {
         defaultValue={title}
       />
       <button
-        className='rounded-full bg-blue-700 py-1 font-semibold tracking-wide text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50'
+        className='flex justify-center gap-2 rounded-full bg-blue-700 py-1 font-semibold tracking-wide text-white hover:bg-blue-600 disabled:cursor-not-allowed'
         type='submit'
         disabled={loading}
       >
-        {t('input.update')}
+        {loading && <LoadingIcon className='size-6 animate-spin-clockwise animate-iteration-count-infinite' />}
+        {loading ? t('input.loading') : t('input.update')}
       </button>
     </form>
   )

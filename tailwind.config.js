@@ -39,6 +39,21 @@ export default {
         dark: '#705746',
         steel: '#B7B7CE',
         fairy: '#D685AD'
+      },
+      animation: {
+        loader: 'loader 2s linear infinite'
+      },
+      keyframes: {
+        loader: {
+          '0%': {
+            left: '0',
+            transform: 'translateX(-100%)',
+          },
+          '100%': {
+            left: '100%',
+            transform: 'translateX(0%)',
+          }
+        }
       }
     }
   },
