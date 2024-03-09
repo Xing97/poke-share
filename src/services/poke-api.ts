@@ -22,7 +22,10 @@ const BASE_URL = 'https://pokeapi.co/api/v2'
 
 export async function fetchPokemon (pokeInput: PokemonInfo): Promise<Pokemon> {
   const pokemonPromise = fetchApi<IPokemon>('pokemon', pokeInput.name)
-  const itemPromise = pokeInput.item != null ? fetchApi<IItem>('item', pokeInput.item) : undefined
+  const itemPromise = pokeInput.item == null
+    ? undefined
+    : fetchApi<IItem>('item', pokeInput.item)
+      .catch(async () => await fetchApi<IItem>('item', pokeInput.item + '--held'))
   const abilityPromise = pokeInput.ability != null ? fetchApi<IAbility>('ability', pokeInput.ability) : undefined
   const movesPromise = Promise.all(pokeInput.moves.map(async m => await fetchApi<IMove>('move', m)))
 
