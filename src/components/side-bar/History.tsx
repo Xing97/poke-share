@@ -25,7 +25,7 @@ export default function History (): JSX.Element {
   }, [clear, history, restore, t])
 
   return (
-    <div className='flex w-full flex-col gap-4 p-4'>
+    <div className='flex w-full flex-col gap-2 p-4'>
       <h1 className='text-xl font-bold'>{t('tooltips.history')}</h1>
       <button className='self-end rounded-full bg-red-600 px-4 py-1 font-semibold tracking-wide text-white hover:bg-red-700' onClick={clearAll}>
         {t('history.clear')}

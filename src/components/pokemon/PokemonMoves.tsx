@@ -25,7 +25,7 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
           onClick={() => { showModal(<MoveModal move={move} />) }}
         >
           <PokemonType
-            className='flex h-9 items-center justify-between rounded-xl px-2 shadow'
+            className='flex h-9 items-center justify-between rounded-xl px-1 shadow'
             type={move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.type != null)?.type ?? move.type}
           >
             <span className='text-shadow truncate px-1 font-bold tracking-wider'>
