@@ -8,9 +8,6 @@ dependencies:
   dompurify:
     specifier: ^3.0.9
     version: 3.0.9
-  hint.css:
-    specifier: ^3.0.0
-    version: 3.0.0
   i18next:
     specifier: ^23.10.0
     version: 23.10.0
@@ -3700,10 +3697,6 @@ packages:
     dependencies:
       function-bind: 1.1.2
     dev: true
-
-  /hint.css@3.0.0:
-    resolution: {integrity: sha512-UoJ+yLO2kEcfsm/XMU1suAIR0sxCq4HO22pw4okJQo5TQDlA2BrJ57Eaxh4eT+9PDInIDTRm9TVzzbHHWEqASQ==}
-    dev: false
 
   /html-parse-stringify@3.0.1:
     resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}

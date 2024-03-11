@@ -67,7 +67,7 @@ function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }):
   return (
     <button
       aria-label={t('tooltips.' + name)}
-      className={`hint--right hint--rounded size-12 before:hidden after:hidden xs:size-16 md:border-l-3 md:before:block md:after:block ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 hover:text-black hover:dark:text-white`}
+      className={`hint--right size-12 before:hidden after:hidden xs:size-16 md:border-l-3 md:before:block md:after:block ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 hover:text-black hover:dark:text-white`}
       onClick={() => { setSelected(name) }}
     >
       {children}
@@ -81,7 +81,7 @@ function Button ({ children, name, onClick }: { children: React.ReactNode, name:
   return (
     <button
       aria-label={t('tooltips.' + name)}
-      className='hint--right hint--rounded size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black dark:text-slate-400 hover:dark:text-white xs:size-16 md:border-l-3 md:before:block md:after:block'
+      className='hint--right size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black dark:text-slate-400 hover:dark:text-white xs:size-16 md:border-l-3 md:before:block md:after:block'
       onClick={onClick}
     >
       {children}

@@ -37,7 +37,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemon.gender === Gender.Male && <MaleIcon className='absolute left-0 top-0 size-8' />}
       {pokemon.gender === Gender.Female && <FemaleIcon className='absolute left-0 top-0 size-8' />}
       {pokemon.teraType != null &&
-        <div className='hint--bottom hint--rounded absolute right-0 top-0 size-8' aria-label={t('types.' + pokemon.teraType)}>
+        <div className='hint--bottom absolute right-0 top-0 size-8' aria-label={t('types.' + pokemon.teraType)}>
           <Suspense>
             <TeraTypeIcon type={pokemon.teraType} />
           </Suspense>
@@ -45,7 +45,7 @@ export default function PokemonImage ({ pokemon }: Props): JSX.Element {
       {pokemonItem != null &&
         <div className='absolute bottom-0 right-0'>
           <button
-            className='hint--bottom hint--rounded size-12 transition-transform hover:scale-125'
+            className='hint--bottom size-12'
             aria-label={resolveName(pokemonItem.name)}
             onClick={() => {
               showModal(<GenericModal
