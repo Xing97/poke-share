@@ -40,6 +40,9 @@ export default {
         steel: '#B7B7CE',
         fairy: '#D685AD'
       },
+      boxShadow: {
+        box: '3px 3px 3px rgb(0 0 0 / 0.3)',
+      },
       animation: {
         loader: 'loader 2s linear infinite'
       },
