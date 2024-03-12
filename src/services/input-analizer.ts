@@ -1,3 +1,4 @@
+import { VALID_TERA_TYPES } from '@/model/constants'
 import { type Gender, type Pokemon, type PokemonInfo, type Stats, type Type } from '@/model/pokemon'
 import { fetchPokemon } from '@/services/poke-api'
 
@@ -27,6 +28,11 @@ function parsePokemon (text: string): PokemonInfo {
 
   const moves = [...text.matchAll(RE_MOVE)].map(match => match[1].trim())
 
+  let teraType: Type | undefined = data.get('Tera Type')?.toLowerCase() as Type
+  if (!VALID_TERA_TYPES.includes(teraType)) {
+    teraType = undefined
+  }
+
   return {
     name,
     nickname,
@@ -38,7 +44,7 @@ function parsePokemon (text: string): PokemonInfo {
     evs,
     ivs,
     moves,
-    teraType: data.get('Tera Type')?.toLowerCase() as Type
+    teraType
   }
 }
 
