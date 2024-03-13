@@ -32,23 +32,23 @@ export default function Aside (): JSX.Element {
     <aside className='flex'>
       <div className='flex w-full justify-between bg-slate-400 dark:bg-slate-700 md:h-full md:w-16 md:flex-col'>
         <header className='flex md:block'>
-          <Tab name={Sidebar.Pokemon}>
+          <AsideTab name={Sidebar.Pokemon}>
             <PokeBallIcon />
-          </Tab>
-          <Tab name={Sidebar.Input}>
+          </AsideTab>
+          <AsideTab name={Sidebar.Input}>
             <EditIcon />
-          </Tab>
-          <Tab name={Sidebar.History}>
+          </AsideTab>
+          <AsideTab name={Sidebar.History}>
             <SaveIcon />
-          </Tab>
+          </AsideTab>
         </header>
         <footer className='flex md:block'>
-          <Button name='share' onClick={shareUrl}>
+          <AsideButton name='share' onClick={shareUrl}>
             <ShareIcon />
-          </Button>
-          <Tab name={Sidebar.Settings}>
+          </AsideButton>
+          <AsideTab name={Sidebar.Settings}>
             <CogIcon />
-          </Tab>
+          </AsideTab>
         </footer>
       </div>
       {selected !== Sidebar.Pokemon &&
@@ -59,7 +59,7 @@ export default function Aside (): JSX.Element {
   )
 }
 
-function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }): JSX.Element {
+function AsideTab ({ children, name }: { children: React.ReactNode, name: Sidebar }): JSX.Element {
   const { t } = useTranslation()
   const selected = useSidebarStore(store => store.sidebar)
   const setSelected = useSidebarStore(store => store.setSidebar)
@@ -75,7 +75,7 @@ function Tab ({ children, name }: { children: React.ReactNode, name: Sidebar }):
   )
 }
 
-function Button ({ children, name, onClick }: { children: React.ReactNode, name: string, onClick: () => void }): JSX.Element {
+function AsideButton ({ children, name, onClick }: { children: React.ReactNode, name: string, onClick: () => void }): JSX.Element {
   const { t } = useTranslation()
 
   return (

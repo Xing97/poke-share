@@ -1,3 +1,4 @@
+import Button from '@/components/Button'
 import DeleteIcon from '@/icons/DeleteIcon'
 import { useHistoryStore, type HistoryItem } from '@/stores/history'
 import { usePokemonStore } from '@/stores/pokemon'
@@ -27,9 +28,12 @@ export default function History (): JSX.Element {
   return (
     <div className='flex w-full flex-col gap-2 p-4'>
       <h1 className='text-xl font-bold'>{t('tooltips.history')}</h1>
-      <button className='self-end rounded-full bg-red-600 px-4 py-1 font-semibold tracking-wide text-white hover:bg-red-700' onClick={clearAll}>
+      <Button
+        className='self-end rounded-full bg-red-600'
+        onClick={clearAll}
+      >
         {t('history.clear')}
-      </button>
+      </Button>
       <ul className='peer flex w-full flex-col gap-2'>
         {history.map((item, index) =>
           <HistoryElement key={index} item={item} removeSave={() => { removeSave(index) }} />)}
