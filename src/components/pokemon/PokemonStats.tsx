@@ -25,8 +25,8 @@ const COLOR_BAR: Record<string, string> = {
   hp: 'bg-red-500 dark:bg-red-600 ring-red-800 dark:ring-red-300',
   attack: 'bg-orange-500 dark:bg-orange-600 ring-orange-800 dark:ring-orange-300',
   defense: 'bg-yellow-500 dark:bg-yellow-600 ring-yellow-800 dark:ring-yellow-300',
-  specialAttack: 'bg-green-500 dark:bg-green-600 ring-green-800 dark:ring-green-300',
-  specialDefense: 'bg-blue-500 dark:bg-blue-600 ring-blue-800 dark:ring-blue-300',
+  'special-attack': 'bg-green-500 dark:bg-green-600 ring-green-800 dark:ring-green-300',
+  'special-defense': 'bg-blue-500 dark:bg-blue-600 ring-blue-800 dark:ring-blue-300',
   speed: 'bg-pink-500 dark:bg-pink-600 ring-pink-800 dark:ring-pink-300'
 }
 
@@ -96,14 +96,14 @@ export default function PokemonStats ({ pokemon }: Props): JSX.Element {
           decrease={DECREASE_DEFENSE.includes(nature)}
         />
         <Stat
-          stat='specialAttack'
+          stat='special-attack'
           value={stats.specialAttack}
           max={max}
           increase={INCREASE_SPECIAL_ATTACK.includes(nature)}
           decrease={DECREASE_SPECIAL_ATTACK.includes(nature)}
         />
         <Stat
-          stat='specialDefense'
+          stat='special-defense'
           value={stats.specialDefense}
           max={max}
           increase={INCREASE_SPECIAL_DEFENSE.includes(nature)}
