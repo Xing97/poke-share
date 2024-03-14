@@ -2,10 +2,10 @@ import { type Pokemon } from '@/model/pokemon'
 import { parsePokemons } from '@/services/input-analizer'
 import { getInputFromPath, setInputInPath } from '@/services/path'
 import i18n from '@/setup/i18n'
+import { useHistoryStore } from '@/stores/history'
 import { Sidebar, useSidebarStore } from '@/stores/sidebar'
 import { toast } from 'sonner'
 import { create } from 'zustand'
-import { useHistoryStore } from './history'
 
 interface PokemonStore {
   title: string
