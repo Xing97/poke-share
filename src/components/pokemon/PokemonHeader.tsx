@@ -1,24 +1,19 @@
 import useI18n from '@/hooks/useI18n'
 import { type Pokemon } from '@/model/pokemon'
-import { useTranslation } from 'react-i18next'
 
 interface Props {
   pokemon: Pokemon
 }
 
 export default function PokemonHeader ({ pokemon }: Props): JSX.Element {
-  const { i18n } = useTranslation()
   const { resolveName } = useI18n()
 
   const number = '#' + pokemon.order.toString().padStart(3, '0')
   const pokemonName = resolveName(pokemon.name)
-  const pokemonForm = pokemon.forms
-    .map(f => resolveName(f))
-    // @ts-expect-error
-    .toLocaleString(i18n.language)
+  const pokemonForm = pokemon.forms[0]
 
-  const displayName = pokemonForm !== ''
-    ? `${pokemonName} ${pokemonForm}`
+  const displayName = pokemonForm != null
+    ? `${pokemonName} ${resolveName(pokemonForm)}`
     : pokemonName
 
   return (
