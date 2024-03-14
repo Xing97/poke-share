@@ -194,6 +194,8 @@ export const GAME_GEN = {
   [Game.TheIndigoDisk]: Generation.IX
 }
 
+export const VALID_TERA_TYPES = Object.values(Type)
+
 export const INPUT_EXAMPLE =
 `Meowscarada (F) @ Choice Band
 Ability: Protean

@@ -1,4 +1,91 @@
-@import 'hint.css';
+@layer components {
+  /*! Hint.css - v3.0.0 - 2023-11-29
+  * https://kushagra.dev/lab/hint/
+  * Copyright (c) 2023 Kushagra Gour */
+  [class*=hint--] {
+    @apply relative
+  }
+
+  [class*=hint--]:before, [class*=hint--]:after {
+    z-index: 98;
+    transition: 0.3s ease;
+    @apply absolute invisible opacity-0 pointer-events-none hover:visible hover:opacity-100 hover:delay-100
+  }
+
+  [class*=hint--]:before {
+    content: "";
+    border: 6px solid transparent;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    z-index: 99;
+    @apply absolute rounded bg-slate-500 dark:bg-slate-600
+  }
+
+  [class*=hint--]:after {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0px black;
+    @apply p-2 text-white font-medium leading-4 whitespace-nowrap rounded bg-slate-500 dark:bg-slate-600
+  }
+
+  [class*=hint--][aria-label]:after {
+    content: attr(aria-label);
+  }
+
+  [class*=hint--][data-hint]:after {
+    content: attr(data-hint);
+  }
+
+  /**
+  * bottom tooltip
+  */
+  .hint--bottom {
+    --rotation: -45deg;
+  }
+  .hint--bottom:before {
+    margin-top: -5.5px;
+    transform: rotate(var(--rotation));
+  }
+  .hint--bottom:before, .hint--bottom:after {
+    top: 100%;
+    left: 50%;
+  }
+  .hint--bottom:before {
+    left: calc(50% - 6px);
+  }
+  .hint--bottom:after {
+    transform: translateX(-50%);
+  }
+  .hint--bottom:hover:before {
+    transform: translateY(8px) rotate(var(--rotation));
+  }
+  .hint--bottom:hover:after {
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  /**
+  * right tooltip
+  */
+  .hint--right {
+    --rotation: -135deg;
+  }
+  .hint--right:before {
+    margin-left: -5.5px;
+    margin-bottom: -6px;
+    transform: rotate(var(--rotation));
+  }
+  .hint--right:after {
+    margin-bottom: calc(-1 * (1rem + 16px) / 2);
+  }
+  .hint--right:before, .hint--right:after {
+    left: 100%;
+    bottom: 50%;
+  }
+  .hint--right:hover:before {
+    transform: translateX(8px) rotate(var(--rotation));
+  }
+  .hint--right:hover:after {
+    transform: translateX(8px);
+  }
+}
 
 @tailwind base;
 @tailwind components;
@@ -65,8 +152,10 @@
   }
 
   .markdown code {
+    font-weight: 500;
     @apply whitespace-nowrap rounded-md bg-slate-200 px-1.5 py-1 text-sm dark:bg-slate-700
   }
+
 }
 
 :root {

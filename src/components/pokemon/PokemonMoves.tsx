@@ -21,11 +21,10 @@ export default function PokemonMoves ({ moves }: Props): JSX.Element {
       {moves.map(move =>
         <button
           key={move.id}
-          className='transition-transform hover:scale-105'
           onClick={() => { showModal(<MoveModal move={move} />) }}
         >
           <PokemonType
-            className='flex h-9 items-center justify-between rounded-xl px-2 shadow'
+            className='flex h-9 items-center justify-between rounded-xl px-1 shadow-box transition-transform hover:brightness-90 active:translate-y-1 active:shadow-none'
             type={move.pastValues.find(pv => isBeforeGame(pv.game, game) && pv.type != null)?.type ?? move.type}
           >
             <span className='text-shadow truncate px-1 font-bold tracking-wider'>

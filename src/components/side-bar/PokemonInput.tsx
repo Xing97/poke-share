@@ -1,3 +1,4 @@
+import Button from '@/components/Button'
 import HelpModal from '@/components/modal/HelpModal'
 import { LoadingIcon } from '@/icons/LoadingIcon'
 import QuestionIcon from '@/icons/QuestionIcon'
@@ -28,13 +29,13 @@ export default function PokemonInput (): JSX.Element {
   return (
     <form className='flex size-full flex-col gap-2 p-2' onSubmit={handleSubmit}>
       <div className='flex justify-between'>
-        <button
-          className='rounded-full bg-blue-600 px-4 py-1 font-semibold tracking-wide text-white hover:bg-blue-700'
+        <Button
+          className='bg-blue-600'
           type='button'
           onClick={() => { setInput(INPUT_EXAMPLE) }}
         >
           {t('input.example')}
-        </button>
+        </Button>
         <button type='button' onClick={() => { showModal(<HelpModal />) }}>
           <QuestionIcon className='size-8' />
         </button>
@@ -59,14 +60,14 @@ export default function PokemonInput (): JSX.Element {
         spellCheck='false'
         defaultValue={title}
       />
-      <button
-        className='flex justify-center gap-2 rounded-full bg-blue-700 py-1 font-semibold tracking-wide text-white hover:bg-blue-600 disabled:cursor-not-allowed'
+      <Button
+        className='flex justify-center gap-2 bg-blue-700 disabled:cursor-not-allowed'
         type='submit'
         disabled={loading}
       >
         {loading && <LoadingIcon className='size-6 animate-spin-clockwise animate-iteration-count-infinite' />}
         {loading ? t('input.loading') : t('input.update')}
-      </button>
+      </Button>
     </form>
   )
 }

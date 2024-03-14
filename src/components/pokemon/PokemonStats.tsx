@@ -22,12 +22,12 @@ const MAX_IV = 31
 const MAX_TOTAL = 550
 
 const COLOR_BAR: Record<string, string> = {
-  hp: 'bg-red-500 dark:bg-red-600',
-  attack: 'bg-orange-500 dark:bg-orange-600',
-  defense: 'bg-yellow-500 dark:bg-yellow-600',
-  'special-attack': 'bg-green-500 dark:bg-green-600',
-  'special-defense': 'bg-blue-500 dark:bg-blue-600',
-  speed: 'bg-pink-500 dark:bg-pink-600'
+  hp: 'bg-red-500 dark:bg-red-600 ring-red-800 dark:ring-red-300',
+  attack: 'bg-orange-500 dark:bg-orange-600 ring-orange-800 dark:ring-orange-300',
+  defense: 'bg-yellow-500 dark:bg-yellow-600 ring-yellow-800 dark:ring-yellow-300',
+  'special-attack': 'bg-green-500 dark:bg-green-600 ring-green-800 dark:ring-green-300',
+  'special-defense': 'bg-blue-500 dark:bg-blue-600 ring-blue-800 dark:ring-blue-300',
+  speed: 'bg-pink-500 dark:bg-pink-600 ring-pink-800 dark:ring-pink-300'
 }
 
 interface Props {
@@ -138,8 +138,8 @@ function Stat ({ stat, value, max, increase = false, decrease = false }: StatPro
         {t('stats.' + stat)}
       </span>
       <span className='justify-self-end font-semibold'>{value}</span>
-      <div className='flex h-4 w-full self-center border border-solid border-slate-500 shadow'>
-        <div className={`duration-300 ease-in ${COLOR_BAR[stat]}`} style={{ width: `${Math.min((value / max) * 100, 100)}%` }} />
+      <div className='flex h-4 w-full self-center ring-1 ring-inset ring-slate-500'>
+        <div className={`ring-1 ring-inset duration-300 ease-in ${COLOR_BAR[stat]}`} style={{ width: `${Math.min((value / max) * 100, 100)}%` }} />
       </div>
     </>
   )
