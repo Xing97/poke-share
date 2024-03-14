@@ -31,6 +31,7 @@ export default function PokemonInput (): JSX.Element {
       <div className='flex justify-between'>
         <Button
           className='bg-blue-600'
+          type='button'
           onClick={() => { setInput(INPUT_EXAMPLE) }}
         >
           {t('input.example')}
