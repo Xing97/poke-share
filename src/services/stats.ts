@@ -9,8 +9,8 @@ import {
   INCREASE_SPECIAL_ATTACK,
   INCREASE_SPECIAL_DEFENSE,
   INCREASE_SPEED,
-} from '@/model/constants'
-import { type Pokemon, type Stats } from '@/model/pokemon'
+} from "@/model/constants"
+import { type Pokemon, type Stats } from "@/model/pokemon"
 
 export function calculateStats(pokemon: Pokemon, level: number): Stats {
   const base = pokemon.stats

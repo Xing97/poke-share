@@ -1,5 +1,5 @@
-import { TYPES_BG_COLORS } from '@/components/styles'
-import { type Type } from '@/model/pokemon'
+import { TYPES_BG_COLORS } from "@/components/styles"
+import { type Type } from "@/model/pokemon"
 
 interface Props {
   children?: React.ReactNode

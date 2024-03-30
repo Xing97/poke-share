@@ -1,4 +1,4 @@
-import { type SVGProps } from 'react'
+import { type SVGProps } from "react"
 
 export function LoadingIcon(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (

@@ -2,36 +2,36 @@
   /*! Hint.css - v3.0.0 - 2023-11-29
   * https://kushagra.dev/lab/hint/
   * Copyright (c) 2023 Kushagra Gour */
-  [class*='hint--'] {
+  [class*="hint--"] {
     @apply relative;
   }
 
-  [class*='hint--']:before,
-  [class*='hint--']:after {
+  [class*="hint--"]:before,
+  [class*="hint--"]:after {
     z-index: 98;
     transition: 0.3s ease;
     @apply absolute invisible opacity-0 pointer-events-none hover:visible hover:opacity-100 hover:delay-100;
   }
 
-  [class*='hint--']:before {
-    content: '';
+  [class*="hint--"]:before {
+    content: "";
     border: 6px solid transparent;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
     z-index: 99;
     @apply absolute rounded bg-slate-500 dark:bg-slate-600;
   }
 
-  [class*='hint--']:after {
+  [class*="hint--"]:after {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 0px black;
     @apply p-2 text-white font-medium leading-4 whitespace-nowrap rounded bg-slate-500 dark:bg-slate-600;
   }
 
-  [class*='hint--'][aria-label]:after {
+  [class*="hint--"][aria-label]:after {
     content: attr(aria-label);
   }
 
-  [class*='hint--'][data-hint]:after {
+  [class*="hint--"][data-hint]:after {
     content: attr(data-hint);
   }
 
@@ -169,7 +169,7 @@
 }
 
 * {
-  scrollbar-color: theme('colors.slate.500') transparent;
+  scrollbar-color: theme("colors.slate.500") transparent;
 }
 
 .scrollbar-thin {

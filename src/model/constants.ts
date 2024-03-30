@@ -1,5 +1,5 @@
-import { Category, Nature, Type, type Move } from '@/model/pokemon'
-import { Game, Generation } from '@/stores/game'
+import { Category, Nature, Type, type Move } from "@/model/pokemon"
+import { Game, Generation } from "@/stores/game"
 
 const GENS = Object.values(Generation)
 

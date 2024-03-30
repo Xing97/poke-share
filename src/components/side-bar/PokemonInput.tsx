@@ -1,12 +1,12 @@
-import Button from '@/components/Button'
-import HelpModal from '@/components/modal/HelpModal'
-import { LoadingIcon } from '@/icons/LoadingIcon'
-import QuestionIcon from '@/icons/QuestionIcon'
-import { INPUT_EXAMPLE } from '@/model/constants'
-import { useModalStore } from '@/stores/modal'
-import { usePokemonStore } from '@/stores/pokemon'
-import { type FormEventHandler } from 'react'
-import { useTranslation } from 'react-i18next'
+import Button from "@/components/Button"
+import HelpModal from "@/components/modal/HelpModal"
+import { LoadingIcon } from "@/icons/LoadingIcon"
+import QuestionIcon from "@/icons/QuestionIcon"
+import { INPUT_EXAMPLE } from "@/model/constants"
+import { useModalStore } from "@/stores/modal"
+import { usePokemonStore } from "@/stores/pokemon"
+import { type FormEventHandler } from "react"
+import { useTranslation } from "react-i18next"
 
 export default function PokemonInput(): JSX.Element {
   const { t } = useTranslation()
@@ -23,7 +23,7 @@ export default function PokemonInput(): JSX.Element {
     event.preventDefault()
 
     const form = new FormData(event.currentTarget)
-    submit(form.get('paste') as string, form.get('title') as string, true)
+    submit(form.get("paste") as string, form.get("title") as string, true)
   }
 
   return (
@@ -36,7 +36,7 @@ export default function PokemonInput(): JSX.Element {
             setInput(INPUT_EXAMPLE)
           }}
         >
-          {t('input.example')}
+          {t("input.example")}
         </Button>
         <button
           type="button"
@@ -50,7 +50,7 @@ export default function PokemonInput(): JSX.Element {
       <textarea
         name="paste"
         className="scrollbar-thin h-full resize-none rounded bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-black dark:bg-slate-700 dark:focus-visible:outline-white"
-        placeholder={t('input.paste')}
+        placeholder={t("input.paste")}
         required
         autoComplete="off"
         autoFocus
@@ -65,7 +65,7 @@ export default function PokemonInput(): JSX.Element {
         className="rounded bg-slate-300 px-1.5 py-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black dark:bg-slate-700 dark:focus-visible:outline-white"
         type="text"
         name="title"
-        placeholder={t('input.title')}
+        placeholder={t("input.title")}
         spellCheck="false"
         defaultValue={title}
       />
@@ -77,7 +77,7 @@ export default function PokemonInput(): JSX.Element {
         {loading && (
           <LoadingIcon className="size-6 animate-spin-clockwise animate-iteration-count-infinite" />
         )}
-        {loading ? t('input.loading') : t('input.update')}
+        {loading ? t("input.loading") : t("input.update")}
       </Button>
     </form>
   )

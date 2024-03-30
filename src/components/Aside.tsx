@@ -1,15 +1,15 @@
-import History from '@/components/side-bar/History'
-import PokemonInput from '@/components/side-bar/PokemonInput'
-import Settings from '@/components/side-bar/Settings'
-import CogIcon from '@/icons/CogIcon'
-import EditIcon from '@/icons/EditIcon'
-import SaveIcon from '@/icons/HistoryIcon'
-import PokeBallIcon from '@/icons/PokeBallIcon'
-import ShareIcon from '@/icons/ShareIcon'
-import { Sidebar, useSidebarStore } from '@/stores/sidebar'
-import { useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
-import { toast } from 'sonner'
+import History from "@/components/side-bar/History"
+import PokemonInput from "@/components/side-bar/PokemonInput"
+import Settings from "@/components/side-bar/Settings"
+import CogIcon from "@/icons/CogIcon"
+import EditIcon from "@/icons/EditIcon"
+import SaveIcon from "@/icons/HistoryIcon"
+import PokeBallIcon from "@/icons/PokeBallIcon"
+import ShareIcon from "@/icons/ShareIcon"
+import { Sidebar, useSidebarStore } from "@/stores/sidebar"
+import { useCallback } from "react"
+import { useTranslation } from "react-i18next"
+import { toast } from "sonner"
 
 const SIDE_BAR = {
   [Sidebar.Pokemon]: null,
@@ -25,8 +25,8 @@ export default function Aside(): JSX.Element {
   const shareUrl = useCallback(() => {
     navigator.clipboard
       .writeText(window.location.href)
-      .then(() => toast.success(t('labels.share')))
-      .catch(() => toast.error('Failed to copy sharable URL to clipboard.'))
+      .then(() => toast.success(t("labels.share")))
+      .catch(() => toast.error("Failed to copy sharable URL to clipboard."))
   }, [t])
 
   return (
@@ -68,8 +68,8 @@ function AsideTab({ children, name }: { children: React.ReactNode; name: Sidebar
 
   return (
     <button
-      aria-label={t('tooltips.' + name)}
-      className={`hint--right size-12 before:hidden after:hidden xs:size-16 md:border-l-3 md:before:block md:after:block ${selected === name ? 'border-black text-black dark:border-white dark:text-white' : 'border-transparent text-slate-600 dark:text-slate-400'} p-3 hover:text-black hover:dark:text-white`}
+      aria-label={t("tooltips." + name)}
+      className={`hint--right size-12 before:hidden after:hidden xs:size-16 md:border-l-3 md:before:block md:after:block ${selected === name ? "border-black text-black dark:border-white dark:text-white" : "border-transparent text-slate-600 dark:text-slate-400"} p-3 hover:text-black hover:dark:text-white`}
       onClick={() => {
         setSelected(name)
       }}
@@ -92,7 +92,7 @@ function AsideButton({
 
   return (
     <button
-      aria-label={t('tooltips.' + name)}
+      aria-label={t("tooltips." + name)}
       className="hint--right size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black dark:text-slate-400 hover:dark:text-white xs:size-16 md:border-l-3 md:before:block md:after:block"
       onClick={onClick}
     >

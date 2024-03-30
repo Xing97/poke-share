@@ -1,7 +1,7 @@
-import useI18n from '@/hooks/useI18n'
-import QuestionIcon from '@/icons/QuestionIcon'
-import { type Item } from '@/model/pokemon'
-import { useState } from 'react'
+import useI18n from "@/hooks/useI18n"
+import QuestionIcon from "@/icons/QuestionIcon"
+import { type Item } from "@/model/pokemon"
+import { useState } from "react"
 
 interface Props {
   item: Item

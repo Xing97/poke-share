@@ -1,4 +1,4 @@
-import { type Name, type VerboseEffect, type VersionGroupFlavorText } from '@/model/poke-api/common'
+import { type Name, type VerboseEffect, type VersionGroupFlavorText } from "@/model/poke-api/common"
 
 export interface IItem {
   id: number

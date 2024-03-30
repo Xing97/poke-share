@@ -1,9 +1,9 @@
-import Select from '@/components/Select'
-import { GEN_GAMES } from '@/model/constants'
-import { Generation, useGameStore } from '@/stores/game'
-import { Language, useLanguageStore } from '@/stores/language'
-import { Theme, useThemeStore } from '@/stores/theme'
-import Link from '../Link'
+import Select from "@/components/Select"
+import { GEN_GAMES } from "@/model/constants"
+import { Generation, useGameStore } from "@/stores/game"
+import { Language, useLanguageStore } from "@/stores/language"
+import { Theme, useThemeStore } from "@/stores/theme"
+import Link from "../Link"
 
 export default function Settings(): JSX.Element {
   const generation = useGameStore((state) => state.generation)

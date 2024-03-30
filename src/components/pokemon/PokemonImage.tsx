@@ -1,16 +1,16 @@
-import GenericModal from '@/components/modal/GenericModal'
-import PokemonItemImage from '@/components/pokemon/PokemonItemImage'
-import useI18n from '@/hooks/useI18n'
-import FemaleIcon from '@/icons/FemaleIcon'
-import MaleIcon from '@/icons/MaleIcon'
-import PokeBallIcon from '@/icons/PokeBallIcon'
-import { Gender, type Pokemon } from '@/model/pokemon'
-import { useModalStore } from '@/stores/modal'
-import { Suspense, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import lazyWithPreload from 'react-lazy-with-preload'
+import GenericModal from "@/components/modal/GenericModal"
+import PokemonItemImage from "@/components/pokemon/PokemonItemImage"
+import useI18n from "@/hooks/useI18n"
+import FemaleIcon from "@/icons/FemaleIcon"
+import MaleIcon from "@/icons/MaleIcon"
+import PokeBallIcon from "@/icons/PokeBallIcon"
+import { Gender, type Pokemon } from "@/model/pokemon"
+import { useModalStore } from "@/stores/modal"
+import { Suspense, useState } from "react"
+import { useTranslation } from "react-i18next"
+import lazyWithPreload from "react-lazy-with-preload"
 
-const TeraTypeIcon = lazyWithPreload(async () => await import('@/icons/TeraTypeIcon'))
+const TeraTypeIcon = lazyWithPreload(async () => await import("@/icons/TeraTypeIcon"))
 
 void TeraTypeIcon.preload()
 
@@ -45,7 +45,7 @@ export default function PokemonImage({ pokemon }: Props): JSX.Element {
       {pokemon.teraType != null && (
         <div
           className="hint--bottom absolute right-0 top-0 size-8"
-          aria-label={t('types.' + pokemon.teraType)}
+          aria-label={t("types." + pokemon.teraType)}
         >
           <Suspense>
             <TeraTypeIcon type={pokemon.teraType} />

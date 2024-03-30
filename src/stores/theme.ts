@@ -1,10 +1,10 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 export enum Theme {
-  System = 'system',
-  Light = 'light',
-  Dark = 'dark',
+  System = "system",
+  Light = "light",
+  Dark = "dark",
 }
 
 interface ThemeStore {
@@ -20,6 +20,6 @@ export const useThemeStore = create<ThemeStore>()(
         set({ theme })
       },
     }),
-    { name: '__MW::theme' }
+    { name: "__MW::theme" }
   )
 )

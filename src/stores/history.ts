@@ -1,5 +1,5 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 export interface HistoryItem {
   title: string
@@ -36,6 +36,6 @@ export const useHistoryStore = create<HistoryStore>()(
         set({ history })
       },
     }),
-    { name: '__MW::history' }
+    { name: "__MW::history" }
   )
 )

@@ -1,9 +1,9 @@
-import useI18n from '@/hooks/useI18n'
-import { type EffectText, type FlavorText, type I18nName } from '@/model/pokemon'
-import { Suspense } from 'react'
-import lazyWithPreload from 'react-lazy-with-preload'
+import useI18n from "@/hooks/useI18n"
+import { type EffectText, type FlavorText, type I18nName } from "@/model/pokemon"
+import { Suspense } from "react"
+import lazyWithPreload from "react-lazy-with-preload"
 
-const TextModal = lazyWithPreload(async () => await import('@/components/modal/TextModal'))
+const TextModal = lazyWithPreload(async () => await import("@/components/modal/TextModal"))
 
 void TextModal.preload()
 

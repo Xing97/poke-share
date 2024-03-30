@@ -1,5 +1,5 @@
-import { useId } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useId } from "react"
+import { useTranslation } from "react-i18next"
 
 interface Props<T extends string> {
   options: T[]
@@ -21,7 +21,7 @@ export default function Selector<T extends string>({
   const id = useId()
 
   return (
-    <div className={'flex flex-wrap gap-1.5 ' + className}>
+    <div className={"flex flex-wrap gap-1.5 " + className}>
       {options.map((option) => (
         <label
           key={option}
@@ -37,7 +37,7 @@ export default function Selector<T extends string>({
             }}
             checked={option === selected}
           />
-          {t(translation + '.' + option)}
+          {t(translation + "." + option)}
         </label>
       ))}
     </div>

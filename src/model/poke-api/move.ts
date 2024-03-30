@@ -3,7 +3,7 @@ import {
   type NamedAPIResource,
   type VerboseEffect,
   type VersionGroupFlavorText,
-} from '@/model/poke-api/common'
+} from "@/model/poke-api/common"
 
 export interface IMove {
   id: number

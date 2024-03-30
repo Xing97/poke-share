@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next"
 
 interface TestProps<T extends string> {
   name: string
@@ -19,7 +19,7 @@ export default function Select<T extends string>({
 
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-lg font-semibold">{t('settings.' + name)}</span>
+      <span className="text-lg font-semibold">{t("settings." + name)}</span>
       <select
         className="w-full bg-slate-300 px-2 py-1 dark:bg-slate-700"
         name={name}
@@ -30,7 +30,7 @@ export default function Select<T extends string>({
       >
         {options.map((option) => (
           <option key={option} value={option}>
-            {t(name + '.' + option)}
+            {t(name + "." + option)}
           </option>
         ))}
       </select>

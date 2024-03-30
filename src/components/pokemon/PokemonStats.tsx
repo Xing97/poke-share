@@ -1,4 +1,4 @@
-import Selector from '@/components/Selector'
+import Selector from "@/components/Selector"
 import {
   DECREASE_ATTACK,
   DECREASE_DEFENSE,
@@ -10,11 +10,11 @@ import {
   INCREASE_SPECIAL_ATTACK,
   INCREASE_SPECIAL_DEFENSE,
   INCREASE_SPEED,
-} from '@/model/constants'
-import { type Pokemon, type Stats } from '@/model/pokemon'
-import { calculateStats } from '@/services/stats'
-import { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+} from "@/model/constants"
+import { type Pokemon, type Stats } from "@/model/pokemon"
+import { calculateStats } from "@/services/stats"
+import { useMemo, useState } from "react"
+import { useTranslation } from "react-i18next"
 
 const MAX_BASE = 255
 const MAX_EV = 255
@@ -22,12 +22,12 @@ const MAX_IV = 31
 const MAX_TOTAL = 550
 
 const COLOR_BAR: Record<string, string> = {
-  'hp': 'bg-red-500 dark:bg-red-600 ring-red-800 dark:ring-red-300',
-  'attack': 'bg-orange-500 dark:bg-orange-600 ring-orange-800 dark:ring-orange-300',
-  'defense': 'bg-yellow-500 dark:bg-yellow-600 ring-yellow-800 dark:ring-yellow-300',
-  'special-attack': 'bg-green-500 dark:bg-green-600 ring-green-800 dark:ring-green-300',
-  'special-defense': 'bg-blue-500 dark:bg-blue-600 ring-blue-800 dark:ring-blue-300',
-  'speed': 'bg-pink-500 dark:bg-pink-600 ring-pink-800 dark:ring-pink-300',
+  "hp": "bg-red-500 dark:bg-red-600 ring-red-800 dark:ring-red-300",
+  "attack": "bg-orange-500 dark:bg-orange-600 ring-orange-800 dark:ring-orange-300",
+  "defense": "bg-yellow-500 dark:bg-yellow-600 ring-yellow-800 dark:ring-yellow-300",
+  "special-attack": "bg-green-500 dark:bg-green-600 ring-green-800 dark:ring-green-300",
+  "special-defense": "bg-blue-500 dark:bg-blue-600 ring-blue-800 dark:ring-blue-300",
+  "speed": "bg-pink-500 dark:bg-pink-600 ring-pink-800 dark:ring-pink-300",
 }
 
 interface Props {
@@ -35,7 +35,7 @@ interface Props {
 }
 
 export default function PokemonStats({ pokemon }: Props): JSX.Element {
-  const [selected, setSelected] = useState('base')
+  const [selected, setSelected] = useState("base")
   const [stats, setStats] = useState(pokemon.stats)
   const [max, setMax] = useState(MAX_BASE)
 
@@ -46,23 +46,23 @@ export default function PokemonStats({ pokemon }: Props): JSX.Element {
 
   const handleSelect = (tab: string): void => {
     switch (tab) {
-      case 'base':
+      case "base":
         setStats(pokemon.stats)
         setMax(MAX_BASE)
         break
-      case 'evs':
+      case "evs":
         setStats(pokemon.evs)
         setMax(MAX_EV)
         break
-      case 'ivs':
+      case "ivs":
         setStats(pokemon.ivs)
         setMax(MAX_IV)
         break
-      case 'lvl50':
+      case "lvl50":
         setStats(lvl50)
         setMax(MAX_TOTAL)
         break
-      case 'lvl100':
+      case "lvl100":
         setStats(lvl100)
         setMax(MAX_TOTAL)
         break
@@ -74,7 +74,7 @@ export default function PokemonStats({ pokemon }: Props): JSX.Element {
     <div className="flex flex-col gap-2">
       <Selector
         className="self-end"
-        options={['base', 'evs', 'ivs', 'lvl50', 'lvl100']}
+        options={["base", "evs", "ivs", "lvl50", "lvl100"]}
         selected={selected}
         setSelected={handleSelect}
         translation="labels"
@@ -135,9 +135,9 @@ function Stat({ stat, value, max, increase = false, decrease = false }: StatProp
   return (
     <>
       <span
-        className={`font-semibold tracking-wide${increase ? ' text-green-500' : decrease ? ' text-red-500' : ''}`}
+        className={`font-semibold tracking-wide${increase ? " text-green-500" : decrease ? " text-red-500" : ""}`}
       >
-        {t('stats.' + stat)}
+        {t("stats." + stat)}
       </span>
       <span className="justify-self-end font-semibold">{value}</span>
       <div className="flex h-4 w-full self-center ring-1 ring-inset ring-slate-500">

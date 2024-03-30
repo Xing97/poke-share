@@ -1,8 +1,8 @@
-import Aside from '@/components/Aside'
-import PokemonTeam from '@/components/PokemonTeam'
-import { usePokemonStore } from '@/stores/pokemon'
-import { useThemeStore } from '@/stores/theme'
-import { Toaster } from 'sonner'
+import Aside from "@/components/Aside"
+import PokemonTeam from "@/components/PokemonTeam"
+import { usePokemonStore } from "@/stores/pokemon"
+import { useThemeStore } from "@/stores/theme"
+import { Toaster } from "sonner"
 
 export default function App(): JSX.Element {
   const theme = useThemeStore((store) => store.theme)

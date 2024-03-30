@@ -1,8 +1,8 @@
-import react from '@vitejs/plugin-react-swc'
-import million from 'million/compiler'
-import path from 'path'
-import { defineConfig } from 'vite'
-import { VitePWA } from 'vite-plugin-pwa'
+import react from "@vitejs/plugin-react-swc"
+import million from "million/compiler"
+import path from "path"
+import { defineConfig } from "vite"
+import { VitePWA } from "vite-plugin-pwa"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,16 +10,16 @@ export default defineConfig({
     million.vite({ auto: true, mute: true }),
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png'],
+      registerType: "autoUpdate",
+      includeAssets: ["favicon.ico", "favicon.svg", "apple-touch-icon.png"],
       workbox: {
-        globPatterns: ['**/*.{js,css,html}', './img/*'],
+        globPatterns: ["**/*.{js,css,html}", "./img/*"],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/.*/i,
-            handler: 'CacheFirst',
+            handler: "CacheFirst",
             options: {
-              cacheName: 'pokeapi-cache',
+              cacheName: "pokeapi-cache",
               expiration: {
                 maxEntries: 10000,
                 maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
@@ -32,52 +32,52 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: 'Pokezi',
-        short_name: 'Pokezi',
-        description: 'Web to share Pokemon sets with anyone',
-        theme_color: '#334155',
-        background_color: '#0f172a',
-        display: 'standalone',
-        start_url: '/',
+        name: "Pokezi",
+        short_name: "Pokezi",
+        description: "Web to share Pokemon sets with anyone",
+        theme_color: "#334155",
+        background_color: "#0f172a",
+        display: "standalone",
+        start_url: "/",
         icons: [
           {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'any',
+            src: "pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "any",
           },
           {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any',
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
           },
           {
-            src: 'pwa-maskable-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'maskable',
+            src: "pwa-maskable-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "maskable",
           },
           {
-            src: 'pwa-maskable-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable',
+            src: "pwa-maskable-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
           },
         ],
       },
     }),
   ],
   build: {
-    cssMinify: 'lightningcss',
+    cssMinify: "lightningcss",
     rollupOptions: {
       output: {
         manualChunks(id: string) {
-          if (id.includes('locales') && !id.includes('en.json')) {
-            return 'locales'
+          if (id.includes("locales") && !id.includes("en.json")) {
+            return "locales"
           }
-          if (id.includes('react-dom')) {
-            return 'react-dom'
+          if (id.includes("react-dom")) {
+            return "react-dom"
           }
         },
       },
@@ -85,7 +85,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 })

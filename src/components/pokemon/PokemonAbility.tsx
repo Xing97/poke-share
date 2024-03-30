@@ -1,8 +1,8 @@
-import GenericModal from '@/components/modal/GenericModal'
-import useI18n from '@/hooks/useI18n'
-import AbilityIcon from '@/icons/AbilityIcon'
-import { type Ability } from '@/model/pokemon'
-import { useModalStore } from '@/stores/modal'
+import GenericModal from "@/components/modal/GenericModal"
+import useI18n from "@/hooks/useI18n"
+import AbilityIcon from "@/icons/AbilityIcon"
+import { type Ability } from "@/model/pokemon"
+import { useModalStore } from "@/stores/modal"
 
 interface Props {
   ability: Ability

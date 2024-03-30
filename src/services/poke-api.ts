@@ -1,10 +1,10 @@
-import { type IAbility } from '@/model/poke-api/ability'
-import { type Name, type VerboseEffect, type VersionGroupFlavorText } from '@/model/poke-api/common'
-import { type IItem } from '@/model/poke-api/item'
-import { type IMove } from '@/model/poke-api/move'
-import { type IPokemon } from '@/model/poke-api/pokemon'
-import { type IPokemonForm } from '@/model/poke-api/pokemon-form'
-import { type IPokemonSpecies } from '@/model/poke-api/pokemon-species'
+import { type IAbility } from "@/model/poke-api/ability"
+import { type Name, type VerboseEffect, type VersionGroupFlavorText } from "@/model/poke-api/common"
+import { type IItem } from "@/model/poke-api/item"
+import { type IMove } from "@/model/poke-api/move"
+import { type IPokemon } from "@/model/poke-api/pokemon"
+import { type IPokemonForm } from "@/model/poke-api/pokemon-form"
+import { type IPokemonSpecies } from "@/model/poke-api/pokemon-species"
 import {
   Nature,
   type Category,
@@ -14,24 +14,24 @@ import {
   type Pokemon,
   type PokemonInfo,
   type Type,
-} from '@/model/pokemon'
-import { type Game, type Generation } from '@/stores/game'
-import { Language } from '@/stores/language'
+} from "@/model/pokemon"
+import { type Game, type Generation } from "@/stores/game"
+import { Language } from "@/stores/language"
 
-const BASE_URL = 'https://pokeapi.co/api/v2'
+const BASE_URL = "https://pokeapi.co/api/v2"
 
 export async function fetchPokemon(pokeInput: PokemonInfo): Promise<Pokemon> {
-  const pokemonPromise = fetchApi<IPokemon>('pokemon', pokeInput.name)
+  const pokemonPromise = fetchApi<IPokemon>("pokemon", pokeInput.name)
   const itemPromise =
     pokeInput.item == null
       ? undefined
-      : fetchApi<IItem>('item', pokeInput.item).catch(
-          async () => await fetchApi<IItem>('item', pokeInput.item + '--held')
+      : fetchApi<IItem>("item", pokeInput.item).catch(
+          async () => await fetchApi<IItem>("item", pokeInput.item + "--held")
         )
   const abilityPromise =
-    pokeInput.ability != null ? fetchApi<IAbility>('ability', pokeInput.ability) : undefined
+    pokeInput.ability != null ? fetchApi<IAbility>("ability", pokeInput.ability) : undefined
   const movesPromise = Promise.all(
-    pokeInput.moves.map(async (m) => await fetchApi<IMove>('move', m))
+    pokeInput.moves.map(async (m) => await fetchApi<IMove>("move", m))
   )
 
   const [_pokemon, _item, _ability, _moves] = await Promise.all([
@@ -46,24 +46,24 @@ export async function fetchPokemon(pokeInput: PokemonInfo): Promise<Pokemon> {
   if (__ability === undefined) {
     const defaultAbility = _pokemon.abilities.find((a) => a.slot === 1)
     if (defaultAbility === undefined) {
-      throw new Error('No default ability found')
+      throw new Error("No default ability found")
     }
-    __ability = await fetchApi<IAbility>('ability', defaultAbility.ability.name)
+    __ability = await fetchApi<IAbility>("ability", defaultAbility.ability.name)
   }
 
   const [_specie, _forms] = await Promise.all([
-    fetchApi<IPokemonSpecies>('pokemon-species', _pokemon.species.name),
+    fetchApi<IPokemonSpecies>("pokemon-species", _pokemon.species.name),
     Promise.all(
       _pokemon.forms
         .filter((f) => f.name !== _pokemon.species.name)
-        .map(async (f) => await fetchApi<IPokemonForm>('pokemon-form', f.name))
+        .map(async (f) => await fetchApi<IPokemonForm>("pokemon-form", f.name))
     ),
   ])
 
   const pokemon: Pokemon = {
     id: _pokemon.id,
     order:
-      _specie.pokedex_numbers.find((p) => p.pokedex.name === 'national')?.entry_number ??
+      _specie.pokedex_numbers.find((p) => p.pokedex.name === "national")?.entry_number ??
       _specie.id,
     name: mapNames(_specie.names, _pokemon.name),
     forms: _forms.map((f) => mapNames(f.form_names, f.name)),
@@ -102,13 +102,13 @@ export async function fetchPokemon(pokeInput: PokemonInfo): Promise<Pokemon> {
         ? _pokemon.sprites.front_shiny ?? _pokemon.sprites.front_default
         : _pokemon.sprites.front_default,
     stats: {
-      hp: _pokemon.stats.find((s) => s.stat.name === 'hp')?.base_stat ?? NaN,
-      attack: _pokemon.stats.find((s) => s.stat.name === 'attack')?.base_stat ?? NaN,
-      defense: _pokemon.stats.find((s) => s.stat.name === 'defense')?.base_stat ?? NaN,
-      specialAttack: _pokemon.stats.find((s) => s.stat.name === 'special-attack')?.base_stat ?? NaN,
+      hp: _pokemon.stats.find((s) => s.stat.name === "hp")?.base_stat ?? NaN,
+      attack: _pokemon.stats.find((s) => s.stat.name === "attack")?.base_stat ?? NaN,
+      defense: _pokemon.stats.find((s) => s.stat.name === "defense")?.base_stat ?? NaN,
+      specialAttack: _pokemon.stats.find((s) => s.stat.name === "special-attack")?.base_stat ?? NaN,
       specialDefense:
-        _pokemon.stats.find((s) => s.stat.name === 'special-defense')?.base_stat ?? NaN,
-      speed: _pokemon.stats.find((s) => s.stat.name === 'speed')?.base_stat ?? NaN,
+        _pokemon.stats.find((s) => s.stat.name === "special-defense")?.base_stat ?? NaN,
+      speed: _pokemon.stats.find((s) => s.stat.name === "speed")?.base_stat ?? NaN,
     },
     types: _pokemon.types.map((t) => t.type.name as Type),
     pastTypes: _pokemon.past_types.map((t) => ({
@@ -131,10 +131,10 @@ export async function fetchPokemon(pokeInput: PokemonInfo): Promise<Pokemon> {
 }
 
 async function fetchApi<T>(entity: string, name: string): Promise<T> {
-  const isHiddenPower = entity === 'move' && name.startsWith('Hidden Power')
+  const isHiddenPower = entity === "move" && name.startsWith("Hidden Power")
   const idName = isHiddenPower
-    ? 'hidden-power'
-    : name.toLowerCase().replaceAll(' ', '-').replaceAll("'", '')
+    ? "hidden-power"
+    : name.toLowerCase().replaceAll(" ", "-").replaceAll("'", "")
 
   const response = await fetch(`${BASE_URL}/${entity}/${idName}`)
 
@@ -144,7 +144,7 @@ async function fetchApi<T>(entity: string, name: string): Promise<T> {
 
   if (isHiddenPower) {
     const data = (await response.json()) as IMove
-    data.type.name = name.substring(13).replace('[', '').replace(']', '').toLowerCase()
+    data.type.name = name.substring(13).replace("[", "").replace("]", "").toLowerCase()
     return data as T
   }
 

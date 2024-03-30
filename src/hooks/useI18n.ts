@@ -1,9 +1,9 @@
-import { GAMES, GEN_GAME } from '@/model/constants'
-import { type EffectText, type FlavorText, type I18nName } from '@/model/pokemon'
-import { useGameStore } from '@/stores/game'
-import { type Language } from '@/stores/language'
-import { useCallback, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { GAMES, GEN_GAME } from "@/model/constants"
+import { type EffectText, type FlavorText, type I18nName } from "@/model/pokemon"
+import { useGameStore } from "@/stores/game"
+import { type Language } from "@/stores/language"
+import { useCallback, useMemo } from "react"
+import { useTranslation } from "react-i18next"
 
 interface I18n {
   resolveName: (field: I18nName) => string

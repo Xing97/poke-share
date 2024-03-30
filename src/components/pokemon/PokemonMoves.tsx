@@ -1,10 +1,10 @@
-import MoveModal from '@/components/modal/MoveModal'
-import PokemonType from '@/components/pokemon/PokemonType'
-import useI18n from '@/hooks/useI18n'
-import { getMoveCategory, isBeforeGame } from '@/model/constants'
-import { type Move } from '@/model/pokemon'
-import { useGameStore } from '@/stores/game'
-import { useModalStore } from '@/stores/modal'
+import MoveModal from "@/components/modal/MoveModal"
+import PokemonType from "@/components/pokemon/PokemonType"
+import useI18n from "@/hooks/useI18n"
+import { getMoveCategory, isBeforeGame } from "@/model/constants"
+import { type Move } from "@/model/pokemon"
+import { useGameStore } from "@/stores/game"
+import { useModalStore } from "@/stores/modal"
 
 interface Props {
   moves: Move[]

@@ -1,5 +1,5 @@
-import useI18n from '@/hooks/useI18n'
-import { type Pokemon } from '@/model/pokemon'
+import useI18n from "@/hooks/useI18n"
+import { type Pokemon } from "@/model/pokemon"
 
 interface Props {
   pokemon: Pokemon
@@ -8,7 +8,7 @@ interface Props {
 export default function PokemonHeader({ pokemon }: Props): JSX.Element {
   const { resolveName } = useI18n()
 
-  const number = '#' + pokemon.order.toString().padStart(3, '0')
+  const number = "#" + pokemon.order.toString().padStart(3, "0")
   const pokemonName = resolveName(pokemon.name)
   const pokemonForm = pokemon.forms[0]
 

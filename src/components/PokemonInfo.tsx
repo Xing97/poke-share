@@ -1,14 +1,14 @@
-import PokemonAbility from '@/components/pokemon/PokemonAbility'
-import PokemonHeader from '@/components/pokemon/PokemonHeader'
-import PokemonImage from '@/components/pokemon/PokemonImage'
-import PokemonMoves from '@/components/pokemon/PokemonMoves'
-import PokemonNature from '@/components/pokemon/PokemonNature'
-import PokemonStats from '@/components/pokemon/PokemonStats'
-import PokemonType from '@/components/pokemon/PokemonType'
-import { isIncludedGeneration } from '@/model/constants'
-import { type Pokemon, type Type } from '@/model/pokemon'
-import { useGameStore, type Generation } from '@/stores/game'
-import { useTranslation } from 'react-i18next'
+import PokemonAbility from "@/components/pokemon/PokemonAbility"
+import PokemonHeader from "@/components/pokemon/PokemonHeader"
+import PokemonImage from "@/components/pokemon/PokemonImage"
+import PokemonMoves from "@/components/pokemon/PokemonMoves"
+import PokemonNature from "@/components/pokemon/PokemonNature"
+import PokemonStats from "@/components/pokemon/PokemonStats"
+import PokemonType from "@/components/pokemon/PokemonType"
+import { isIncludedGeneration } from "@/model/constants"
+import { type Pokemon, type Type } from "@/model/pokemon"
+import { useGameStore, type Generation } from "@/stores/game"
+import { useTranslation } from "react-i18next"
 
 interface Props {
   pokemon: Pokemon
@@ -38,7 +38,7 @@ export default function PokemonInfo({ pokemon }: Props): JSX.Element {
                 key={type}
                 type={type}
               >
-                {t('types.' + type)}
+                {t("types." + type)}
               </PokemonType>
             ))}
           </div>
