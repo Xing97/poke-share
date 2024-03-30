@@ -42,7 +42,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "eslint-plugin-tailwindcss": "^3.15.1",
+    "husky": "^9.0.11",
     "lightningcss": "^1.24.1",
+    "lint-staged": "^15.2.2",
     "postcss": "^8.4.38",
     "prettier": "3.2.5",
     "tailwindcss": "^3.4.3",
@@ -51,7 +53,9 @@
     "vite-plugin-pwa": "^0.19.7"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix",
-    "**/*": "prettier --write"
+    "src/**/*.{ts,js,tsx,jsx}": [
+      "eslint --ext",
+      "prettier --check"
+    ]
   }
 }
