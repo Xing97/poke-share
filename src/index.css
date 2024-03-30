@@ -117,6 +117,10 @@
     @apply uppercase
   }
 
+  .markdown p {
+    @apply text-pretty
+  }
+
   .markdown table {
     @apply block w-max max-w-full border-collapse border-spacing-0 overflow-auto
   }
