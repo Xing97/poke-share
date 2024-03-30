@@ -8,22 +8,24 @@ interface Props {
   ability: Ability
 }
 
-export default function PokemonAbility ({ ability }: Props): JSX.Element {
+export default function PokemonAbility({ ability }: Props): JSX.Element {
   const { resolveName } = useI18n()
-  const showModal = useModalStore(state => state.showModal)
+  const showModal = useModalStore((state) => state.showModal)
 
   return (
     <button
-      className='mr-auto flex items-center gap-2 transition-transform hover:scale-110'
+      className="mr-auto flex items-center gap-2 transition-transform hover:scale-110"
       onClick={() => {
-        showModal(<GenericModal
-          entity={ability}
-          icon={<AbilityIcon className='h-full p-2' />}
-          entityType='ability'
-        />)
+        showModal(
+          <GenericModal
+            entity={ability}
+            icon={<AbilityIcon className="h-full p-2" />}
+            entityType="ability"
+          />
+        )
       }}
     >
-      <AbilityIcon className='size-8' />
+      <AbilityIcon className="size-8" />
       <span>{resolveName(ability.name)}</span>
     </button>
   )

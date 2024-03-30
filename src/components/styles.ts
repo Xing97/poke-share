@@ -19,11 +19,11 @@ export const TYPES_BG_COLORS = {
   [Type.Dark]: 'bg-dark',
   [Type.Steel]: 'bg-steel',
   [Type.Fairy]: 'bg-fairy',
-  [Type.Stellar]: 'bg-back'
+  [Type.Stellar]: 'bg-back',
 }
 
 export const CATEGORY_BG_COLORS = {
   [Category.Physical]: 'bg-red-700',
   [Category.Special]: 'bg-gray-900',
-  [Category.Status]: 'bg-gray-400'
+  [Category.Status]: 'bg-gray-400',
 }

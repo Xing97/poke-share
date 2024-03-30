@@ -2,14 +2,14 @@ import { deflateRaw, inflateRaw } from 'pako'
 
 const SEPARATOR = '|'
 
-export function setInputInPath (input: string, title: string): void {
+export function setInputInPath(input: string, title: string): void {
   const data = (title !== '' ? title + SEPARATOR : '') + input
   const compressed = deflateRaw(data)
   const base64 = btoa(String.fromCharCode.apply(null, [...compressed]))
   window.history.replaceState(null, '', `/${base64}`)
 }
 
-export function getInputFromPath (): { title: string, input: string } {
+export function getInputFromPath(): { title: string; input: string } {
   const path = window.location.pathname
 
   if (path === '/') {
@@ -17,9 +17,11 @@ export function getInputFromPath (): { title: string, input: string } {
   }
 
   try {
-    const retrieved = new Uint8Array(atob(path.slice(1))
-      .split('')
-      .map((char) => char.charCodeAt(0)))
+    const retrieved = new Uint8Array(
+      atob(path.slice(1))
+        .split('')
+        .map((char) => char.charCodeAt(0))
+    )
 
     const data = inflateRaw(retrieved, { to: 'string' })
 

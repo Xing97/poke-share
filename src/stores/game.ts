@@ -11,7 +11,7 @@ export enum Generation {
   VI = 'generation-vi',
   VII = 'generation-vii',
   VIII = 'generation-viii',
-  IX = 'generation-ix'
+  IX = 'generation-ix',
 }
 
 export enum Game {
@@ -41,7 +41,7 @@ export enum Game {
   LegendsArceus = 'legends-arceus',
   ScarletViolet = 'scarlet-violet',
   TheTealMask = 'the-teal-mask',
-  TheIndigoDisk = 'the-indigo-disk'
+  TheIndigoDisk = 'the-indigo-disk',
 }
 
 interface GameStore {
@@ -52,11 +52,17 @@ interface GameStore {
 }
 
 export const useGameStore = create<GameStore>()(
-  persist((set) => ({
-    generation: Generation.IX,
-    game: Game.ScarletViolet,
-    setGeneration (generation) { set({ generation, game: GEN_GAME[generation] }) },
-    setGame (game) { set({ game }) }
-  }),
-  { name: '__MW::game' })
+  persist(
+    (set) => ({
+      generation: Generation.IX,
+      game: Game.ScarletViolet,
+      setGeneration(generation) {
+        set({ generation, game: GEN_GAME[generation] })
+      },
+      setGame(game) {
+        set({ game })
+      },
+    }),
+    { name: '__MW::game' }
+  )
 )

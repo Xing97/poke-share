@@ -13,7 +13,7 @@ const languageDetector: LanguageDetectorAsyncModule = {
   detect: (lng) => {
     lng(useLanguageStore.getState().language)
   },
-  init: () => {}
+  init: () => {},
 }
 
 void i18n
@@ -24,8 +24,8 @@ void i18n
     resources,
     debug: import.meta.env.DEV,
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
-    }
+      escapeValue: false, // not needed for react as it escapes by default
+    },
   })
 
 export default i18n

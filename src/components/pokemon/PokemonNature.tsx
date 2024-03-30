@@ -6,12 +6,12 @@ interface Props {
   nature: Nature
 }
 
-export default function PokemonNature ({ nature }: Props): JSX.Element {
+export default function PokemonNature({ nature }: Props): JSX.Element {
   const { t } = useTranslation()
 
   return (
-    <div className='flex items-center gap-2'>
-      <NatureIcon className='size-8' />
+    <div className="flex items-center gap-2">
+      <NatureIcon className="size-8" />
       <span>{t('natures.' + nature)}</span>
     </div>
   )

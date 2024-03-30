@@ -1,8 +1,8 @@
-import react from '@vitejs/plugin-react-swc';
-import million from 'million/compiler';
-import path from 'path';
-import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
+import react from '@vitejs/plugin-react-swc'
+import million from 'million/compiler'
+import path from 'path'
+import { defineConfig } from 'vite'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,16 +11,9 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: [
-        'favicon.ico',
-        'favicon.svg',
-        'apple-touch-icon.png'
-      ],
+      includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png'],
       workbox: {
-        globPatterns: [
-          '**\/*.{js,css,html}',
-          './img/*'
-        ],
+        globPatterns: ['**/*.{js,css,html}', './img/*'],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/pokeapi\.co\/api\/v2\/.*/i,
@@ -29,14 +22,14 @@ export default defineConfig({
               cacheName: 'pokeapi-cache',
               expiration: {
                 maxEntries: 10000,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+                maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
               },
               cacheableResponse: {
-                statuses: [0, 200]
-              }
-            }
-          }
-        ]
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
       },
       manifest: {
         name: 'Pokezi',
@@ -51,29 +44,29 @@ export default defineConfig({
             src: 'pwa-192x192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any'
+            purpose: 'any',
           },
           {
             src: 'pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any'
+            purpose: 'any',
           },
           {
             src: 'pwa-maskable-192x192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'maskable'
+            purpose: 'maskable',
           },
           {
             src: 'pwa-maskable-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'maskable'
-          }
+            purpose: 'maskable',
+          },
         ],
-      }
-    })
+      },
+    }),
   ],
   build: {
     cssMinify: 'lightningcss',
@@ -81,18 +74,18 @@ export default defineConfig({
       output: {
         manualChunks(id: string) {
           if (id.includes('locales') && !id.includes('en.json')) {
-            return 'locales';
+            return 'locales'
           }
           if (id.includes('react-dom')) {
-            return 'react-dom';
+            return 'react-dom'
           }
-        }
-      }
-    }
+        },
+      },
+    },
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
-    }
-  }
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 })

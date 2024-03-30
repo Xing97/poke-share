@@ -2,18 +2,24 @@ import { VALID_TERA_TYPES } from '@/model/constants'
 import { type Gender, type Pokemon, type PokemonInfo, type Stats, type Type } from '@/model/pokemon'
 import { fetchPokemon } from '@/services/poke-api'
 
-const RE_HEAD = /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
-const RE_MOVE = /^- ?([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*(?: \[[A-Z][a-z]+\])?)(?: ?\/ ?[A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
+const RE_HEAD =
+  /^(?:(?:(.*) \()([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*)\)|([A-Z][a-z0-9:']+\.?(?:[- ][A-Za-z][a-z0-9:']*\.?)*))(?: \(([MF])\))?(?: @ ([A-Z][a-z0-9:']*(?:[- ][A-Z][a-z0-9:']*)*))? *$/
+const RE_MOVE =
+  /^- ?([A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*(?: \[[A-Z][a-z]+\])?)(?: ?\/ ?[A-Z][a-z']*(?:[- ][A-Za-z][a-z']*)*)* *$/gm
 const RE_NATURE = /^([A-Za-z]+) Nature/m
 
-export async function parsePokemons (text: string): Promise<Array<PromiseSettledResult<Pokemon>>> {
-  return await Promise.allSettled(text.trim().split(/^\s*\n/m)
-    .map(parsePokemon)
-    .map(fetchPokemon))
+export async function parsePokemons(text: string): Promise<Array<PromiseSettledResult<Pokemon>>> {
+  return await Promise.allSettled(
+    text
+      .trim()
+      .split(/^\s*\n/m)
+      .map(parsePokemon)
+      .map(fetchPokemon)
+  )
 }
 
-function parsePokemon (text: string): PokemonInfo {
-  const lines = text.split('\n').map(line => line.trim())
+function parsePokemon(text: string): PokemonInfo {
+  const lines = text.split('\n').map((line) => line.trim())
 
   const headMatch = lines[0].match(RE_HEAD) ?? []
   const name = headMatch[2] ?? headMatch[3]
@@ -26,7 +32,7 @@ function parsePokemon (text: string): PokemonInfo {
   const evs = parseStats(data.get('EVs'), 0)
   const ivs = parseStats(data.get('IVs'), 31)
 
-  const moves = [...text.matchAll(RE_MOVE)].map(match => match[1].trim())
+  const moves = [...text.matchAll(RE_MOVE)].map((match) => match[1].trim())
 
   let teraType: Type | undefined = data.get('Tera Type')?.toLowerCase() as Type
   if (!VALID_TERA_TYPES.includes(teraType)) {
@@ -44,14 +50,14 @@ function parsePokemon (text: string): PokemonInfo {
     evs,
     ivs,
     moves,
-    teraType
+    teraType,
   }
 }
 
-function parseData (lines: string[]): Map<string, string> {
+function parseData(lines: string[]): Map<string, string> {
   return lines
-    .filter(line => line.includes(':'))
-    .map(elm => elm.split(':').map(item => item.trim()))
+    .filter((line) => line.includes(':'))
+    .map((elm) => elm.split(':').map((item) => item.trim()))
     .reduce((map, elm) => {
       const [key, value] = elm
       map.set(key, value)
@@ -59,24 +65,25 @@ function parseData (lines: string[]): Map<string, string> {
     }, new Map<string, string>())
 }
 
-function parseStats (text: string | undefined, defaultValue: number): Stats {
+function parseStats(text: string | undefined, defaultValue: number): Stats {
   const stats = {
     hp: defaultValue,
     attack: defaultValue,
     defense: defaultValue,
     specialAttack: defaultValue,
     specialDefense: defaultValue,
-    speed: defaultValue
+    speed: defaultValue,
   }
 
   if (text === undefined) {
     return stats
   }
 
-  text.split('/')
-    .map(elm => elm.trim())
-    .map(elm => elm.split(' '))
-    .forEach(elm => {
+  text
+    .split('/')
+    .map((elm) => elm.trim())
+    .map((elm) => elm.split(' '))
+    .forEach((elm) => {
       const [value, key] = elm
       if (key === 'HP') {
         stats.hp = parseInt(value)

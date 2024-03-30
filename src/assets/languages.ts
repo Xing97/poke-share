@@ -18,23 +18,23 @@ export const locales: Record<Language, Translations> = {
   [Language.Japanese]: ja,
   [Language.Korean]: ko,
   [Language.ChineseSimplified]: zhHans,
-  [Language.ChineseTraditional]: zhHant
+  [Language.ChineseTraditional]: zhHant,
 }
 
 interface Translations {
-  labels: Labels
-  tooltips: Tooltips
-  input: Input
-  history: History
-  settings: Settings
-  themes: Themes
-  generations: Generations
+  'labels': Labels
+  'tooltips': Tooltips
+  'input': Input
+  'history': History
+  'settings': Settings
+  'themes': Themes
+  'generations': Generations
   'version-groups': VersionGroups
-  move: Move
-  category: Category
-  types: Types
-  natures: Natures
-  stats: Stats
+  'move': Move
+  'category': Category
+  'types': Types
+  'natures': Natures
+  'stats': Stats
 }
 
 interface Labels {
@@ -55,13 +55,13 @@ interface Tooltips {
 }
 
 interface Input {
-  paste: string
-  title: string
-  update: string
-  loading: string
-  error: string
+  'paste': string
+  'title': string
+  'update': string
+  'loading': string
+  'error': string
   'some-error': string
-  example: string
+  'example': string
 }
 
 interface History {
@@ -72,10 +72,10 @@ interface History {
 }
 
 interface Settings {
-  generations: string
+  'generations': string
   'version-groups': string
-  languages: string
-  themes: string
+  'languages': string
+  'themes': string
 }
 
 interface Themes {
@@ -98,18 +98,18 @@ interface Generations {
 
 interface VersionGroups {
   'red-blue': string
-  yellow: string
+  'yellow': string
   'gold-silver': string
-  crystal: string
+  'crystal': string
   'ruby-sapphire': string
-  emerald: string
+  'emerald': string
   'firered-leafgreen': string
   'diamond-pearl': string
-  platinum: string
+  'platinum': string
   'heartgold-soulsilver': string
   'black-white': string
-  colosseum: string
-  xd: string
+  'colosseum': string
+  'xd': string
   'black-2-white-2': string
   'x-y': string
   'omega-ruby-alpha-sapphire': string
@@ -193,12 +193,12 @@ interface Natures {
 }
 
 interface Stats {
-  hp: string
-  defense: string
-  accuracy: string
+  'hp': string
+  'defense': string
+  'accuracy': string
   'special-attack': string
-  evasion: string
-  attack: string
-  speed: string
+  'evasion': string
+  'attack': string
+  'speed': string
   'special-defense': string
 }

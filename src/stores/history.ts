@@ -16,13 +16,26 @@ interface HistoryStore {
 }
 
 export const useHistoryStore = create<HistoryStore>()(
-  persist((set) => ({
-    history: [],
-    add: (input, title) => { set((state) => ({ history: [{ input, title, date: new Date().getTime() }, ...state.history] })) },
-    remove: (index) => { set((state) => ({ history: state.history.filter((_, i) => i !== index) })) },
-    clear: () => { set({ history: [] }) },
-    restore: (history) => { set({ history }) }
-  }),
-  { name: '__MW::history' }
+  persist(
+    (set) => ({
+      history: [],
+      add: (input, title) => {
+        set((state) => ({
+          history: [{ input, title, date: new Date().getTime() }, ...state.history],
+        }))
+      },
+      remove: (index) => {
+        set((state) => ({
+          history: state.history.filter((_, i) => i !== index),
+        }))
+      },
+      clear: () => {
+        set({ history: [] })
+      },
+      restore: (history) => {
+        set({ history })
+      },
+    }),
+    { name: '__MW::history' }
   )
 )

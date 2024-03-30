@@ -1,7 +1,7 @@
 import { Theme, useThemeStore } from '@/stores/theme'
 import { Helmet } from 'react-helmet-async'
 
-export default function ThemeProvider (): JSX.Element {
+export default function ThemeProvider(): JSX.Element {
   const theme = useThemeStore((s) => s.theme)
 
   return (
@@ -11,8 +11,9 @@ export default function ThemeProvider (): JSX.Element {
   )
 }
 
-function isDark (theme: Theme): boolean {
-  return theme === Theme.Dark ||
-  (theme === Theme.System &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches)
+function isDark(theme: Theme): boolean {
+  return (
+    theme === Theme.Dark ||
+    (theme === Theme.System && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  )
 }

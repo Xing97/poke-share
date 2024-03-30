@@ -3,21 +3,18 @@ import animations from '@midudev/tailwind-animations'
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}'
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       gridTemplateColumns: {
         'pokemon-stats': 'max-content 3ch 1fr',
-        'pokemon-moves': 'repeat(auto-fit, minmax(172px, 1fr))'
+        'pokemon-moves': 'repeat(auto-fit, minmax(172px, 1fr))',
       },
-      'borderWidth': {
-        3: '3px'
+      borderWidth: {
+        3: '3px',
       },
       screens: {
-        xs: '475px'
+        xs: '475px',
       },
       colors: {
         pokemon: '#FB1B1B',
@@ -38,13 +35,13 @@ export default {
         dragon: '#6F35FC',
         dark: '#705746',
         steel: '#B7B7CE',
-        fairy: '#D685AD'
+        fairy: '#D685AD',
       },
       boxShadow: {
         box: '3px 3px 3px rgb(0 0 0 / 0.3)',
       },
       animation: {
-        loader: 'loader 2s linear infinite'
+        loader: 'loader 2s linear infinite',
       },
       keyframes: {
         loader: {
@@ -55,11 +52,10 @@ export default {
           '100%': {
             left: '100%',
             transform: 'translateX(0%)',
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   },
   plugins: [animations],
 }
-

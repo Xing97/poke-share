@@ -2,13 +2,13 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
+    'prettier',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'standard-with-typescript',
-    'plugin:tailwindcss/recommended'
+    'plugin:tailwindcss/recommended',
   ],
   ignorePatterns: [
     'dist',
@@ -16,37 +16,22 @@ module.exports = {
     'tailwind.config.js',
     'vite.config.ts',
     'postcss.config.js',
-    'vite-env.d.ts'
+    'vite-env.d.ts',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', '@stylistic'],
+  plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true }
-    ],
-    '@stylistic/jsx-closing-bracket-location': [2, 'line-aligned'],
-    '@stylistic/jsx-closing-tag-location': 2,
-    '@stylistic/jsx-curly-brace-presence': [2, 'never'],
-    '@stylistic/jsx-curly-newline': 2,
-    '@stylistic/jsx-curly-spacing': [2, 'never'],
-    '@stylistic/jsx-equals-spacing': [2, 'never'],
-    '@stylistic/jsx-first-prop-new-line': 2,
-    '@stylistic/jsx-indent': [2, 2, { checkAttributes: true, indentLogicalExpressions: true }],
-    '@stylistic/jsx-indent-props': [2, 2],
-    '@stylistic/jsx-props-no-multi-spaces': 2,
-    '@stylistic/jsx-quotes': [2, 'prefer-single'],
-    '@stylistic/jsx-self-closing-comp': 2,
-    '@stylistic/jsx-tag-spacing': 2,
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
-    'tailwindcss/no-custom-classname': [1, {
-      'whitelist': ['hint--.*']
-    }]
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
   },
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
 }

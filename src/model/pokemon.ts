@@ -176,18 +176,18 @@ export enum Type {
   Dragon = 'dragon',
   Dark = 'dark',
   Fairy = 'fairy',
-  Stellar = 'stellar'
+  Stellar = 'stellar',
 }
 
 export enum Category {
   Physical = 'physical',
   Special = 'special',
-  Status = 'status'
+  Status = 'status',
 }
 
 export enum Gender {
   Male = 'M',
-  Female = 'F'
+  Female = 'F',
 }
 
 export enum Nature {
@@ -215,5 +215,5 @@ export enum Nature {
   Gentle = 'gentle',
   Sassy = 'sassy',
   Careful = 'careful',
-  Quirky = 'quirky'
+  Quirky = 'quirky',
 }

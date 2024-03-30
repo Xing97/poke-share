@@ -3,7 +3,7 @@ import { useLanguageStore } from '@/stores/language'
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 
-export default function LanguageProvider (): JSX.Element {
+export default function LanguageProvider(): JSX.Element {
   const language = useLanguageStore((s) => s.language)
 
   useEffect(() => {

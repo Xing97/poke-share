@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware'
 export enum Theme {
   System = 'system',
   Light = 'light',
-  Dark = 'dark'
+  Dark = 'dark',
 }
 
 interface ThemeStore {
@@ -13,10 +13,13 @@ interface ThemeStore {
 }
 
 export const useThemeStore = create<ThemeStore>()(
-  persist((set) => ({
-    theme: Theme.System,
-    setTheme (theme) { set({ theme }) }
-  }),
-  { name: '__MW::theme' }
+  persist(
+    (set) => ({
+      theme: Theme.System,
+      setTheme(theme) {
+        set({ theme })
+      },
+    }),
+    { name: '__MW::theme' }
   )
 )

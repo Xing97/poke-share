@@ -8,19 +8,19 @@ const TextModal = lazyWithPreload(async () => await import('@/components/modal/T
 void TextModal.preload()
 
 interface Props {
-  entity: { name: I18nName, flavorText: FlavorText, effectText: EffectText }
+  entity: { name: I18nName; flavorText: FlavorText; effectText: EffectText }
   entityType: string
   icon?: JSX.Element
 }
 
-export default function GenericModal ({ entity, entityType, icon }: Props): JSX.Element {
+export default function GenericModal({ entity, entityType, icon }: Props): JSX.Element {
   const { resolveName } = useI18n()
 
   return (
-    <section className='flex flex-col gap-4'>
-      <header className='flex h-14 items-center gap-2'>
+    <section className="flex flex-col gap-4">
+      <header className="flex h-14 items-center gap-2">
         {icon}
-        <h1 className='text-3xl font-bold tracking-wide'>{resolveName(entity.name)}</h1>
+        <h1 className="text-3xl font-bold tracking-wide">{resolveName(entity.name)}</h1>
       </header>
       <Suspense>
         <TextModal

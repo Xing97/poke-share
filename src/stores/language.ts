@@ -10,7 +10,7 @@ export enum Language {
   Korean = 'ko',
   Japanese = 'ja',
   ChineseSimplified = 'zh-Hans',
-  ChineseTraditional = 'zh-Hant'
+  ChineseTraditional = 'zh-Hant',
 }
 
 interface LanguageStore {
@@ -19,9 +19,13 @@ interface LanguageStore {
 }
 
 export const useLanguageStore = create<LanguageStore>()(
-  persist((set) => ({
-    language: Language.English,
-    setLanguage (language) { set({ language }) }
-  }),
-  { name: '__MW::locale' })
+  persist(
+    (set) => ({
+      language: Language.English,
+      setLanguage(language) {
+        set({ language })
+      },
+    }),
+    { name: '__MW::locale' }
+  )
 )
