@@ -1,12 +1,11 @@
 import Button from "@/components/Button"
-import HelpModal from "@/components/modal/HelpModal"
 import { LoadingIcon } from "@/icons/LoadingIcon"
 import QuestionIcon from "@/icons/QuestionIcon"
 import { INPUT_EXAMPLE } from "@/model/constants"
-import { useModalStore } from "@/stores/modal"
 import { usePokemonStore } from "@/stores/pokemon"
 import { type FormEventHandler } from "react"
 import { useTranslation } from "react-i18next"
+import Link from "../Link"
 
 export default function PokemonInput(): JSX.Element {
   const { t } = useTranslation()
@@ -16,8 +15,6 @@ export default function PokemonInput(): JSX.Element {
   const loading = usePokemonStore((state) => state.loading)
   const setInput = usePokemonStore((state) => state.setInput)
   const submit = usePokemonStore((state) => state.submit)
-
-  const showModal = useModalStore((state) => state.showModal)
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
@@ -38,14 +35,9 @@ export default function PokemonInput(): JSX.Element {
         >
           {t("input.example")}
         </Button>
-        <button
-          type="button"
-          onClick={() => {
-            showModal(<HelpModal />)
-          }}
-        >
-          <QuestionIcon className="size-8" />
-        </button>
+        <Link href="https://pokepast.es/syntax.html">
+          <QuestionIcon className="size-8 text-white hover:text-blue-500" />
+        </Link>
       </div>
       <textarea
         name="paste"

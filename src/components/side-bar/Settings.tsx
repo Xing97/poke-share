@@ -1,4 +1,5 @@
 import Select from "@/components/Select"
+import GithubIcon from "@/icons/GithubIcon"
 import { GEN_GAMES } from "@/model/constants"
 import { Generation, useGameStore } from "@/stores/game"
 import { Language, useLanguageStore } from "@/stores/language"
@@ -45,10 +46,13 @@ export default function Settings(): JSX.Element {
         selected={theme}
         setSelected={setTheme}
       />
-      <footer className="mt-auto">
+      <footer className="mt-auto flex items-end justify-between">
         <span className="text-slate-600 dark:text-slate-400">
           Data powered by <Link href="https://pokeapi.co/">PokéAPI</Link>
         </span>
+        <Link href="https://github.com/Xing97/pokezi">
+          <GithubIcon className="size-10 text-black hover:scale-110 dark:text-white" />
+        </Link>
       </footer>
     </div>
   )

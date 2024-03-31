@@ -79,15 +79,13 @@ function AsideTab({ children, name }: { children: React.ReactNode; name: Sidebar
   )
 }
 
-function AsideButton({
-  children,
-  name,
-  onClick,
-}: {
+interface AsideButtonProps {
   children: React.ReactNode
   name: string
   onClick: () => void
-}): JSX.Element {
+}
+
+function AsideButton({ children, name, onClick }: AsideButtonProps): JSX.Element {
   const { t } = useTranslation()
 
   return (
