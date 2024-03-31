@@ -10,7 +10,7 @@
   [class*="hint--"]:after {
     z-index: 98;
     transition: 0.3s ease;
-    @apply absolute invisible opacity-0 pointer-events-none hover:visible hover:opacity-100 hover:delay-100;
+    @apply pointer-events-none invisible absolute opacity-0 hover:visible hover:opacity-100 hover:delay-100;
   }
 
   [class*="hint--"]:before {
@@ -24,7 +24,7 @@
   [class*="hint--"]:after {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 0px black;
-    @apply p-2 text-white font-medium leading-4 whitespace-nowrap rounded bg-slate-500 dark:bg-slate-600;
+    @apply whitespace-nowrap rounded bg-slate-500 p-2 font-medium leading-4 text-white dark:bg-slate-600;
   }
 
   [class*="hint--"][aria-label]:after {

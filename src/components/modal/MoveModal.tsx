@@ -91,7 +91,7 @@ function Row({
     <>
       <span
         className={
-          "text-white text-lg rounded-l-full px-6 py-1 text-center font-semibold tracking-wide " +
+          "rounded-l-full px-6 py-1 text-center text-lg font-semibold tracking-wide text-white " +
           bg
         }
       >
@@ -99,7 +99,7 @@ function Row({
       </span>
       <span
         className={
-          "text-white text-lg rounded-r-full pl-2 pr-4 py-1 font-medium tracking-wide " + bg
+          "rounded-r-full py-1 pl-2 pr-4 text-lg font-medium tracking-wide text-white " + bg
         }
       >
         {value ?? "—"}

@@ -6,4 +6,5 @@ export default {
   semi: false,
   singleQuote: false,
   quoteProps: "consistent",
+  plugins: ["prettier-plugin-tailwindcss"],
 }
