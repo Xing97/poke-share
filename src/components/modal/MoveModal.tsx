@@ -76,15 +76,13 @@ export default function MoveModal({ move }: Props): JSX.Element {
   )
 }
 
-function Row({
-  name,
-  value,
-  bg = "bg-slate-600",
-}: {
+interface RowProps {
   name: string
   value?: string
   bg?: string
-}): JSX.Element {
+}
+
+function Row({ name, value, bg = "bg-slate-600" }: RowProps): JSX.Element {
   const { t } = useTranslation()
 
   return (

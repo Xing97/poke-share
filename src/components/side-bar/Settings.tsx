@@ -1,10 +1,10 @@
+import Anchor from "@/components/Anchor"
 import Select from "@/components/Select"
 import GithubIcon from "@/icons/GithubIcon"
 import { GEN_GAMES } from "@/model/constants"
 import { Generation, useGameStore } from "@/stores/game"
 import { Language, useLanguageStore } from "@/stores/language"
 import { Theme, useThemeStore } from "@/stores/theme"
-import Link from "../Link"
 
 export default function Settings(): JSX.Element {
   const generation = useGameStore((state) => state.generation)
@@ -48,11 +48,11 @@ export default function Settings(): JSX.Element {
       />
       <footer className="mt-auto flex items-end justify-between">
         <span className="text-slate-600 dark:text-slate-400">
-          Data powered by <Link href="https://pokeapi.co/">PokéAPI</Link>
+          Data powered by <Anchor href="https://pokeapi.co/">PokéAPI</Anchor>
         </span>
-        <Link href="https://github.com/Xing97/pokezi">
+        <Anchor href="https://github.com/Xing97/pokezi">
           <GithubIcon className="size-10 text-black hover:scale-110 dark:text-white" />
-        </Link>
+        </Anchor>
       </footer>
     </div>
   )

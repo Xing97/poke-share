@@ -1,3 +1,4 @@
+import Anchor from "@/components/Anchor"
 import Button from "@/components/Button"
 import { LoadingIcon } from "@/icons/LoadingIcon"
 import QuestionIcon from "@/icons/QuestionIcon"
@@ -5,7 +6,6 @@ import { INPUT_EXAMPLE } from "@/model/constants"
 import { usePokemonStore } from "@/stores/pokemon"
 import { type FormEventHandler } from "react"
 import { useTranslation } from "react-i18next"
-import Link from "../Link"
 
 export default function PokemonInput(): JSX.Element {
   const { t } = useTranslation()
@@ -35,9 +35,9 @@ export default function PokemonInput(): JSX.Element {
         >
           {t("input.example")}
         </Button>
-        <Link href="https://pokepast.es/syntax.html">
+        <Anchor href="https://pokepast.es/syntax.html">
           <QuestionIcon className="size-8 text-white hover:text-blue-500" />
-        </Link>
+        </Anchor>
       </div>
       <textarea
         name="paste"

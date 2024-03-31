@@ -1,4 +1,4 @@
-import Link from "@/components/Link"
+import Anchor from "@/components/Anchor"
 import useI18n from "@/hooks/useI18n"
 import { type EffectText, type FlavorText, type I18nName } from "@/model/pokemon"
 import DOMPurify from "dompurify"
@@ -42,14 +42,14 @@ export default function TextModal({
         />
       )}
       <footer className="mt-auto flex gap-4 self-end">
-        <Link
+        <Anchor
           href={`https://bulbapedia.bulbagarden.net/wiki/${name.en?.replaceAll(" ", "_")}${BULBAPEDIA_MAP[entity]}`}
         >
           Bulbapedia
-        </Link>
-        <Link href={`https://pokemondb.net/${entity}/${name.en?.replaceAll(" ", "-")}`}>
+        </Anchor>
+        <Anchor href={`https://pokemondb.net/${entity}/${name.en?.replaceAll(" ", "-")}`}>
           Pokémon Database
-        </Link>
+        </Anchor>
       </footer>
     </div>
   )
