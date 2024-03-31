@@ -3,6 +3,8 @@
 
 Web to share Pokemon sets with anyone. Displays information on movements, abilities, and statistics interactively.
 
+![PokeShare screenshot](https://github.com/Xing97/poke-share/blob/main/public/img/og.png)
+
 ## Development
 
 ```sh
