@@ -1,5 +1,5 @@
-import { TYPES_BG_COLORS } from '@/components/styles'
-import { type Type } from '@/model/pokemon'
+import { TYPES_BG_COLORS } from "@/components/styles"
+import { type Type } from "@/model/pokemon"
 
 interface Props {
   children?: React.ReactNode
@@ -7,9 +7,11 @@ interface Props {
   className?: string
 }
 
-export default function PokemonType ({ children, type, className }: Props): JSX.Element {
+export default function PokemonType({ children, type, className }: Props): JSX.Element {
   return (
-    <div className={`${TYPES_BG_COLORS[type]} ${className} border-3 border-black/25 py-0.5 text-white`}>
+    <div
+      className={`${TYPES_BG_COLORS[type]} ${className} border-3 border-black/25 py-0.5 text-white`}
+    >
       {children}
     </div>
   )

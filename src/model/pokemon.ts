@@ -1,5 +1,5 @@
-import { type Game, type Generation } from '@/stores/game'
-import { type Language } from '@/stores/language'
+import { type Game, type Generation } from "@/stores/game"
+import { type Language } from "@/stores/language"
 
 export interface I18nName {
   name: string
@@ -158,62 +158,62 @@ export interface PastType {
 }
 
 export enum Type {
-  Normal = 'normal',
-  Fighting = 'fighting',
-  Flying = 'flying',
-  Poison = 'poison',
-  Ground = 'ground',
-  Rock = 'rock',
-  Bug = 'bug',
-  Ghost = 'ghost',
-  Steel = 'steel',
-  Fire = 'fire',
-  Water = 'water',
-  Grass = 'grass',
-  Electric = 'electric',
-  Psychic = 'psychic',
-  Ice = 'ice',
-  Dragon = 'dragon',
-  Dark = 'dark',
-  Fairy = 'fairy',
-  Stellar = 'stellar'
+  Normal = "normal",
+  Fighting = "fighting",
+  Flying = "flying",
+  Poison = "poison",
+  Ground = "ground",
+  Rock = "rock",
+  Bug = "bug",
+  Ghost = "ghost",
+  Steel = "steel",
+  Fire = "fire",
+  Water = "water",
+  Grass = "grass",
+  Electric = "electric",
+  Psychic = "psychic",
+  Ice = "ice",
+  Dragon = "dragon",
+  Dark = "dark",
+  Fairy = "fairy",
+  Stellar = "stellar",
 }
 
 export enum Category {
-  Physical = 'physical',
-  Special = 'special',
-  Status = 'status'
+  Physical = "physical",
+  Special = "special",
+  Status = "status",
 }
 
 export enum Gender {
-  Male = 'M',
-  Female = 'F'
+  Male = "M",
+  Female = "F",
 }
 
 export enum Nature {
-  Hardy = 'hardy',
-  Lonely = 'lonely',
-  Brave = 'brave',
-  Adamant = 'adamant',
-  Naughty = 'naughty',
-  Bold = 'bold',
-  Docile = 'docile',
-  Relaxed = 'relaxed',
-  Impish = 'impish',
-  Lax = 'lax',
-  Timid = 'timid',
-  Hasty = 'hasty',
-  Serious = 'serious',
-  Jolly = 'jolly',
-  Naive = 'naive',
-  Modest = 'modest',
-  Mild = 'mild',
-  Quiet = 'quiet',
-  Bashful = 'bashful',
-  Rash = 'rash',
-  Calm = 'calm',
-  Gentle = 'gentle',
-  Sassy = 'sassy',
-  Careful = 'careful',
-  Quirky = 'quirky'
+  Hardy = "hardy",
+  Lonely = "lonely",
+  Brave = "brave",
+  Adamant = "adamant",
+  Naughty = "naughty",
+  Bold = "bold",
+  Docile = "docile",
+  Relaxed = "relaxed",
+  Impish = "impish",
+  Lax = "lax",
+  Timid = "timid",
+  Hasty = "hasty",
+  Serious = "serious",
+  Jolly = "jolly",
+  Naive = "naive",
+  Modest = "modest",
+  Mild = "mild",
+  Quiet = "quiet",
+  Bashful = "bashful",
+  Rash = "rash",
+  Calm = "calm",
+  Gentle = "gentle",
+  Sassy = "sassy",
+  Careful = "careful",
+  Quirky = "quirky",
 }

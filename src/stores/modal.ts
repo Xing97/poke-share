@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create } from "zustand"
 
 interface ModalStore {
   modal: React.ReactNode | null
@@ -6,10 +6,12 @@ interface ModalStore {
   closeModal: () => void
 }
 
-export const useModalStore = create<ModalStore>()(
-  (set) => ({
-    modal: null,
-    showModal (modal) { set({ modal }) },
-    closeModal () { set({ modal: null }) }
-  })
-)
+export const useModalStore = create<ModalStore>()((set) => ({
+  modal: null,
+  showModal(modal) {
+    set({ modal })
+  },
+  closeModal() {
+    set({ modal: null })
+  },
+}))

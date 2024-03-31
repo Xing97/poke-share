@@ -1,4 +1,4 @@
-import { type Name } from '@/model/poke-api/common'
+import { type Name } from "@/model/poke-api/common"
 
 export interface IPokemonForm {
   id: number
