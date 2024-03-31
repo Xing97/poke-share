@@ -9,7 +9,7 @@ export default function PokemonTeam(): JSX.Element {
   return (
     <div className="flex w-full max-w-3xl flex-col gap-6 p-6">
       <Helmet>
-        <title>{title !== "" ? title : "Pokezi"}</title>
+        <title>{title !== "" ? title : "PokeShare"}</title>
       </Helmet>
       {team.map((pokemon) => (
         <PokemonInfo key={pokemon.id} pokemon={pokemon} />

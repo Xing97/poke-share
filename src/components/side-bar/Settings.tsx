@@ -50,7 +50,7 @@ export default function Settings(): JSX.Element {
         <span className="text-slate-600 dark:text-slate-400">
           Data powered by <Anchor href="https://pokeapi.co/">PokéAPI</Anchor>
         </span>
-        <Anchor href="https://github.com/Xing97/pokezi">
+        <Anchor href="https://github.com/Xing97/poke-share">
           <GithubIcon className="size-10 text-black hover:scale-110 dark:text-white" />
         </Anchor>
       </footer>

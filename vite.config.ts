@@ -32,8 +32,8 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: "Pokezi",
-        short_name: "Pokezi",
+        name: "PokeShare",
+        short_name: "PokeShare",
         description: "Web to share Pokemon sets with anyone",
         theme_color: "#334155",
         background_color: "#0f172a",
