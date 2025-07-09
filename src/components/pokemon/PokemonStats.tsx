@@ -135,7 +135,7 @@ function Stat({ stat, value, max, increase = false, decrease = false }: StatProp
   return (
     <>
       <span
-        className={`font-semibold tracking-wide${increase ? " text-green-500" : decrease ? " text-red-500" : ""}`}
+        className={`font-semibold tracking-wide${increase ? "text-green-500" : decrease ? "text-red-500" : ""}`}
       >
         {t("stats." + stat)}
       </span>

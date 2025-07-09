@@ -25,7 +25,7 @@ export default function Selector<T extends string>({
       {options.map((option) => (
         <label
           key={option}
-          className="cursor-pointer rounded-full border border-slate-900 bg-slate-400 px-2 font-semibold tracking-wide active:bg-slate-500  has-[:checked]:bg-slate-900 has-[:checked]:text-white dark:border-slate-100 dark:bg-slate-500 dark:active:bg-slate-400 dark:has-[:checked]:bg-slate-100 dark:has-[:checked]:text-black"
+          className="cursor-pointer rounded-full border border-slate-900 bg-slate-400 px-2 font-semibold tracking-wide active:bg-slate-500 has-[:checked]:bg-slate-900 has-[:checked]:text-white dark:border-slate-100 dark:bg-slate-500 dark:active:bg-slate-400 dark:has-[:checked]:bg-slate-100 dark:has-[:checked]:text-black"
         >
           <input
             name={id}

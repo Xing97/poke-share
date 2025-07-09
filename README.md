@@ -1,4 +1,3 @@
-
 # PokeShare
 
 Web to share Pokemon sets with anyone. Displays information on movements, abilities, and statistics interactively.
