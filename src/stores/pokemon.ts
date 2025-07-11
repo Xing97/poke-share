@@ -28,13 +28,15 @@ export const usePokemonStore = create<PokemonStore>()((set) => ({
     set({ title, input, loading: true })
     parsePokemons(input)
       .then((team) => {
-        const ok = team.filter((p) => p.status === "fulfilled")
+        const ok = team.filter((p) => p.status === "fulfilled") as Array<
+          PromiseFulfilledResult<Pokemon>
+        >
         if (ok.length === 0) {
           toast.error(i18n.t("input.error"))
           return
         }
 
-        const error = team.filter((p) => p.status === "rejected")
+        const error = team.filter((p) => p.status === "rejected") as PromiseRejectedResult[]
 
         if (error.length > 0) {
           toast.warning(i18n.t("input.some-error"))
