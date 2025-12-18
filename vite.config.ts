@@ -3,12 +3,14 @@ import million from "million/compiler"
 import path from "path"
 import { defineConfig } from "vite"
 import { VitePWA } from "vite-plugin-pwa"
+import tailwindcss from "@tailwindcss/vite"
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     million.vite({ auto: true, mute: true }),
     react(),
+    tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "favicon.svg", "apple-touch-icon.png"],
