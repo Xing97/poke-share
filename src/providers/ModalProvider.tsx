@@ -19,7 +19,7 @@ export default function ModalProvider(): JSX.Element | null {
     <dialog
       ref={dialog}
       onClick={closeModal}
-      className="scrollbar-thin animate-zoom-in animate-duration-fast backdrop:animate-fade-in backdrop:animate-duration-fast inset-0 m-auto max-w-4xl border-2 border-slate-700 bg-slate-200 text-black backdrop:bg-black/55 md:rounded-xl dark:border-slate-400 dark:bg-slate-800 dark:text-white"
+      className="scrollbar-thin animate-zoom-in animate-duration-fast backdrop:animate-fade-in backdrop:animate-duration-fast inset-0 max-w-4xl border-2 border-slate-700 bg-slate-200 text-black backdrop:bg-black/55 md:rounded-xl dark:border-slate-400 dark:bg-slate-800 dark:text-white"
     >
       <div
         className="size-full h-fit p-6"

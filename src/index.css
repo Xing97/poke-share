@@ -48,81 +48,30 @@
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-  *,
+    *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
-}
-
-@utility hint--bottom {
-  /**
-  * bottom tooltip
-  */
-  --rotation: -45deg;
-  &:before {
-    margin-top: -5.5px;
-    transform: rotate(var(--rotation));
+  ul {
+    @apply list-disc;
   }
-  &:before {
-    top: 100%;
-    left: 50%;
+  ol {
+    @apply list-decimal;
   }
-  &:after {
-    top: 100%;
-    left: 50%;
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
-  &:before {
-    left: calc(50% - 6px);
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
   }
-  &:after {
-    transform: translateX(-50%);
-  }
-  &:hover:before {
-    transform: translateY(8px) rotate(var(--rotation));
-  }
-  &:hover:after {
-    transform: translateX(-50%) translateY(8px);
-  }
-}
-
-@utility hint--right {
-  /**
-  * right tooltip
-  */
-  --rotation: -135deg;
-  &:before {
-    margin-left: -5.5px;
-    margin-bottom: -6px;
-    transform: rotate(var(--rotation));
-  }
-  &:after {
-    margin-bottom: calc(-1 * (1rem + 16px) / 2);
-  }
-  &:before {
-    left: 100%;
-    bottom: 50%;
-  }
-  &:after {
-    left: 100%;
-    bottom: 50%;
-  }
-  &:hover:before {
-    transform: translateX(8px) rotate(var(--rotation));
-  }
-  &:hover:after {
-    transform: translateX(8px);
+  dialog {
+    margin: auto;
   }
 }
 
@@ -214,7 +163,12 @@
   [class*="hint--"]:after {
     z-index: 98;
     transition: 0.3s ease;
-    @apply pointer-events-none invisible absolute opacity-0 hover:visible hover:opacity-100 hover:delay-100;
+    @apply pointer-events-none invisible absolute opacity-0;
+  }
+
+  [class*="hint--"]:hover::before,
+  [class*="hint--"]:hover::after {
+    @apply visible opacity-100 delay-100;
   }
 
   [class*="hint--"]:before {
@@ -222,30 +176,87 @@
     border: 6px solid transparent;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
     z-index: 99;
-    @apply absolute rounded-sm bg-slate-500 dark:bg-slate-600;
+    @apply absolute rounded-sm bg-slate-500;
+  }
+
+  .dark [class*="hint--"]:before {
+    @apply bg-slate-600;
   }
 
   [class*="hint--"]:after {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 0px black;
-    @apply rounded-sm bg-slate-500 p-2 leading-4 font-medium whitespace-nowrap text-white dark:bg-slate-600;
+    @apply rounded-sm bg-slate-500 p-2 leading-4 font-medium whitespace-nowrap text-white;
+  }
+
+  .dark [class*="hint--"]:after {
+    @apply bg-slate-600;
   }
 
   [class*="hint--"][aria-label]:after {
-    content: attr(aria-label);
+    content: attr(
+      aria-label
+    ) !important; /* Workaround for Tailwind CSS v4: the hidden attribute takes precedence */
   }
 
   [class*="hint--"][data-hint]:after {
-    content: attr(data-hint);
+    content: attr(
+      data-hint
+    ) !important; /* Workaround for Tailwind CSS v4: the hidden attribute takes precedence */
   }
-}
 
-@layer base {
-  ul {
-    @apply list-disc;
+  /**
+  * bottom tooltip
+  */
+  .hint--bottom {
+    --rotation: -45deg;
   }
-  ol {
-    @apply list-decimal;
+  .hint--bottom:before {
+    margin-top: -5.5px;
+    transform: rotate(var(--rotation));
+  }
+  .hint--bottom:before,
+  .hint--bottom:after {
+    top: 100%;
+    left: 50%;
+  }
+  .hint--bottom:before {
+    left: calc(50% - 6px);
+  }
+  .hint--bottom:after {
+    transform: translateX(-50%);
+  }
+  .hint--bottom:hover:before {
+    transform: translateY(8px) rotate(var(--rotation));
+  }
+  .hint--bottom:hover:after {
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  /**
+  * right tooltip
+  */
+  .hint--right {
+    --rotation: -135deg;
+  }
+  .hint--right:before {
+    margin-left: -5.5px;
+    margin-bottom: -6px;
+    transform: rotate(var(--rotation));
+  }
+  .hint--right:after {
+    margin-bottom: calc(-1 * (1rem + 16px) / 2);
+  }
+  .hint--right:before,
+  .hint--right:after {
+    left: 100%;
+    bottom: 50%;
+  }
+  .hint--right:hover:before {
+    transform: translateX(8px) rotate(var(--rotation));
+  }
+  .hint--right:hover:after {
+    transform: translateX(8px);
   }
 }
 
