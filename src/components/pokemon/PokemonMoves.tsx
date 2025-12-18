@@ -17,7 +17,7 @@ export default function PokemonMoves({ moves }: Props): JSX.Element {
   const showModal = useModalStore((state) => state.showModal)
 
   return (
-    <div className="grid grid-cols-pokemon-moves gap-3">
+    <div className="grid-cols-pokemon-moves grid gap-3">
       {moves.map((move) => (
         <button
           key={move.id}
@@ -26,7 +26,7 @@ export default function PokemonMoves({ moves }: Props): JSX.Element {
           }}
         >
           <PokemonType
-            className="flex h-9 items-center justify-between rounded-xl px-1 shadow-box transition-transform hover:brightness-90 active:translate-y-1 active:shadow-none"
+            className="shadow-box flex h-9 items-center justify-between rounded-xl px-1 transition-transform hover:brightness-90 active:translate-y-1 active:shadow-none"
             type={
               move.pastValues.find((pv) => isBeforeGame(pv.game, game) && pv.type != null)?.type ??
               move.type

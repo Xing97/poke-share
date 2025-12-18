@@ -31,7 +31,7 @@ export default function Aside(): JSX.Element {
 
   return (
     <aside className="flex">
-      <div className="flex w-full justify-between bg-slate-400 dark:bg-slate-700 md:h-full md:w-16 md:flex-col">
+      <div className="flex w-full justify-between bg-slate-400 md:h-full md:w-16 md:flex-col dark:bg-slate-700">
         <header className="flex md:block">
           <AsideTab name={Sidebar.Pokemon}>
             <PokeBallIcon />
@@ -53,7 +53,7 @@ export default function Aside(): JSX.Element {
         </footer>
       </div>
       {selected !== Sidebar.Pokemon && (
-        <div className="scrollbar-thin absolute bottom-0 top-12 w-full overflow-y-auto bg-slate-200 dark:bg-slate-800 xs:top-16 md:static md:h-full md:w-72 lg:w-80 xl:w-96">
+        <div className="scrollbar-thin xs:top-16 absolute top-12 bottom-0 w-full overflow-y-auto bg-slate-200 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800">
           {SIDE_BAR[selected]}
         </div>
       )}
@@ -69,7 +69,7 @@ function AsideTab({ children, name }: { children: React.ReactNode; name: Sidebar
   return (
     <button
       aria-label={t("tooltips." + name)}
-      className={`hint--right size-12 before:hidden after:hidden xs:size-16 md:border-l-3 md:before:block md:after:block ${selected === name ? "border-black text-black dark:border-white dark:text-white" : "border-transparent text-slate-600 dark:text-slate-400"} p-3 hover:text-black hover:dark:text-white`}
+      className={`hint--right xs:size-16 size-12 before:hidden after:hidden md:border-l-3 md:before:block md:after:block ${selected === name ? "border-black text-black dark:border-white dark:text-white" : "border-transparent text-slate-600 dark:text-slate-400"} p-3 hover:text-black dark:hover:text-white`}
       onClick={() => {
         setSelected(name)
       }}
@@ -91,7 +91,7 @@ function AsideButton({ children, name, onClick }: AsideButtonProps): JSX.Element
   return (
     <button
       aria-label={t("tooltips." + name)}
-      className="hint--right size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black dark:text-slate-400 hover:dark:text-white xs:size-16 md:border-l-3 md:before:block md:after:block"
+      className="hint--right xs:size-16 size-12 border-transparent p-3 text-slate-600 before:hidden after:hidden hover:text-black md:border-l-3 md:before:block md:after:block dark:text-slate-400 dark:hover:text-white"
       onClick={onClick}
     >
       {children}

@@ -97,7 +97,7 @@ function Row({ name, value, bg = "bg-slate-600" }: RowProps): JSX.Element {
       </span>
       <span
         className={
-          "rounded-r-full py-1 pl-2 pr-4 text-lg font-medium tracking-wide text-white " + bg
+          "rounded-r-full py-1 pr-4 pl-2 text-lg font-medium tracking-wide text-white " + bg
         }
       >
         {value ?? "—"}

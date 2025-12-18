@@ -40,11 +40,11 @@ export default function PokemonImage({ pokemon }: Props): JSX.Element {
           }}
         />
       )}
-      {pokemon.gender === Gender.Male && <MaleIcon className="absolute left-0 top-0 size-8" />}
-      {pokemon.gender === Gender.Female && <FemaleIcon className="absolute left-0 top-0 size-8" />}
+      {pokemon.gender === Gender.Male && <MaleIcon className="absolute top-0 left-0 size-8" />}
+      {pokemon.gender === Gender.Female && <FemaleIcon className="absolute top-0 left-0 size-8" />}
       {pokemon.teraType != null && (
         <div
-          className="hint--bottom absolute right-0 top-0 size-8"
+          className="hint--bottom absolute top-0 right-0 size-8"
           aria-label={t("types." + pokemon.teraType)}
         >
           <Suspense>
@@ -53,7 +53,7 @@ export default function PokemonImage({ pokemon }: Props): JSX.Element {
         </div>
       )}
       {pokemonItem != null && (
-        <div className="absolute bottom-0 right-0">
+        <div className="absolute right-0 bottom-0">
           <button
             className="hint--bottom size-12"
             aria-label={resolveName(pokemonItem.name)}

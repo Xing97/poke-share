@@ -8,7 +8,6 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:tailwindcss/recommended",
   ],
   ignorePatterns: [
     "dist",

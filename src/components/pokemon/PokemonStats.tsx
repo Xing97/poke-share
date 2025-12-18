@@ -79,7 +79,7 @@ export default function PokemonStats({ pokemon }: Props): JSX.Element {
         setSelected={handleSelect}
         translation="labels"
       />
-      <div className="grid grid-cols-pokemon-stats gap-x-3 gap-y-1">
+      <div className="grid-cols-pokemon-stats grid gap-x-3 gap-y-1">
         <Stat stat="hp" value={stats.hp} max={max} />
         <Stat
           stat="attack"
@@ -135,14 +135,14 @@ function Stat({ stat, value, max, increase = false, decrease = false }: StatProp
   return (
     <>
       <span
-        className={`font-semibold tracking-wide${increase ? " text-green-500" : decrease ? " text-red-500" : ""}`}
+        className={`font-semibold tracking-wide${increase ? "text-green-500" : decrease ? "text-red-500" : ""}`}
       >
         {t("stats." + stat)}
       </span>
       <span className="justify-self-end font-semibold">{value}</span>
-      <div className="flex h-4 w-full self-center ring-1 ring-inset ring-slate-500">
+      <div className="flex h-4 w-full self-center ring-1 ring-slate-500 ring-inset">
         <div
-          className={`ring-1 ring-inset duration-300 ease-in ${COLOR_BAR[stat]}`}
+          className={`ring-1 duration-300 ease-in ring-inset ${COLOR_BAR[stat]}`}
           style={{ width: `${Math.min((value / max) * 100, 100)}%` }}
         />
       </div>

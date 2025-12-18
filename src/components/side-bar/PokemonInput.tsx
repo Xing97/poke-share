@@ -41,7 +41,7 @@ export default function PokemonInput(): JSX.Element {
       </div>
       <textarea
         name="paste"
-        className="scrollbar-thin h-full resize-none rounded bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-black dark:bg-slate-700 dark:focus-visible:outline-white"
+        className="scrollbar-thin h-full resize-none rounded-sm bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-solid dark:bg-slate-700 dark:focus-visible:outline-white"
         placeholder={t("input.paste")}
         required
         autoComplete="off"
@@ -54,7 +54,7 @@ export default function PokemonInput(): JSX.Element {
         wrap="off"
       />
       <input
-        className="rounded bg-slate-300 px-1.5 py-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black dark:bg-slate-700 dark:focus-visible:outline-white"
+        className="rounded-sm bg-slate-300 px-1.5 py-1 focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-solid dark:bg-slate-700 dark:focus-visible:outline-white"
         type="text"
         name="title"
         placeholder={t("input.title")}
@@ -67,7 +67,7 @@ export default function PokemonInput(): JSX.Element {
         disabled={loading}
       >
         {loading && (
-          <LoadingIcon className="size-6 animate-spin-clockwise animate-iteration-count-infinite" />
+          <LoadingIcon className="animate-spin-clockwise animate-iteration-count-infinite size-6" />
         )}
         {loading ? t("input.loading") : t("input.update")}
       </Button>
