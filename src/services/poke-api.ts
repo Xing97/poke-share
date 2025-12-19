@@ -99,7 +99,7 @@ export async function fetchPokemon(pokeInput: PokemonInfo): Promise<Pokemon> {
     })),
     image:
       pokeInput.shiny === true
-        ? _pokemon.sprites.front_shiny ?? _pokemon.sprites.front_default
+        ? (_pokemon.sprites.front_shiny ?? _pokemon.sprites.front_default)
         : _pokemon.sprites.front_default,
     stats: {
       hp: _pokemon.stats.find((s) => s.stat.name === "hp")?.base_stat ?? NaN,

@@ -1,14 +1,12 @@
+import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react-swc"
-import million from "million/compiler"
 import path from "path"
 import { defineConfig } from "vite"
 import { VitePWA } from "vite-plugin-pwa"
-import tailwindcss from "@tailwindcss/vite"
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    million.vite({ auto: true, mute: true }),
     react(),
     tailwindcss(),
     VitePWA({
