@@ -23,7 +23,7 @@ export function getInputFromPath(): { title: string; input: string } {
         .map((char) => char.charCodeAt(0))
     )
 
-    const data = inflateRaw(retrieved, { to: "string" })
+    const data = inflateRaw(retrieved, { toText: true })
 
     const sep = data.indexOf(SEPARATOR)
 
