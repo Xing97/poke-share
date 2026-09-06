@@ -4,6 +4,7 @@ import GithubIcon from "@/icons/GithubIcon"
 import { GEN_GAMES } from "@/model/constants"
 import { Generation, useGameStore } from "@/stores/game"
 import { Language, useLanguageStore } from "@/stores/language"
+import { Sprite, useSpriteStore } from "@/stores/sprite"
 import { Theme, useThemeStore } from "@/stores/theme"
 
 export default function Settings(): JSX.Element {
@@ -18,6 +19,9 @@ export default function Settings(): JSX.Element {
 
   const theme = useThemeStore((s) => s.theme)
   const setTheme = useThemeStore((s) => s.setTheme)
+
+  const sprite = useSpriteStore((s) => s.sprite)
+  const setSprite = useSpriteStore((s) => s.setSprite)
 
   return (
     <div className="flex size-full flex-col gap-8 p-4">
@@ -45,6 +49,12 @@ export default function Settings(): JSX.Element {
         options={Object.values(Theme)}
         selected={theme}
         setSelected={setTheme}
+      />
+      <Select
+        name="sprites"
+        options={Object.values(Sprite)}
+        selected={sprite}
+        setSelected={setSprite}
       />
       <footer className="mt-auto flex items-end justify-between">
         <span className="text-slate-600 dark:text-slate-400">

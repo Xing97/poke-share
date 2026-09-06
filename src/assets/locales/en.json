@@ -33,7 +33,8 @@
     "generations": "Game Generation",
     "version-groups": "Game Version",
     "languages": "Language",
-    "themes": "Theme"
+    "themes": "Theme",
+    "sprites": "Sprites"
   },
   "languages": {
     "en": "English",
@@ -50,6 +51,11 @@
     "system": "System default",
     "light": "Light",
     "dark": "Dark"
+  },
+  "sprites": {
+    "default": "Default",
+    "home": "HOME",
+    "official": "Official artwork"
   },
   "generations": {
     "generation-i": "Generation I",

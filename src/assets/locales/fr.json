@@ -33,12 +33,18 @@
     "generations": "Game Generation",
     "version-groups": "Game Version",
     "languages": "Langage",
-    "themes": "Thème"
+    "themes": "Thème",
+    "sprites": "Sprites"
   },
   "themes": {
     "system": "Thème du système par défaut",
     "light": "Clair",
     "dark": "Sombre"
+  },
+  "sprites": {
+    "default": "Par défaut",
+    "home": "HOME",
+    "official": "Artwork officiel"
   },
   "generations": {
     "generation-i": "Génération I",

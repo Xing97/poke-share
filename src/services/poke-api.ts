@@ -2,7 +2,7 @@ import { type IAbility } from "@/model/poke-api/ability"
 import { type Name, type VerboseEffect, type VersionGroupFlavorText } from "@/model/poke-api/common"
 import { type IItem } from "@/model/poke-api/item"
 import { type IMove } from "@/model/poke-api/move"
-import { type IPokemon } from "@/model/poke-api/pokemon"
+import { Sprites, type IPokemon } from "@/model/poke-api/pokemon"
 import { type IPokemonForm } from "@/model/poke-api/pokemon-form"
 import { type IPokemonSpecies } from "@/model/poke-api/pokemon-species"
 import {
@@ -60,6 +60,11 @@ export async function fetchPokemon(pokeInput: PokemonInfo): Promise<Pokemon> {
     ),
   ])
 
+  const isShiny = pokeInput.shiny
+
+  const getSprite = (sprite: Sprites) =>
+    isShiny ? (sprite.front_shiny ?? sprite.front_default) : sprite.front_default
+
   const pokemon: Pokemon = {
     id: _pokemon.id,
     order:
@@ -97,10 +102,11 @@ export async function fetchPokemon(pokeInput: PokemonInfo): Promise<Pokemon> {
         game: v.version_group.name as Game,
       })),
     })),
-    image:
-      pokeInput.shiny === true
-        ? (_pokemon.sprites.front_shiny ?? _pokemon.sprites.front_default)
-        : _pokemon.sprites.front_default,
+    sprites: {
+      default: getSprite(_pokemon.sprites),
+      home: getSprite(_pokemon.sprites.other.home),
+      official: getSprite(_pokemon.sprites.other["official-artwork"]),
+    },
     stats: {
       hp: _pokemon.stats.find((s) => s.stat.name === "hp")?.base_stat ?? NaN,
       attack: _pokemon.stats.find((s) => s.stat.name === "attack")?.base_stat ?? NaN,

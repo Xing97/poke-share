@@ -100,11 +100,17 @@ export interface Pokemon {
   evs: Stats
   ivs: Stats
   moves: Move[]
-  image: string
+  sprites: Sprites
   stats: Stats
   types: Type[]
   pastTypes: PastType[]
   teraType?: Type
+}
+
+export interface Sprites {
+  default: string
+  home?: string
+  official?: string
 }
 
 export interface Stats {

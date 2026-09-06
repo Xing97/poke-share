@@ -33,12 +33,18 @@
     "generations": "遊戲生成",
     "version-groups": "遊戲版本",
     "languages": "語言",
-    "themes": "主題"
+    "themes": "主題",
+    "sprites": "精靈圖"
   },
   "themes": {
     "system": "系統預設",
     "light": "亮色",
     "dark": "深色"
+  },
+  "sprites": {
+    "default": "預設",
+    "home": "HOME",
+    "official": "官方插畫"
   },
   "generations": {
     "generation-i": "第一世代",

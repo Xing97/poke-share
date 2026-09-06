@@ -23,11 +23,20 @@ export interface PokemonPastType {
   types: PokemonType[]
 }
 
-export interface PokemonSprites {
+export interface PokemonSprites extends Sprites {
+  other: OtherSprites
+}
+
+export interface Sprites {
   front_default: string
   front_shiny: string
   front_female: string
   front_shiny_female: string
+}
+
+export interface OtherSprites {
+  "home": Sprites
+  "official-artwork": Sprites
 }
 
 export interface PokemonStat {

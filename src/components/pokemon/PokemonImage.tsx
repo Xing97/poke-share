@@ -6,6 +6,7 @@ import MaleIcon from "@/icons/MaleIcon"
 import PokeBallIcon from "@/icons/PokeBallIcon"
 import { Gender, type Pokemon } from "@/model/pokemon"
 import { useModalStore } from "@/stores/modal"
+import { useSpriteStore } from "@/stores/sprite"
 import { Suspense, useState, lazy } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -23,14 +24,17 @@ export default function PokemonImage({ pokemon }: Props): JSX.Element {
 
   const pokemonItem = pokemon.item
 
+  const sprite = useSpriteStore((state) => state.sprite)
+  const spriteUrl = pokemon.sprites[sprite]
+
   return (
     <div className="relative flex size-52 items-center justify-center">
-      {pokemonImageError || pokemon.image == null ? (
+      {pokemonImageError || spriteUrl == null ? (
         <PokeBallIcon className="size-20" />
       ) : (
         <img
           className="img-pokemon size-full"
-          src={pokemon.image}
+          src={spriteUrl}
           alt={resolveName(pokemon.name)}
           onError={() => {
             setPokemonImageError(true)

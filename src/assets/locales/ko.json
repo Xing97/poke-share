@@ -33,7 +33,13 @@
     "generations": "세대",
     "version-groups": "버전",
     "languages": "언어",
-    "themes": "디스플레이"
+    "themes": "디스플레이",
+    "sprites": "스프라이트"
+  },
+  "sprites": {
+    "default": "기본",
+    "home": "HOME",
+    "official": "공식 아트"
   },
   "themes": {
     "system": "시스템 기본값",
