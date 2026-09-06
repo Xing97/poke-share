@@ -2,11 +2,10 @@ import { CATEGORY_BG_COLORS, TYPES_BG_COLORS } from "@/components/styles"
 import useI18n from "@/hooks/useI18n"
 import { getMoveCategory, isBeforeGame } from "@/model/constants"
 import { type Move } from "@/model/pokemon"
+import TextModal from "@/components/modal/TextModal"
 import { useGameStore } from "@/stores/game"
-import { Suspense, lazy } from "react"
+import { Suspense } from "react"
 import { useTranslation } from "react-i18next"
-
-const TextModal = lazy(async () => await import("@/components/modal/TextModal"))
 
 interface Props {
   move: Move

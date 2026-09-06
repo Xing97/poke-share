@@ -4,12 +4,11 @@ import useI18n from "@/hooks/useI18n"
 import FemaleIcon from "@/icons/FemaleIcon"
 import MaleIcon from "@/icons/MaleIcon"
 import PokeBallIcon from "@/icons/PokeBallIcon"
+import TeraTypeIcon from "@/icons/TeraTypeIcon"
 import { Gender, type Pokemon } from "@/model/pokemon"
 import { useModalStore } from "@/stores/modal"
-import { Suspense, useState, lazy } from "react"
+import { Suspense, useState } from "react"
 import { useTranslation } from "react-i18next"
-
-const TeraTypeIcon = lazy(async () => await import("@/icons/TeraTypeIcon"))
 
 interface Props {
   pokemon: Pokemon
