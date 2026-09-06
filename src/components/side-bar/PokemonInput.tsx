@@ -41,7 +41,7 @@ export default function PokemonInput(): JSX.Element {
       </div>
       <textarea
         name="paste"
-        className="scrollbar-thin h-full resize-none rounded-sm bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-solid dark:bg-slate-700 dark:focus-visible:outline-white"
+        className="h-full resize-none scrollbar-thin rounded-sm bg-slate-300 p-1.5 text-sm placeholder:text-base focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-solid dark:bg-slate-700 dark:focus-visible:outline-white"
         placeholder={t("input.paste")}
         required
         autoComplete="off"

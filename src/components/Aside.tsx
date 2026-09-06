@@ -53,7 +53,7 @@ export default function Aside(): JSX.Element {
         </footer>
       </div>
       {selected !== Sidebar.Pokemon && (
-        <div className="scrollbar-thin xs:top-16 absolute top-12 bottom-0 w-full overflow-y-auto bg-slate-200 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800">
+        <div className="xs:top-16 absolute top-12 bottom-0 w-full scrollbar-thin overflow-y-auto bg-slate-200 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800">
           {SIDE_BAR[selected]}
         </div>
       )}
