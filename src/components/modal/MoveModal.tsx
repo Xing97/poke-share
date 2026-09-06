@@ -6,7 +6,7 @@ import { useGameStore } from "@/stores/game"
 import { Suspense, lazy } from "react"
 import { useTranslation } from "react-i18next"
 
-const TextModal = lazy(async () => await import("@/components/modal/TextModal"))
+const TextModal = lazy(() => import("@/components/modal/TextModal"))
 
 interface Props {
   move: Move

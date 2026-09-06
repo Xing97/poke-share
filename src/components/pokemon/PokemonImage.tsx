@@ -9,7 +9,7 @@ import { useModalStore } from "@/stores/modal"
 import { Suspense, useState, lazy } from "react"
 import { useTranslation } from "react-i18next"
 
-const TeraTypeIcon = lazy(async () => await import("@/icons/TeraTypeIcon"))
+const TeraTypeIcon = lazy(() => import("@/icons/TeraTypeIcon"))
 
 interface Props {
   pokemon: Pokemon
