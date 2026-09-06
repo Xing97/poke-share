@@ -48,14 +48,7 @@ module.exports = defineConfig([
       "react-refresh": reactRefresh,
     },
 
-    rules: {
-      "react-refresh/only-export-components": [
-        "warn",
-        {
-          allowConstantExport: true,
-        },
-      ],
-    },
+    rules: {},
 
     settings: {
       react: {
