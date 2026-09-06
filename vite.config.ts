@@ -71,10 +71,16 @@ export default defineConfig({
   build: {
     rolldownOptions: {
       output: {
-        advancedChunks: {
+        codeSplitting: {
           groups: [
-            { name: "locales", test: /locales/, exclude: /en\.json/ },
-            { name: "react-dom", test: /react-dom/ },
+            {
+              name: "locales",
+              test: (id: string) => id.includes("locales") && !id.includes("en.json"),
+            },
+            {
+              name: "react-dom",
+              test: /react-dom/,
+            },
           ],
         },
       },
