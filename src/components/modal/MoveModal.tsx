@@ -3,13 +3,10 @@ import useI18n from "@/hooks/useI18n"
 import { getMoveCategory, isBeforeGame } from "@/model/constants"
 import { type Move } from "@/model/pokemon"
 import { useGameStore } from "@/stores/game"
-import { Suspense } from "react"
+import { Suspense, lazy } from "react"
 import { useTranslation } from "react-i18next"
-import lazyWithPreload from "react-lazy-with-preload"
 
-const TextModal = lazyWithPreload(async () => await import("@/components/modal/TextModal"))
-
-void TextModal.preload()
+const TextModal = lazy(async () => await import("@/components/modal/TextModal"))
 
 interface Props {
   move: Move

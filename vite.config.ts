@@ -1,5 +1,5 @@
 import tailwindcss from "@tailwindcss/vite"
-import react from "@vitejs/plugin-react-swc"
+import react from "@vitejs/plugin-react"
 import path from "path"
 import { defineConfig } from "vite"
 import { VitePWA } from "vite-plugin-pwa"
@@ -69,23 +69,20 @@ export default defineConfig({
     }),
   ],
   build: {
-    cssMinify: "lightningcss",
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks(id: string) {
-          if (id.includes("locales") && !id.includes("en.json")) {
-            return "locales"
-          }
-          if (id.includes("react-dom")) {
-            return "react-dom"
-          }
+        advancedChunks: {
+          groups: [
+            { name: "locales", test: /locales/, exclude: /en\.json/ },
+            { name: "react-dom", test: /react-dom/ },
+          ],
         },
       },
     },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
 })

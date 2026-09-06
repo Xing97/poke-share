@@ -1,11 +1,8 @@
 import useI18n from "@/hooks/useI18n"
 import { type EffectText, type FlavorText, type I18nName } from "@/model/pokemon"
-import { Suspense } from "react"
-import lazyWithPreload from "react-lazy-with-preload"
+import { Suspense, lazy } from "react"
 
-const TextModal = lazyWithPreload(async () => await import("@/components/modal/TextModal"))
-
-void TextModal.preload()
+const TextModal = lazy(async () => await import("@/components/modal/TextModal"))
 
 interface Props {
   entity: { name: I18nName; flavorText: FlavorText; effectText: EffectText }

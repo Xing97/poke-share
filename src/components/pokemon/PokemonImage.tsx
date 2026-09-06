@@ -6,13 +6,10 @@ import MaleIcon from "@/icons/MaleIcon"
 import PokeBallIcon from "@/icons/PokeBallIcon"
 import { Gender, type Pokemon } from "@/model/pokemon"
 import { useModalStore } from "@/stores/modal"
-import { Suspense, useState } from "react"
+import { Suspense, useState, lazy } from "react"
 import { useTranslation } from "react-i18next"
-import lazyWithPreload from "react-lazy-with-preload"
 
-const TeraTypeIcon = lazyWithPreload(async () => await import("@/icons/TeraTypeIcon"))
-
-void TeraTypeIcon.preload()
+const TeraTypeIcon = lazy(async () => await import("@/icons/TeraTypeIcon"))
 
 interface Props {
   pokemon: Pokemon
