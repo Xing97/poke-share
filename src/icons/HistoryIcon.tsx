@@ -1,6 +1,6 @@
 import { type SVGProps } from "react"
 
-export default function HistoryIcon(props: SVGProps<SVGSVGElement>): JSX.Element {
+export default function HistoryIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" {...props}>
       <path

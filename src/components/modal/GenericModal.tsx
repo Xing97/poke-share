@@ -10,7 +10,7 @@ interface Props {
   icon?: JSX.Element
 }
 
-export default function GenericModal({ entity, entityType, icon }: Props): JSX.Element {
+export default function GenericModal({ entity, entityType, icon }: Props) {
   const { resolveName } = useI18n()
 
   return (

@@ -6,7 +6,7 @@ import { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { toast } from "sonner"
 
-export default function History(): JSX.Element {
+export default function History() {
   const { t } = useTranslation()
 
   const history = useHistoryStore((state) => state.history)
@@ -53,7 +53,7 @@ interface SaveProps {
   removeSave: () => void
 }
 
-function HistoryElement({ item, removeSave }: SaveProps): JSX.Element {
+function HistoryElement({ item, removeSave }: SaveProps) {
   const { t, i18n } = useTranslation()
 
   const submit = usePokemonStore((state) => state.submit)

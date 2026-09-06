@@ -21,7 +21,7 @@ function getTypes(pokemon: Pokemon, generation: Generation): Type[] {
   )
 }
 
-export default function PokemonInfo({ pokemon }: Props): JSX.Element {
+export default function PokemonInfo({ pokemon }: Props) {
   const { t } = useTranslation()
   const generation = useGameStore((state) => state.generation)
 

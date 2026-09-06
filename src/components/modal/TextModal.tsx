@@ -18,13 +18,7 @@ interface Props {
   className?: string
 }
 
-export default function TextModal({
-  name,
-  entity,
-  flavorText,
-  effectText,
-  className = "",
-}: Props): JSX.Element {
+export default function TextModal({ name, entity, flavorText, effectText, className = "" }: Props) {
   const { resolveFlavorText, resolveEffectText } = useI18n()
 
   const flavor = resolveFlavorText(flavorText)

@@ -1,7 +1,7 @@
 import { Theme, useThemeStore } from "@/stores/theme"
 import { Helmet } from "react-helmet-async"
 
-export default function ThemeProvider(): JSX.Element {
+export default function ThemeProvider() {
   const theme = useThemeStore((s) => s.theme)
 
   return (

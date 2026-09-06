@@ -10,7 +10,7 @@ interface Props {
   moves: Move[]
 }
 
-export default function PokemonMoves({ moves }: Props): JSX.Element {
+export default function PokemonMoves({ moves }: Props) {
   const { resolveName } = useI18n()
   const generation = useGameStore((state) => state.generation)
   const game = useGameStore((state) => state.game)

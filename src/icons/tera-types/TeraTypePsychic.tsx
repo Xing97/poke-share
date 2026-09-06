@@ -1,6 +1,6 @@
 import { type SVGProps } from "react"
 
-export default function TeraTypePsychic(props: SVGProps<SVGSVGElement>): JSX.Element {
+export default function TeraTypePsychic(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 4500 4500" {...props}>
       <path

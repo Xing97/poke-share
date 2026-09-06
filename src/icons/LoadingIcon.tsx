@@ -1,6 +1,6 @@
 import { type SVGProps } from "react"
 
-export function LoadingIcon(props: SVGProps<SVGSVGElement>): JSX.Element {
+export function LoadingIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" {...props}>
       <g fill="currentColor">

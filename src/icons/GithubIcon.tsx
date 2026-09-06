@@ -1,6 +1,6 @@
 import { type SVGProps } from "react"
 
-export default function GithubIcon(props: SVGProps<SVGSVGElement>): JSX.Element {
+export default function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 98 96" {...props}>
       <path

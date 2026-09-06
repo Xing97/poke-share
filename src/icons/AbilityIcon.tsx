@@ -1,6 +1,6 @@
 import { type SVGProps } from "react"
 
-export default function AbilityIcon(props: SVGProps<SVGSVGElement>): JSX.Element {
+export default function AbilityIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 1792 1792" {...props}>
       <path

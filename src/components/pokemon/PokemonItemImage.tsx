@@ -7,7 +7,7 @@ interface Props {
   item: Item
 }
 
-export default function PokemonItemImage({ item }: Props): JSX.Element {
+export default function PokemonItemImage({ item }: Props) {
   const { resolveName } = useI18n()
   const [itemImageError, setItemImageError] = useState(false)
 

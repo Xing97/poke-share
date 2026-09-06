@@ -8,7 +8,7 @@ interface Props {
   ability: Ability
 }
 
-export default function PokemonAbility({ ability }: Props): JSX.Element {
+export default function PokemonAbility({ ability }: Props) {
   const { resolveName } = useI18n()
   const showModal = useModalStore((state) => state.showModal)
 

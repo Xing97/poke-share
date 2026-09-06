@@ -4,7 +4,7 @@ import { usePokemonStore } from "@/stores/pokemon"
 import { useThemeStore } from "@/stores/theme"
 import { Toaster } from "sonner"
 
-export default function App(): JSX.Element {
+export default function App() {
   const theme = useThemeStore((store) => store.theme)
   const loading = usePokemonStore((store) => store.loading)
 

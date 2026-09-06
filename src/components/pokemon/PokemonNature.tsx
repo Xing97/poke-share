@@ -6,7 +6,7 @@ interface Props {
   nature: Nature
 }
 
-export default function PokemonNature({ nature }: Props): JSX.Element {
+export default function PokemonNature({ nature }: Props): React.JSX.Element {
   const { t } = useTranslation()
 
   return (

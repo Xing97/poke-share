@@ -1,6 +1,6 @@
 import { type SVGProps } from "react"
 
-export default function PokeBallIcon(props: SVGProps<SVGSVGElement>): JSX.Element {
+export default function PokeBallIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" {...props}>
       <g fill="none" stroke="currentColor" strokeWidth="1.6">

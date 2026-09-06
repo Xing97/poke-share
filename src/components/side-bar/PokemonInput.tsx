@@ -7,7 +7,7 @@ import { usePokemonStore } from "@/stores/pokemon"
 import { type FormEventHandler } from "react"
 import { useTranslation } from "react-i18next"
 
-export default function PokemonInput(): JSX.Element {
+export default function PokemonInput() {
   const { t } = useTranslation()
 
   const title = usePokemonStore((state) => state.title)

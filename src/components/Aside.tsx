@@ -18,7 +18,7 @@ const SIDE_BAR = {
   [Sidebar.Settings]: <Settings />,
 }
 
-export default function Aside(): JSX.Element {
+export default function Aside() {
   const { t } = useTranslation()
   const selected = useSidebarStore((store) => store.sidebar)
 
@@ -61,7 +61,7 @@ export default function Aside(): JSX.Element {
   )
 }
 
-function AsideTab({ children, name }: { children: React.ReactNode; name: Sidebar }): JSX.Element {
+function AsideTab({ children, name }: { children: React.ReactNode; name: Sidebar }) {
   const { t } = useTranslation()
   const selected = useSidebarStore((store) => store.sidebar)
   const setSelected = useSidebarStore((store) => store.setSidebar)
@@ -85,7 +85,7 @@ interface AsideButtonProps {
   onClick: () => void
 }
 
-function AsideButton({ children, name, onClick }: AsideButtonProps): JSX.Element {
+function AsideButton({ children, name, onClick }: AsideButtonProps) {
   const { t } = useTranslation()
 
   return (

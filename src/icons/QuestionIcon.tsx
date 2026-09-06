@@ -1,8 +1,6 @@
 import { type SVGProps } from "react"
 
-export default function QuestionIcon(
-  props: SVGProps<SVGSVGElement> & { title?: string }
-): JSX.Element {
+export default function QuestionIcon(props: SVGProps<SVGSVGElement> & { title?: string }) {
   return (
     <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
       {props.title != null && <title>{props.title}</title>}

@@ -7,7 +7,7 @@ import { Language, useLanguageStore } from "@/stores/language"
 import { Sprite, useSpriteStore } from "@/stores/sprite"
 import { Theme, useThemeStore } from "@/stores/theme"
 
-export default function Settings(): JSX.Element {
+export default function Settings() {
   const generation = useGameStore((state) => state.generation)
   const setGeneration = useGameStore((state) => state.setGeneration)
 

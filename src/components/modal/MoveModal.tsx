@@ -12,7 +12,7 @@ interface Props {
   move: Move
 }
 
-export default function MoveModal({ move }: Props): JSX.Element {
+export default function MoveModal({ move }: Props) {
   const { t, i18n } = useTranslation()
   const { resolveName } = useI18n()
 
@@ -79,7 +79,7 @@ interface RowProps {
   bg?: string
 }
 
-function Row({ name, value, bg = "bg-slate-600" }: RowProps): JSX.Element {
+function Row({ name, value, bg = "bg-slate-600" }: RowProps) {
   const { t } = useTranslation()
 
   return (
