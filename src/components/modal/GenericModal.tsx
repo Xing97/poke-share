@@ -5,7 +5,7 @@ import TextModal from "./TextModal"
 interface Props {
   entity: { name: I18nName; flavorText: FlavorText; effectText: EffectText }
   entityType: string
-  icon?: JSX.Element
+  icon?: React.JSX.Element
 }
 
 export default function GenericModal({ entity, entityType, icon }: Props) {
