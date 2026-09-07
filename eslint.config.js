@@ -1,14 +1,15 @@
-const { defineConfig, globalIgnores } = require("eslint/config")
+import { defineConfig, globalIgnores } from "eslint/config"
+import globals from "globals"
+import { fixupConfigRules } from "@eslint/compat"
+import tsParser from "@typescript-eslint/parser"
+import reactRefresh from "eslint-plugin-react-refresh"
+import js from "@eslint/js"
+import { FlatCompat } from "@eslint/eslintrc"
+import { fileURLToPath } from "node:url"
+import { dirname } from "node:path"
 
-const globals = require("globals")
-
-const { fixupConfigRules } = require("@eslint/compat")
-
-const tsParser = require("@typescript-eslint/parser")
-const reactRefresh = require("eslint-plugin-react-refresh")
-const js = require("@eslint/js")
-
-const { FlatCompat } = require("@eslint/eslintrc")
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
@@ -16,40 +17,32 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 })
 
-module.exports = defineConfig([
+export default defineConfig([
   {
     languageOptions: {
       globals: {
         ...globals.browser,
       },
-
       parser: tsParser,
       ecmaVersion: "latest",
       sourceType: "module",
-
       parserOptions: {
         project: ["./tsconfig.json", "./tsconfig.node.json"],
         tsconfigRootDir: __dirname,
       },
     },
-
     extends: fixupConfigRules(
       compat.extends(
         "prettier",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended-type-checked",
-        "plugin:react-hooks/recommended",
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime"
+        "plugin:react-hooks/recommended"
       )
     ),
-
     plugins: {
       "react-refresh": reactRefresh,
     },
-
     rules: {},
-
     settings: {
       react: {
         version: "detect",
@@ -58,12 +51,9 @@ module.exports = defineConfig([
   },
   globalIgnores([
     "**/dist",
-    "**/.eslintrc.cjs",
     "**/tailwind.config.js",
     "**/vite.config.ts",
-    "**/postcss.config.js",
-    "**/vite-env.d.ts",
     ".prettierrc.mjs",
-    "eslint.config.cjs",
+    "eslint.config.js",
   ]),
 ])

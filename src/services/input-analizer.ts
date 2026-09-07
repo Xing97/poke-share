@@ -55,14 +55,15 @@ function parsePokemon(text: string): PokemonInfo {
 }
 
 function parseData(lines: string[]): Map<string, string> {
-  return lines
-    .filter((line) => line.includes(":"))
-    .map((elm) => elm.split(":").map((item) => item.trim()))
-    .reduce((map, elm) => {
-      const [key, value] = elm
-      map.set(key, value)
-      return map
-    }, new Map<string, string>())
+  const map = new Map<string, string>()
+  for (const line of lines) {
+    const idx = line.indexOf(":")
+    if (idx === -1) continue
+    const key = line.slice(0, idx).trim()
+    const value = line.slice(idx + 1).trim()
+    map.set(key, value)
+  }
+  return map
 }
 
 function parseStats(text: string | undefined, defaultValue: number): Stats {

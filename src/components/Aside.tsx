@@ -3,22 +3,15 @@ import PokemonInput from "@/components/side-bar/PokemonInput"
 import Settings from "@/components/side-bar/Settings"
 import CogIcon from "@/icons/CogIcon"
 import EditIcon from "@/icons/EditIcon"
-import SaveIcon from "@/icons/HistoryIcon"
+import HistoryIcon from "@/icons/HistoryIcon"
 import PokeBallIcon from "@/icons/PokeBallIcon"
 import ShareIcon from "@/icons/ShareIcon"
 import { Sidebar, useSidebarStore } from "@/stores/sidebar"
-import { useCallback } from "react"
+import { Activity, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { toast } from "sonner"
 
-const SIDE_BAR = {
-  [Sidebar.Pokemon]: null,
-  [Sidebar.Input]: <PokemonInput />,
-  [Sidebar.History]: <History />,
-  [Sidebar.Settings]: <Settings />,
-}
-
-export default function Aside(): JSX.Element {
+export default function Aside() {
   const { t } = useTranslation()
   const selected = useSidebarStore((store) => store.sidebar)
 
@@ -40,7 +33,7 @@ export default function Aside(): JSX.Element {
             <EditIcon />
           </AsideTab>
           <AsideTab name={Sidebar.History}>
-            <SaveIcon />
+            <HistoryIcon />
           </AsideTab>
         </header>
         <footer className="flex md:block">
@@ -52,16 +45,26 @@ export default function Aside(): JSX.Element {
           </AsideTab>
         </footer>
       </div>
-      {selected !== Sidebar.Pokemon && (
-        <div className="xs:top-16 absolute top-12 bottom-0 w-full scrollbar-thin overflow-y-auto bg-slate-200 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800">
-          {SIDE_BAR[selected]}
-        </div>
-      )}
+      <div
+        className={`xs:top-16 absolute top-12 bottom-0 w-full scrollbar-thin overflow-y-auto bg-slate-200 md:static md:h-full md:w-72 lg:w-80 xl:w-96 dark:bg-slate-800 ${
+          selected === Sidebar.Pokemon ? "hidden" : ""
+        }`}
+      >
+        <Activity mode={selected === Sidebar.Input ? "visible" : "hidden"}>
+          <PokemonInput />
+        </Activity>
+        <Activity mode={selected === Sidebar.History ? "visible" : "hidden"}>
+          <History />
+        </Activity>
+        <Activity mode={selected === Sidebar.Settings ? "visible" : "hidden"}>
+          <Settings />
+        </Activity>
+      </div>
     </aside>
   )
 }
 
-function AsideTab({ children, name }: { children: React.ReactNode; name: Sidebar }): JSX.Element {
+function AsideTab({ children, name }: { children: React.ReactNode; name: Sidebar }) {
   const { t } = useTranslation()
   const selected = useSidebarStore((store) => store.sidebar)
   const setSelected = useSidebarStore((store) => store.setSidebar)
@@ -85,7 +88,7 @@ interface AsideButtonProps {
   onClick: () => void
 }
 
-function AsideButton({ children, name, onClick }: AsideButtonProps): JSX.Element {
+function AsideButton({ children, name, onClick }: AsideButtonProps) {
   const { t } = useTranslation()
 
   return (

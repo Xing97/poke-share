@@ -5,7 +5,7 @@ interface Props {
   pokemon: Pokemon
 }
 
-export default function PokemonHeader({ pokemon }: Props): JSX.Element {
+export default function PokemonHeader({ pokemon }: Props) {
   const { resolveName } = useI18n()
 
   const number = "#" + pokemon.order.toString().padStart(3, "0")

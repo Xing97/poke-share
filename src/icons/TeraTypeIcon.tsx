@@ -41,13 +41,7 @@ const TERA_TYPES = {
   [Type.Water]: TeraTypeWater,
 }
 
-export default function TeraTypeIcon({
-  type,
-  className,
-}: {
-  type: Type
-  className?: string
-}): JSX.Element {
+export default function TeraTypeIcon({ type, className }: { type: Type; className?: string }) {
   const Component = TERA_TYPES[type]
   return <Component className={className} />
 }

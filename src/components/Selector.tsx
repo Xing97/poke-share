@@ -16,7 +16,7 @@ export default function Selector<T extends string>({
   translation,
   className,
   selected,
-}: Props<T>): JSX.Element {
+}: Props<T>) {
   const { t } = useTranslation()
   const id = useId()
 

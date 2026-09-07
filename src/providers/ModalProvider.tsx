@@ -2,7 +2,7 @@ import CloseIcon from "@/icons/CloseIcon"
 import { useModalStore } from "@/stores/modal"
 import { useEffect, useRef } from "react"
 
-export default function ModalProvider(): JSX.Element | null {
+export default function ModalProvider() {
   const dialog = useRef<HTMLDialogElement>(null)
   const modal = useModalStore((state) => state.modal)
   const closeModal = useModalStore((state) => state.closeModal)

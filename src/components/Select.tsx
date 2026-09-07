@@ -14,7 +14,7 @@ export default function Select<T extends string>({
   options,
   setSelected,
   selected,
-}: TestProps<T>): JSX.Element {
+}: TestProps<T>) {
   const { t } = useTranslation()
 
   return (

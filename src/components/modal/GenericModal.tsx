@@ -1,16 +1,14 @@
 import useI18n from "@/hooks/useI18n"
 import { type EffectText, type FlavorText, type I18nName } from "@/model/pokemon"
-import { Suspense, lazy } from "react"
-
-const TextModal = lazy(() => import("@/components/modal/TextModal"))
+import TextModal from "./TextModal"
 
 interface Props {
   entity: { name: I18nName; flavorText: FlavorText; effectText: EffectText }
   entityType: string
-  icon?: JSX.Element
+  icon?: React.JSX.Element
 }
 
-export default function GenericModal({ entity, entityType, icon }: Props): JSX.Element {
+export default function GenericModal({ entity, entityType, icon }: Props) {
   const { resolveName } = useI18n()
 
   return (
@@ -19,14 +17,12 @@ export default function GenericModal({ entity, entityType, icon }: Props): JSX.E
         {icon}
         <h1 className="text-3xl font-bold tracking-wide">{resolveName(entity.name)}</h1>
       </header>
-      <Suspense>
-        <TextModal
-          name={entity.name}
-          entity={entityType}
-          flavorText={entity.flavorText}
-          effectText={entity.effectText}
-        />
-      </Suspense>
+      <TextModal
+        name={entity.name}
+        entity={entityType}
+        flavorText={entity.flavorText}
+        effectText={entity.effectText}
+      />
     </section>
   )
 }

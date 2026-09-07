@@ -34,7 +34,7 @@ interface Props {
   pokemon: Pokemon
 }
 
-export default function PokemonStats({ pokemon }: Props): JSX.Element {
+export default function PokemonStats({ pokemon }: Props) {
   const [selected, setSelected] = useState("base")
   const [stats, setStats] = useState(pokemon.stats)
   const [max, setMax] = useState(MAX_BASE)
@@ -129,7 +129,7 @@ interface StatProps {
   decrease?: boolean
 }
 
-function Stat({ stat, value, max, increase = false, decrease = false }: StatProps): JSX.Element {
+function Stat({ stat, value, max, increase = false, decrease = false }: StatProps) {
   const { t } = useTranslation()
 
   return (
